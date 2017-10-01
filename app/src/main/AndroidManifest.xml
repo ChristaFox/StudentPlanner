@@ -23,7 +23,8 @@
         <activity android:name=".Resources" />
         <activity android:name=".Contacts" />
         <activity android:name=".WhatIf" />
-        <activity android:name=".Calendar"></activity>
+        <activity android:name=".Calendar" />
+        <activity android:name=".Course"></activity>
     </application>
 
 </manifest>
