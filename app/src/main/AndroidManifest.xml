@@ -24,7 +24,7 @@
         <activity android:name=".Contacts" />
         <activity android:name=".WhatIf" />
         <activity android:name=".Calendar" />
-        <activity android:name=".Course"></activity>
+        <activity android:name=".Course" />
     </application>
 
 </manifest>
