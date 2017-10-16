@@ -8,20 +8,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class Authentication extends AppCompatActivity {
+    public class Authentication extends AppCompatActivity {
 
-    private Button login, register;
-    private ImageView header;
-    private String screen;
+        private Button login, register;
+        private ImageView header;
+        private String screen;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
 
-        setMainScreen();
-    }
+            setMainScreen();
+        }
 
-    public void setMainScreen()
+        public void setMainScreen()
     {
         setContentView(R.layout.activity_authentication);
         login = (Button) findViewById(R.id.login);
