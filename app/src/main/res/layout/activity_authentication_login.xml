@@ -15,7 +15,7 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/emailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -23,12 +23,13 @@
         android:inputType="textEmailAddress"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="234dp"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignLeft="@+id/passwordText"
+        android:layout_alignStart="@+id/passwordText" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/passwordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -36,12 +37,12 @@
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="296dp"
-        android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp" />
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/emailText"
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/login"
         android:layout_width="147dp"
         android:layout_height="48dp"
         android:background="@color/colorPrimaryDark"

@@ -7,7 +7,7 @@
     tools:context="franklin_practicum.f17gradebook.Authentication">
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/login"
         android:layout_width="147dp"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
@@ -20,21 +20,21 @@
         tools:layout_editor_absoluteY="282dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/register"
         android:layout_width="147dp"
         android:layout_height="48dp"
-        android:layout_alignLeft="@+id/button4"
-        android:layout_alignStart="@+id/button4"
-        android:layout_alignTop="@+id/button4"
-        android:layout_marginTop="83dp"
         android:background="@color/colorPrimaryDark"
         android:text="Register"
         android:textColor="@android:color/background_light"
         tools:layout_editor_absoluteX="119dp"
-        tools:layout_editor_absoluteY="282dp" />
+        tools:layout_editor_absoluteY="282dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/login"
+        android:layout_alignStart="@+id/login"
+        android:layout_marginBottom="88dp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
         android:layout_alignParentLeft="true"
