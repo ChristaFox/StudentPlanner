@@ -6,4 +6,113 @@
     android:layout_height="match_parent"
     tools:context="franklin_practicum.f17gradebook.Resources">
 
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/gallery_thumb"
+        tools:layout_editor_absoluteX="174dp"
+        tools:layout_editor_absoluteY="202dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/gallery_thumb"
+        tools:layout_editor_absoluteX="174dp"
+        tools:layout_editor_absoluteY="345dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/gallery_thumb"
+        tools:layout_editor_absoluteX="174dp"
+        tools:layout_editor_absoluteY="479dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/gallery_thumb"
+        tools:layout_editor_absoluteX="303dp"
+        tools:layout_editor_absoluteY="202dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/gallery_thumb"
+        tools:layout_editor_absoluteX="303dp"
+        tools:layout_editor_absoluteY="345dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/gallery_thumb"
+        tools:layout_editor_absoluteX="303dp"
+        tools:layout_editor_absoluteY="479dp" />
+
+    <QuickContactBadge
+        android:id="@+id/quickContactBadge"
+        android:layout_width="65dp"
+        android:layout_height="58dp"
+        app:srcCompat="@android:drawable/sym_action_email"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <EditText
+        android:id="@+id/editText11"
+        android:layout_width="314dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="student_email@email.franklin.edu"
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteX="97dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/gallery_thumb"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="479dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/gallery_thumb"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="345dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/gallery_thumb"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="202dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton10"
+        android:layout_width="65dp"
+        android:layout_height="59dp"
+        app:srcCompat="@android:drawable/ic_menu_delete"
+        tools:layout_editor_absoluteX="303dp"
+        tools:layout_editor_absoluteY="101dp" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="262dp"
+        android:layout_height="54dp"
+        android:layout_marginLeft="16dp"
+        android:text="Upload Assignments"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteY="101dp" />
+
 </android.support.constraint.ConstraintLayout>

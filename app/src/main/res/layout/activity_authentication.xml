@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context="franklin_practicum.f17gradebook.Authentication">
 
     <Button
@@ -14,8 +15,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="190dp"
         android:background="@color/colorPrimaryDark"
+        android:onClick=".Authentication"
         android:text="Login"
-        android:textColor="@android:color/background_light"
+        android:visibility="visible"
         tools:layout_editor_absoluteX="119dp"
         tools:layout_editor_absoluteY="282dp" />
 
@@ -39,6 +41,5 @@
         android:layout_height="250dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/gradebook_calculator_title" />
+        android:layout_alignParentTop="true" />
 </RelativeLayout>

@@ -6,4 +6,21 @@
     android:layout_height="match_parent"
     tools:context="franklin_practicum.f17gradebook.Calendar">
 
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="107dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="86dp"
+        android:layout_height="49dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:text="Calendar"
+
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="16dp" />
 </android.support.constraint.ConstraintLayout>
