@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ public class Courses extends AppCompatActivity {
     private ListView list;
     private ImageView deleteButton;
     private TextView coursesTextView;
+    private ImageButton linkToResources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +48,8 @@ public class Courses extends AppCompatActivity {
             }
         });
 
-        coursesTextView = (TextView) findViewById(R.id.linkToResources);
-        coursesTextView.setOnClickListener(new View.OnClickListener() {
+        linkToResources = (ImageButton) findViewById(R.id.linkToResources);
+        linkToResources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Courses.this, Resources.class);
