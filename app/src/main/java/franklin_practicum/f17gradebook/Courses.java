@@ -22,7 +22,7 @@ public class Courses extends AppCompatActivity {
     private ListView list;
     private ImageView deleteButton;
     private TextView coursesTextView;
-    private ImageButton resources;
+    private ImageButton linkToResources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +48,8 @@ public class Courses extends AppCompatActivity {
             }
         });
 
-        resources = (ImageButton) findViewById(R.id.resources);
-        resources.setOnClickListener(new View.OnClickListener() {
+        linkToResources = (ImageButton) findViewById(R.id.linkToResources);
+        linkToResources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Courses.this, Resources.class);

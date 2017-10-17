@@ -12,7 +12,10 @@
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/gallery_thumb"
         tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="202dp" />
+        tools:layout_editor_absoluteY="202dp"
+        android:layout_alignTop="@+id/imageButton7"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:id="@+id/imageButton7"
@@ -20,7 +23,10 @@
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/gallery_thumb"
         tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="345dp" />
+        tools:layout_editor_absoluteY="345dp"
+        android:layout_alignTop="@+id/imageButton6"
+        android:layout_alignLeft="@+id/imageButton9"
+        android:layout_alignStart="@+id/imageButton9" />
 
     <ImageButton
         android:id="@+id/imageButton6"
@@ -28,7 +34,11 @@
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/gallery_thumb"
         tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="479dp" />
+        tools:layout_editor_absoluteY="479dp"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/imageButton8"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageButton
         android:id="@+id/imageButton5"
@@ -36,7 +46,10 @@
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/gallery_thumb"
         tools:layout_editor_absoluteX="303dp"
-        tools:layout_editor_absoluteY="202dp" />
+        tools:layout_editor_absoluteY="202dp"
+        android:layout_alignTop="@+id/imageButton9"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:id="@+id/imageButton9"
@@ -44,7 +57,10 @@
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/gallery_thumb"
         tools:layout_editor_absoluteX="303dp"
-        tools:layout_editor_absoluteY="345dp" />
+        tools:layout_editor_absoluteY="345dp"
+        android:layout_alignTop="@+id/imageButton8"
+        android:layout_alignLeft="@+id/imageButton3"
+        android:layout_alignStart="@+id/imageButton3" />
 
     <ImageButton
         android:id="@+id/imageButton8"
@@ -52,7 +68,11 @@
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/gallery_thumb"
         tools:layout_editor_absoluteX="303dp"
-        tools:layout_editor_absoluteY="479dp" />
+        tools:layout_editor_absoluteY="479dp"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/imageButton2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <QuickContactBadge
         android:id="@+id/quickContactBadge"
@@ -60,7 +80,10 @@
         android:layout_height="58dp"
         app:srcCompat="@android:drawable/sym_action_email"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_alignBottom="@+id/contacts"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/contacts"
@@ -70,9 +93,12 @@
         android:inputType="textEmailAddress"
         android:text="contacts"
         tools:layout_editor_absoluteY="16dp"
-        android:layout_marginRight="0dp"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteX="97dp" />
+        tools:layout_editor_absoluteX="97dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -80,7 +106,10 @@
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/gallery_thumb"
         tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="479dp" />
+        tools:layout_editor_absoluteY="479dp"
+        android:layout_alignTop="@+id/imageButton3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -88,7 +117,9 @@
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/gallery_thumb"
         tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="345dp" />
+        tools:layout_editor_absoluteY="345dp"
+        android:layout_alignTop="@+id/imageButton2"
+        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -96,7 +127,11 @@
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/gallery_thumb"
         tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="202dp" />
+        tools:layout_editor_absoluteY="202dp"
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/imageButton10"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageButton
         android:id="@+id/imageButton10"
@@ -104,15 +139,21 @@
         android:layout_height="59dp"
         app:srcCompat="@android:drawable/ic_menu_delete"
         tools:layout_editor_absoluteX="303dp"
-        tools:layout_editor_absoluteY="101dp" />
+        tools:layout_editor_absoluteY="101dp"
+        android:layout_alignTop="@+id/button6"
+        android:layout_alignLeft="@+id/imageButton"
+        android:layout_alignStart="@+id/imageButton" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="262dp"
         android:layout_height="54dp"
-        android:layout_marginLeft="16dp"
         android:text="Upload Assignments"
         app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteY="101dp" />
+        tools:layout_editor_absoluteY="101dp"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/quickContactBadge"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
