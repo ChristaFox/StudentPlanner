@@ -1,6 +1,7 @@
 package franklin_practicum.f17gradebook;
 
 import android.content.Intent;
+import android.icu.lang.UCharacter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,7 @@ public class Resources extends AppCompatActivity {
         setContentView(R.layout.activity_resources);
     }
 
-    contacts = (EditText) findVeiwById(R.id.quickContactBadge);
+    contacts = (EditText) findVeiwById(R.id.contacts);
 
         contacts.setOnClickListener(new View.OnClickListener() {
         @Override
