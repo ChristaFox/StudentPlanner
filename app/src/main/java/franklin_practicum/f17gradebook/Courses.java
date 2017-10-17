@@ -46,6 +46,15 @@ public class Courses extends AppCompatActivity {
             }
         });
 
+        coursesTextView = (TextView) findViewById(R.id.linkToResources);
+        coursesTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Courses.this, Resources.class);
+                startActivity(intent);
+            }
+        });
+
         addCourse = (ImageView) findViewById(R.id.addCourse);
         addCourse.setOnClickListener(new View.OnClickListener() {
             @Override

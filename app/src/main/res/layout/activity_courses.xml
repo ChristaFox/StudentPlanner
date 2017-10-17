@@ -39,13 +39,10 @@
         android:id="@+id/addCourse"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/linearLayout"
-        android:layout_marginEnd="39dp"
-        android:layout_marginRight="39dp"
         android:clickable="true"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <ListView
         android:id="@+id/courseListView"
@@ -67,5 +64,17 @@
         android:paddingTop="7dp"
         android:scrollbars="horizontal|vertical"
         tools:listitem="@layout/activity_courses_list" />
+
+    <ImageButton
+        android:id="@+id/linkToResources"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_menu_manage"
+        android:layout_marginLeft="27dp"
+        android:layout_marginStart="27dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_toRightOf="@+id/addCourse"
+        android:layout_toEndOf="@+id/addCourse" />
 
 </RelativeLayout>
