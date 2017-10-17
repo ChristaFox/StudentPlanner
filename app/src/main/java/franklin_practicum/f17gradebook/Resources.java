@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class Resources extends AppCompatActivity {
-    private Button linkToContacts;
+    private Button contacts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +15,7 @@ public class Resources extends AppCompatActivity {
         setContentView(R.layout.activity_resources);
     }
 
-    contacts = (Button) findVeiwById(R.id.linkToContacts);
+    contacts = (Button) findVeiwById(R.id.contacts);
 
         contacts.setOnClickListener(new View.OnClickListener() {
         @Override
