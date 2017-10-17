@@ -68,7 +68,7 @@
         android:layout_height="60dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="student_email@email.franklin.edu"
+        android:text="contacts"
         tools:layout_editor_absoluteY="16dp"
         android:layout_marginRight="0dp"
         app:layout_constraintRight_toRightOf="parent"
