@@ -9,7 +9,7 @@
     tools:context="franklin_practicum.f17gradebook.Courses">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/coursesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -26,41 +26,46 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/textView"
         android:orientation="horizontal"
         android:id="@+id/linearLayout">
 
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:clipToPadding="false"
-            android:divider="@null"
-            android:dividerHeight="4dp"
-            android:longClickable="true"
-            android:paddingBottom="7dp"
-            android:paddingEnd="7dp"
-            android:paddingLeft="7dp"
-            android:paddingRight="7dp"
-            android:paddingStart="7dp"
-            android:paddingTop="7dp"
-            android:scrollbars="horizontal|vertical"
-            tools:listitem="@layout/activity_courses_list" />
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/linearLayout"
+        android:id="@+id/addCourse"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="61dp"
-        android:layout_marginRight="61dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:clickable="true"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ListView
+        android:id="@+id/courseListView"
+        android:layout_width="match_parent"
+        android:layout_height="439dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/addCourse"
+        android:clickable="true"
+        android:clipToPadding="false"
+        android:divider="@null"
+        android:dividerHeight="4dp"
+        android:longClickable="true"
+        android:paddingBottom="7dp"
+        android:paddingEnd="7dp"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:paddingStart="7dp"
+        android:paddingTop="7dp"
+        android:scrollbars="horizontal|vertical"
+        tools:listitem="@layout/activity_courses_list" />
 
 </RelativeLayout>
