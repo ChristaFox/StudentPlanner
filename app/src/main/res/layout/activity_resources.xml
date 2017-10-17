@@ -63,7 +63,7 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <EditText
-        android:id="@+id/editText11"
+        android:id="@+id/linkToContacts"
         android:layout_width="314dp"
         android:layout_height="60dp"
         android:ems="10"
