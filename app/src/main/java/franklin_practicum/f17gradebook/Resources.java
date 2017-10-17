@@ -5,18 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 public class Resources extends AppCompatActivity {
-    private EditText contacts;
+    private Button linkToContacts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resources);
+    }
 
-        contacts = (EditText) findViewById(R.id.contacts);
-        //contacts = (Button) findVeiwById(R.id.linkToContacts);
+    contacts = (Button) findVeiwById(R.id.linkToContacts);
 
         contacts.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -25,6 +24,5 @@ public class Resources extends AppCompatActivity {
             Intent intent = new Intent(Resources.this, Contacts.class);
             startActivity(intent);
         }
-        });
-    }
+    });
 }

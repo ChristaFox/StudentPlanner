@@ -48,7 +48,7 @@ public class Courses extends AppCompatActivity {
             }
         });
 
-        linkToResources = (ImageButton) findViewById(R.id.resources);
+        linkToResources = (ImageButton) findViewById(R.id.linkToResources);
         linkToResources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
