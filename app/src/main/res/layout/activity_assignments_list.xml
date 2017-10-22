@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -10,35 +11,51 @@
         android:background="#0099cb"
         android:paddingBottom="7dp">
 
-        <TextView
-            android:id="@+id/editText6"
+        <ImageButton
+            android:id="@+id/addAssignment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
+            android:scaleY=".75"
+            app:srcCompat="@android:drawable/ic_input_add"
+            tools:scaleX=".75"
+            android:layout_marginRight="41dp"
+            android:layout_marginEnd="41dp"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="11dp"
-            android:layout_marginStart="11dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <EditText
+            android:id="@+id/weekTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="150dp"
             android:editable="false"
             android:ems="10"
             android:inputType="textPersonName"
             android:paddingTop="7dp"
+            android:scaleX="1"
+            android:scaleY="1"
             android:text="Week 1"
             android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="14dp"
+            android:layout_marginStart="14dp" />
 
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/editText6"
-            android:layout_marginLeft="30dp"
-            android:layout_marginStart="30dp"
             android:contextClickable="true"
-            tools:listitem="@layout/activity_assignmnets_list_item" />
+            tools:listitem="@layout/activity_assignments_list_item"
+            android:layout_below="@+id/addAssignment"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+
+        </ListView>
 
     </RelativeLayout>
 </LinearLayout>

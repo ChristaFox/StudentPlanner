@@ -38,7 +38,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginStart="30dp"
             android:contextClickable="true"
-            tools:listitem="@layout/activity_assignmnets_list_item" />
+            tools:listitem="@layout/activity_assignments_list_item" />
 
     </RelativeLayout>
 </LinearLayout>

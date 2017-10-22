@@ -1,5 +1,6 @@
 package franklin_practicum.f17gradebook;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,46 @@ import java.util.ArrayList;
 
 public class Courses extends AppCompatActivity {
 
+    private ArrayList<String> courses, assignments, courseGrades, assignmentGrades, assignmentDueDates;
+
+    private void putArraysInIntent(Intent i){
+        i.putExtra("courses", courses);
+        i.putExtra("assignments", assignments);
+        i.putExtra("courseGrades", courseGrades);
+        i.putExtra("assignmentGrades", assignmentGrades);
+        i.putExtra("assignmentDueDates", assignmentDueDates);
+    }
+
+    public ArrayList<String> getAssignments(){
+        return assignments;
+    }
+
+    public void setAssignments(ArrayList<String> newList){
+        assignments = newList;
+    }
+
+    private void getArraysFromIntent(){
+        String[] coursesS = getIntent().getStringArrayExtra("courses");
+        String[] assignmentsS = getIntent().getStringArrayExtra("assignments");
+        String[] courseGradesS = getIntent().getStringArrayExtra("courseGrades");
+        String[] assignmentGradesS = getIntent().getStringArrayExtra("assignmentGrades");
+        String[] assignmentDueDatesS = getIntent().getStringArrayExtra("assignmentDueDates");
+        for(String s: coursesS){courses.add(s);}
+        for(String s: assignmentsS){assignments.add(s);}
+        for(String s: courseGradesS){courseGrades.add(s);}
+        for(String s: assignmentGradesS){assignmentGrades.add(s);}
+        for(String s: assignmentDueDatesS){assignmentDueDates.add(s);}
+    }
+
+    public ArrayList<String> getCourses(){
+        return courses;
+    }
+
+    public void setCourses(ArrayList<String> newList){
+        courses = newList;
+    }
+
+
     private ImageView addCourse;
     ArrayList<Object> courseList=new ArrayList<Object>();
     CoursesListAdapter adapter;
@@ -24,10 +65,13 @@ public class Courses extends AppCompatActivity {
     private TextView coursesTextView;
     private ImageButton resources;
 
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses);
+        //getArraysFromIntent();
 
         /*
         ListView lv = (ListView) findViewById(R.id.listView);
@@ -40,6 +84,7 @@ public class Courses extends AppCompatActivity {
         list.setAdapter(adapter);
 
         coursesTextView = (TextView) findViewById(R.id.coursesTextView);
+        /*
         coursesTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,12 +92,14 @@ public class Courses extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        */
 
         resources = (ImageButton) findViewById(R.id.resources);
         resources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Courses.this, Resources.class);
+                //putArraysInIntent(intent);
                 startActivity(intent);
             }
         });
@@ -62,23 +109,16 @@ public class Courses extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 adapter.add("Test");
-                /*
-                final int adapterSize = adapter.getCount();
-                deleteButton = ((View) list.).(ImageView) findViewById(R.id.deleteImageView);
-                deleteButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        adapter.remove(adapter.getItem(adapterSize));
-                    }
-                });
-                */
+
             }
 
+            /*
             //@Override
             public void onItemClick(AdapterView<?> parent, View  view, int position, long id){
                 Intent intent = new Intent(Courses.this, Course.class);
                 startActivity(intent);
             }
+            */
         });
 
         /*
@@ -92,4 +132,6 @@ public class Courses extends AppCompatActivity {
         */
 
     }
+
+
 }

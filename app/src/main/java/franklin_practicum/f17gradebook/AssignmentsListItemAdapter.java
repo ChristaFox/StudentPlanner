@@ -9,8 +9,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,54 +46,40 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-public class CoursesListAdapter extends ArrayAdapter<Object>{
+public class AssignmentsListItemAdapter extends ArrayAdapter<Object>{
 
     private Context activityContext;
-    private List<Object> courseList;
-    private Courses c;
+    private List<Object> assignmentsList;
+
+    ArrayList<Object> assignmentList=new ArrayList<Object>();
+    CoursesListAdapter adapter;
 
     public static final String TAG = CoursesListAdapter.class.getSimpleName();
 
-    public CoursesListAdapter(Context context, List<Object> courseList){
-        super(context, R.layout.activity_courses_list, courseList);
+    public AssignmentsListItemAdapter(Context context, List<Object> assignmentsList){
+        super(context, R.layout.activity_assignments_list_item, assignmentsList);
         activityContext = context;
-        this.courseList = courseList;
-        c = new Courses();
+        this.assignmentsList = assignmentsList;
     }
 
     @Override
     public View getView(final int position, View convertView, final ViewGroup parent) {
 
         final ViewHolder holder;
-        final Object course = courseList.get(position);
+        final Object course = assignmentsList.get(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(activityContext).inflate(
-                    R.layout.activity_courses_list, null);
+                    R.layout.activity_assignments_list_item, null);
             holder = new ViewHolder();
-            holder.courseNameTextView = (TextView) convertView.findViewById(R.id.courseNameTextView);
-            holder.descriptionTextView = (TextView)convertView.findViewById(R.id.descriptionTextView);
-            holder.archiveImageView = (ImageView)convertView.findViewById(R.id.archiveImageView);
-            holder.deleteImageView = (ImageView)convertView.findViewById(R.id.deleteImageView);
-            holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
+            holder.listView = (ListView) convertView.findViewById(R.id.listView);
+            holder.addAssignment = (ImageButton) convertView.findViewById(R.id.addAssignment);
+            holder.weekTextView = (EditText)convertView.findViewById(R.id.weekTextView);
 
-            holder.courseNameTextView.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                }
+            //adapter=new AssignmentsListItemAdapter(holder.listView.getContext(), assignmentList);
 
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                }
+            holder.listView.setAdapter(adapter);
 
-                @Override
-                public void afterTextChanged(Editable s) {
-                    ArrayList<String> oldList = c.getCourses();
-                    oldList.add(s.toString());
-                    c.setCourses(oldList);
-                    for(String i: oldList) {Toast.makeText(getContext(), i, Toast.LENGTH_SHORT);}
-                }
-            });
-
+            /*
             holder.relativeLayout.setOnClickListener(new View.OnClickListener()
             {
                 @Override
@@ -106,14 +90,14 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
                     activityContext.startActivity(intent);
                 }
             });
+            */
 
-
-            holder.deleteImageView.setOnClickListener(new View.OnClickListener()
+            holder.addAssignment.setOnClickListener(new View.OnClickListener()
             {
                 @Override
                 public void onClick(View arg0) {
                     //holder.deleteImageView.setVisibility(View.INVISIBLE);
-                    courseList.remove(position);
+                    adapter.add("Test");
                     update();
                 }
             });
@@ -166,7 +150,7 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
         }
 
         //SET UP THE IMAGES
-        final Object objectPosition = courseList.get(position);
+        final Object objectPosition = assignmentsList.get(position);
 
         return convertView;
 
@@ -178,13 +162,13 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
     }
 
     private static class ViewHolder{
-        TextView courseNameTextView, descriptionTextView;
-        ImageView archiveImageView, deleteImageView;
-        RelativeLayout relativeLayout;
+        TextView weekTextView;
+        ImageButton addAssignment;
+        ListView listView;
     }
 
     public Object getItem(int position){
-        return courseList.get(position);
+        return assignmentsList.get(position);
     }
 
 }

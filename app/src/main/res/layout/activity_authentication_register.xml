@@ -15,7 +15,7 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/emailEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -23,12 +23,12 @@
         android:inputType="textEmailAddress"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="234dp"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignLeft="@+id/passwordEditText"
+        android:layout_alignStart="@+id/passwordEditText" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/passwordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -36,13 +36,13 @@
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="296dp"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3" />
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignLeft="@+id/confirmPasswordEditText"
+        android:layout_alignStart="@+id/confirmPasswordEditText" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/confirmPasswordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -50,9 +50,9 @@
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="355dp"
-        android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/passwordEditText"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/register"

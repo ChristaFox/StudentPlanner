@@ -48,11 +48,11 @@
             android:paddingStart="7dp"
             android:paddingTop="7dp"
             android:scrollbars="horizontal|vertical"
-            tools:listitem="@layout/activity_assignments_list" />
+            tools:listitem="@layout/activity_assignments_list_item" />
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -68,11 +68,11 @@
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="38dp"
+        android:layout_marginRight="38dp"
+        android:text="What If?"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
-        android:layout_toLeftOf="@+id/imageView7"
-        android:layout_toStartOf="@+id/imageView7"
-        android:text="What If?" />
+        android:layout_toLeftOf="@+id/addButton"
+        android:layout_toStartOf="@+id/addButton" />
 
 </RelativeLayout>
