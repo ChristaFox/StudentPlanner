@@ -1,116 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="franklin_practicum.f17gradebook.Attendance"
-    tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    android:layout_height="match_parent">
 
-    <GridView
-        android:layout_width="1dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <RadioGroup
-        android:layout_width="359dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="8dp"
-        android:orientation="vertical">
+        <GridView
+            android:layout_width="300dp"
+            android:layout_height="500dp" />
 
-        <EditText
-            android:id="@+id/editText13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Attendance" />
+        <RadioGroup
+            android:layout_width="359dp"
+            android:layout_height="495dp"
+            android:orientation="vertical">
 
-        <CheckedTextView
-            android:id="@+id/checkedTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:text="Week 1"
-            android:layout_weight="1" />
+            <EditText
+                android:id="@+id/editText13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Attendance" />
 
-        <CheckedTextView
-            android:id="@+id/checkedTextView10"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_weight="1"
-            android:text="Week 2" />
+            <CheckedTextView
+                android:id="@+id/checkedTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="Week 1"
+                android:layout_weight="1" />
 
-        <CheckedTextView
-            android:id="@+id/checkedTextView9"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_weight="1"
-            android:text="Week 3" />
+            <CheckedTextView
+                android:id="@+id/checkedTextView10"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:text="Week 2" />
 
-        <CheckedTextView
-            android:id="@+id/checkedTextView8"
-            android:layout_width="wrap_content"
-            android:layout_height="39dp"
-            android:text="Week 4" />
+            <CheckedTextView
+                android:id="@+id/checkedTextView9"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:text="Week 3" />
 
-        <CheckedTextView
-            android:id="@+id/checkedTextView7"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_weight="1"
-            android:text="Week 5" />
+            <CheckedTextView
+                android:id="@+id/checkedTextView8"
+                android:layout_width="wrap_content"
+                android:layout_height="39dp"
+                android:text="Week 4" />
 
-        <CheckedTextView
-            android:id="@+id/checkedTextView6"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_weight="1"
-            android:text="Week 6" />
+            <CheckedTextView
+                android:id="@+id/checkedTextView7"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:text="Week 5" />
 
-        <CheckedTextView
-            android:id="@+id/checkedTextView12"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_weight="1"
-            android:text="Week 7" />
+            <CheckedTextView
+                android:id="@+id/checkedTextView6"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:text="Week 6" />
 
-        <CheckedTextView
-            android:id="@+id/checkedTextView11"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_weight="1"
-            android:text="Week 8" />
+            <CheckedTextView
+                android:id="@+id/checkedTextView12"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:text="Week 7" />
 
-        <CheckedTextView
-            android:id="@+id/checkedTextView5"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:text="Week 9"
-            android:layout_weight="1" />
+            <CheckedTextView
+                android:id="@+id/checkedTextView11"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:text="Week 8" />
 
-        <CheckedTextView
-            android:id="@+id/checkedTextView4"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_weight="1"
-            android:text="Week 10" />
+            <CheckedTextView
+                android:id="@+id/checkedTextView5"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="Week 9"
+                android:layout_weight="1" />
 
-        <CheckedTextView
-            android:id="@+id/checkedTextView3"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_weight="1"
-            android:text="Week 11" />
+            <CheckedTextView
+                android:id="@+id/checkedTextView4"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:text="Week 10" />
 
-        <CheckedTextView
-            android:id="@+id/checkedTextView2"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_weight="1"
-            android:text="Week 12" />
-    </RadioGroup>
+            <CheckedTextView
+                android:id="@+id/checkedTextView3"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:text="Week 11" />
 
-</android.support.constraint.ConstraintLayout>
+            <CheckedTextView
+                android:id="@+id/checkedTextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:text="Week 12" />
+        </RadioGroup>
+    </RelativeLayout>
+</LinearLayout>
