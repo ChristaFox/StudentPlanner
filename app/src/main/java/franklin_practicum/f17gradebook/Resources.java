@@ -15,14 +15,5 @@ public class Resources extends AppCompatActivity {
         setContentView(R.layout.activity_resources);
     }
 
-    contacts = (Button) findVeiwById(R.id.linkToContacts);
 
-        contacts.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            //if(validEmail && validPassword)
-            Intent intent = new Intent(Resources.this, Contacts.class);
-            startActivity(intent);
-        }
-    });
 }
