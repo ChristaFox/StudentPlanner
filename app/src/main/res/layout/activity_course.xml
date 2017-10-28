@@ -25,7 +25,7 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/descriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/courseNameTextView"
@@ -42,26 +42,26 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView10"
-        android:layout_alignStart="@+id/textView10"
-        android:layout_below="@+id/textView10"
-        android:layout_marginTop="24dp"
         android:text="Current Attendance"
-        android:textColor="?attr/actionMenuTextColor" />
+        android:textColor="?attr/actionMenuTextColor"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/descriptionTextView"
+        android:layout_alignLeft="@+id/descriptionTextView"
+        android:layout_alignStart="@+id/descriptionTextView" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/courseNameTextView"
-        android:layout_marginEnd="19dp"
-        android:layout_marginRight="19dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         android:text="Current Grade"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/courseNameTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/textView13"
@@ -78,11 +78,11 @@
         android:id="@+id/assignments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView11"
-        android:layout_alignStart="@+id/textView11"
-        android:layout_below="@+id/textView11"
-        android:layout_marginTop="28dp"
-        android:text="Assignments" />
+        android:text="Assignments"
+        android:layout_marginBottom="11dp"
+        android:layout_above="@+id/calendar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/calendar"
@@ -90,26 +90,26 @@
         android:layout_height="wrap_content"
         android:text="Calendar"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/assignments"
-        android:layout_alignStart="@+id/assignments" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/attendance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Attendance"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="14dp"
         android:layout_below="@+id/calendar"
-        android:layout_alignLeft="@+id/calendar"
-        android:layout_alignStart="@+id/calendar" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/whatIf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="16dp"
         android:text="What If?"
         android:layout_below="@+id/attendance"
-        android:layout_alignLeft="@+id/attendance"
-        android:layout_alignStart="@+id/attendance" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

@@ -9,9 +9,10 @@
         android:layout_height="wrap_content"
         android:background="#0099cb"
         android:clickable="true"
-        android:paddingBottom="7dp">
+        android:paddingBottom="7dp"
+        android:id="@+id/relativeLayout">
 
-        <TextView
+        <EditText
             android:id="@+id/courseNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,7 +28,7 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <TextView
+        <EditText
             android:id="@+id/descriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
