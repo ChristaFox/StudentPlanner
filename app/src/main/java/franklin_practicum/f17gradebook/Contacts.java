@@ -44,8 +44,8 @@ public class Contacts extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
     }
-
-//    ListView updatedContacts = (ListView) findViewById(R.id.listView);
+//
+//    EditText updatedContacts = (EditText) findViewById(R.id.listView);
 //    contactsAdapter=new ContactsListAdapter(list.getContext(), assignmentList);
 //
 //        list.setAdapter(adapter);
