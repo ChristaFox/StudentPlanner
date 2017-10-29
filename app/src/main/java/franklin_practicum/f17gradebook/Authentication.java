@@ -14,35 +14,29 @@ import java.util.ArrayList;
 
 public class Authentication extends AppCompatActivity {
 
-    private ArrayList<String> courses, assignments, courseGrades, assignmentGrades, assignmentDueDates;
+    private ArrayList<String> userName, email, phoneNum;
 
     private void putArraysInIntent(Intent i){
-        i.putExtra("courses", courses);
-        i.putExtra("assignments", assignments);
-        i.putExtra("courseGrades", courseGrades);
-        i.putExtra("assignmentGrades", assignmentGrades);
-        i.putExtra("assignmentDueDates", assignmentDueDates);
+        i.putExtra("userName", userName);
+        i.putExtra("email", email);
+        i.putExtra("phoneNum", phoneNum);
     }
 
-    public ArrayList<String> getAssignments(){
-        return assignments;
+    public ArrayList<String> getContacts(){
+        return contacts;
     }
 
-    public void setAssignments(ArrayList<String> newList){
-        assignments = newList;
+    public void setContacts(ArrayList<String> newList){
+        contacts = updatedContacts;
     }
 
     private void getArraysFromIntent(){
-        String[] coursesS = getIntent().getStringArrayExtra("courses");
-        String[] assignmentsS = getIntent().getStringArrayExtra("assignments");
-        String[] courseGradesS = getIntent().getStringArrayExtra("courseGrades");
-        String[] assignmentGradesS = getIntent().getStringArrayExtra("assignmentGrades");
-        String[] assignmentDueDatesS = getIntent().getStringArrayExtra("assignmentDueDates");
-        for(String s: coursesS){courses.add(s);}
-        for(String s: assignmentsS){assignments.add(s);}
-        for(String s: courseGradesS){courseGrades.add(s);}
-        for(String s: assignmentGradesS){assignmentGrades.add(s);}
-        for(String s: assignmentDueDatesS){assignmentDueDates.add(s);}
+        String[] UserNameArr = getIntent().getStringArrayExtra("userName");
+        String[] emailArr = getIntent().getStringArrayExtra("email");
+        String[] phoneNumArr = getIntent().getStringArrayExtra("phoneNum");
+        for(String s: UserNameArr){userName.add(s);}
+        for(String s: emailArr){email.add(s);}
+        for(String s: phoneNumArr){phoneNum.add(s);}
     }
 
     private Button login, register;

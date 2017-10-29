@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Contacts extends AppCompatActivity {
 
-    private ArrayList<String> userName, email, phoneNum;
+    private ArrayList<String> contacts, userName, email, phoneNum;
 
     private void putArraysInIntent(Intent i){
         i.putExtra("userName", userName);
@@ -20,7 +20,7 @@ public class Contacts extends AppCompatActivity {
         return contacts;
     }
 
-    public void setContacts(ArrayList<String> newList){
+    public void setContacts(ArrayList<String> updatedContacts){
         contacts = updatedContacts;
     }
 
