@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -44,16 +46,23 @@ public class Contacts extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
     }
-//
-//    EditText updatedContacts = (EditText) findViewById(R.id.listView);
-//    contactsAdapter=new ContactsListAdapter(list.getContext(), assignmentList);
-//
-//        list.setAdapter(adapter);
-//    Button addContactButton = (Button) findViewById(R.id.addContactButton);
-//        addContactButton.setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            Intent intent = new Intent(Assignments.this, WhatIf.class);
+
+    Button addContact = (Button) findViewById(R.id.addContact);
+        addContact.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(Contacts.this, AddContact.class);
             //putArraysInIntent(intent);
-//            startActivity(intent);
+            startActivity(intent);
+        }
+    });
+
+    ImageButton trashCan = (ImageButton) findViewById(R.id.deleteContact);
+        trashCan.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            adapter.add("Test");
+        }
+    });
+
 }

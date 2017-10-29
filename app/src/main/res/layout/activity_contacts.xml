@@ -135,7 +135,7 @@
         android:layout_toEndOf="@+id/quickContactBadge6" />
 
     <Button
-        android:id="@+id/addContactButton"
+        android:id="@+id/addContact"
         android:layout_width="131dp"
         android:layout_height="47dp"
         android:text="Add Contact"
