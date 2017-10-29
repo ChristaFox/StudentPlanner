@@ -135,7 +135,7 @@
         android:layout_toEndOf="@+id/quickContactBadge6" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/addContactButton"
         android:layout_width="131dp"
         android:layout_height="47dp"
         android:text="Add Contact"
@@ -148,11 +148,11 @@
         android:layout_marginStart="24dp" />
 
     <ImageButton
-        android:id="@+id/imageButton11"
+        android:id="@+id/deleteContact"
         android:layout_width="135dp"
         android:layout_height="43dp"
         app:srcCompat="@android:drawable/ic_menu_delete"
-        android:layout_alignTop="@+id/button8"
+        android:layout_alignTop="@+id/addContactButton"
         android:layout_alignRight="@+id/editText16"
         android:layout_alignEnd="@+id/editText16"
         android:layout_marginRight="12dp"

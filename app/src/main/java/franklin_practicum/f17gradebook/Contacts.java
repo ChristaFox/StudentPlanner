@@ -3,6 +3,9 @@ package franklin_practicum.f17gradebook;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -33,9 +36,24 @@ public class Contacts extends AppCompatActivity {
         for(String s: phoneNumArr){phoneNum.add(s);}
     }
 
+    ArrayList<Object> contactList=new ArrayList<Object>();
+//    ContactsListAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
     }
+
+//    ListView updatedContacts = (ListView) findViewById(R.id.listView);
+//    contactsAdapter=new ContactsListAdapter(list.getContext(), assignmentList);
+//
+//        list.setAdapter(adapter);
+//    Button addContactButton = (Button) findViewById(R.id.addContactButton);
+//        addContactButton.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            Intent intent = new Intent(Assignments.this, WhatIf.class);
+            //putArraysInIntent(intent);
+//            startActivity(intent);
 }
