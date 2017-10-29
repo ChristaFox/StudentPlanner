@@ -12,6 +12,6 @@ public class AddContact extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addContact);
+        setContentView(R.layout.activity_addcontact);
     }
 }

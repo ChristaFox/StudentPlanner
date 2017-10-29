@@ -47,22 +47,22 @@ public class Contacts extends AppCompatActivity {
         setContentView(R.layout.activity_contacts);
     }
 
-    Button addContact = (Button) findViewById(R.id.addContact);
-        addContact.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(Contacts.this, AddContact.class);
-            //putArraysInIntent(intent);
-            startActivity(intent);
-        }
-    });
-
-    ImageButton trashCan = (ImageButton) findViewById(R.id.deleteContact);
-        trashCan.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            adapter.add("Test");
-        }
-    });
+//    Button addContact = (Button) findViewById(R.id.addContact);
+//        addContact.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            Intent intent = new Intent(Contacts.this, AddContact.class);
+//            //putArraysInIntent(intent);
+//            startActivity(intent);
+//        }
+//    });
+//
+//    ImageButton trashCan = (ImageButton) findViewById(R.id.deleteContact);
+//        trashCan.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            adapter.add("Test");
+//        }
+//    });
 
 }
