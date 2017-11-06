@@ -1,7 +1,7 @@
 package franklin_practicum.f17gradebook;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import java.io.PrintStream;
 import java.util.Scanner;
