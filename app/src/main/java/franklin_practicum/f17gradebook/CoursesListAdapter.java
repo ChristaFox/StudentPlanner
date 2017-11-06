@@ -89,10 +89,7 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
 
                 @Override
                 public void afterTextChanged(Editable s) {
-                    ArrayList<String> oldList = c.getCourses();
-                    oldList.add(s.toString());
-                    c.setCourses(oldList);
-                    for(String i: oldList) {Toast.makeText(getContext(), i, Toast.LENGTH_SHORT);}
+
                 }
             });
 

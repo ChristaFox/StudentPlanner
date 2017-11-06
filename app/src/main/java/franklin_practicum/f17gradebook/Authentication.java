@@ -2,48 +2,67 @@ package franklin_practicum.f17gradebook;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatImageView;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.content.Intent;
+import android.widget.EditText;
+import android.text.method.PasswordTransformationMethod;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class Authentication extends AppCompatActivity {
 
-    private ArrayList<String> courses, assignments, courseGrades, assignmentGrades, assignmentDueDates;
-
     private void putArraysInIntent(Intent i){
-        i.putExtra("courses", courses);
-        i.putExtra("assignments", assignments);
-        i.putExtra("courseGrades", courseGrades);
-        i.putExtra("assignmentGrades", assignmentGrades);
-        i.putExtra("assignmentDueDates", assignmentDueDates);
-    }
-
-    public ArrayList<String> getAssignments(){
-        return assignments;
-    }
-
-    public void setAssignments(ArrayList<String> newList){
-        assignments = newList;
+        i.putExtra("userID", userID);
+        i.putExtra("courseID", courseID);
+        i.putExtra("assignmentID", assignmentID);
     }
 
     private void getArraysFromIntent(){
-        String[] coursesS = getIntent().getStringArrayExtra("courses");
-        String[] assignmentsS = getIntent().getStringArrayExtra("assignments");
-        String[] courseGradesS = getIntent().getStringArrayExtra("courseGrades");
-        String[] assignmentGradesS = getIntent().getStringArrayExtra("assignmentGrades");
-        String[] assignmentDueDatesS = getIntent().getStringArrayExtra("assignmentDueDates");
-        for(String s: coursesS){courses.add(s);}
-        for(String s: assignmentsS){assignments.add(s);}
-        for(String s: courseGradesS){courseGrades.add(s);}
-        for(String s: assignmentGradesS){assignmentGrades.add(s);}
-        for(String s: assignmentDueDatesS){assignmentDueDates.add(s);}
+        userID = getIntent().getStringExtra("userID");
+        courseID = getIntent().getStringExtra("courseID");
+        assignmentID = getIntent().getStringExtra("assignmentID");
     }
+
+    private String userID, courseID, assignmentID;
 
     private Button login, register;
     private ImageView header;
@@ -84,15 +103,21 @@ public class Authentication extends AppCompatActivity {
     {
         setContentView(R.layout.activity_authentication_login);
         screen = "login";
+
+        emailEditText = (EditText) findViewById(R.id.emailText);
+        passwordEditText = (EditText) findViewById(R.id.passwordText);
+
         login = (Button) findViewById(R.id.login);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //if(validEmail && validPassword)
-                Intent intent = new Intent(Authentication.this, Courses.class);
+                new FrankLoginUser().execute();
+
+                //Intent intent = new Intent(Authentication.this, Courses.class);
                 //putArraysInIntent(intent);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
     }
@@ -132,8 +157,35 @@ public class Authentication extends AppCompatActivity {
                     success = false;
                 }
                 if(success) {
+
+                    new FrankRegisterUser().execute();
+
+                    /*
+                    //Try to write to database
+                    //get data from widgets
+                    //String username = (String) arg0[0];
+                    //String password = (String) arg0[1];
+
+                    //push your data into Hashmap
+                    HashMap <String, String> params = new HashMap<String, String>();
+                    params.put("email", emailEditText.getText().toString());
+                    params.put("password", passwordEditText.getText().toString());
+                    DataUtil dataUtil = new DataUtil("POST","registerUser.php");
+                    //POST/GET , HOST(don’t forget slash), php file name
+
+                    String jsonString = dataUtil.process(params); //this method will return a json string
+                    //the method process() can take ‘null’ as argument when you don’t have any parameters to pass along with your requested URL.
+                    // I make sure that the data returned by PHP script is a JSON string.
+                    try {
+                        JSONArray jsonArray = new JSONArray(jsonString);
+                    }
+                    catch (Exception e) {
+
+                    }
+                    */
+
                     Intent intent = new Intent(Authentication.this, Courses.class);
-                    //putArraysInIntent(intent);
+                    putArraysInIntent(intent);
                     startActivity(intent);
                 }
             }
@@ -161,4 +213,92 @@ public class Authentication extends AppCompatActivity {
         }
     }
     */
+
+    public class FrankRegisterUser extends AsyncTask {
+        @Override
+        protected void onPreExecute() {
+        }
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+            try {
+                //DataUtil dataUtil = new DataUtil("courseTrial.php");
+
+                HashMap <String, String> params = new HashMap<String, String>();
+                params.put("email", emailEditText.getText().toString());
+                params.put("password", passwordEditText.getText().toString());
+                //?username=testuser&password=password
+                DataUtil dataUtil = new DataUtil("POST","registerUser.php?email="+emailEditText.getText().toString()+
+                    "&password=" + passwordEditText.getText().toString());
+
+                String jsonString = dataUtil.process(null);
+                //Log.d(TAG, jsonString);
+                JSONArray jsonArray = new JSONArray(jsonString);
+
+                int length = jsonArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject jsonObj = jsonArray.getJSONObject(i);
+                    List<String> subItems = new ArrayList<String>();
+                    subItems.add("start date: " + jsonObj.getString("date"));
+                    //expandableListDetail.put(jsonObj.getString("course"), subItems);
+                }
+                return jsonArray;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                return new String("Exception: " + e.getMessage());
+            }
+        }
+
+
+    }
+
+    public class FrankLoginUser extends AsyncTask {
+        @Override
+        protected void onPreExecute() {
+        }
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+            try {
+                //DataUtil dataUtil = new DataUtil("courseTrial.php");
+
+                HashMap <String, String> params = new HashMap<String, String>();
+                params.put("email", emailEditText.getText().toString());
+                params.put("password", passwordEditText.getText().toString());
+                //?username=testuser&password=password
+                DataUtil dataUtil = new DataUtil("GET","loginUser.php?email="+emailEditText.getText().toString()+
+                        "&password=" + passwordEditText.getText().toString());
+
+                String jsonString = dataUtil.process(null);
+                //Log.d(TAG, jsonString);
+                JSONArray jsonArray = new JSONArray(jsonString);
+
+                String errorOccurred = null;
+                int length = jsonArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject jsonObj = jsonArray.getJSONObject(i);
+                    if(errorOccurred.equals(null))
+                        errorOccurred = jsonObj.getString("error");
+                    List<String> subItems = new ArrayList<String>();
+                    subItems.add("start date: " + jsonObj.getString("date"));
+                    //expandableListDetail.put(jsonObj.getString("course"), subItems);
+                }
+
+                if(errorOccurred.equals(null))
+                {
+                    Intent intent = new Intent(Authentication.this, Courses.class);
+                    putArraysInIntent(intent);
+                    startActivity(intent);
+                }
+
+                return jsonArray;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                return new String("Exception: " + e.getMessage());
+            }
+        }
+
+
+    }
+
 }

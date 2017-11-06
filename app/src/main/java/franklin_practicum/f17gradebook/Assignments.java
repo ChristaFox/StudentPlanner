@@ -13,36 +13,19 @@ import java.util.ArrayList;
 
 public class Assignments extends AppCompatActivity {
 
-    private ArrayList<String> courses, assignments, courseGrades, assignmentGrades, assignmentDueDates;
-
     private void putArraysInIntent(Intent i){
-        i.putExtra("courses", courses);
-        i.putExtra("assignments", assignments);
-        i.putExtra("courseGrades", courseGrades);
-        i.putExtra("assignmentGrades", assignmentGrades);
-        i.putExtra("assignmentDueDates", assignmentDueDates);
-    }
-
-    public ArrayList<String> getAssignments(){
-        return assignments;
-    }
-
-    public void setAssignments(ArrayList<String> newList){
-        assignments = newList;
+        i.putExtra("userID", userID);
+        i.putExtra("courseID", courseID);
+        i.putExtra("assignmentID", assignmentID);
     }
 
     private void getArraysFromIntent(){
-        String[] coursesS = getIntent().getStringArrayExtra("courses");
-        String[] assignmentsS = getIntent().getStringArrayExtra("assignments");
-        String[] courseGradesS = getIntent().getStringArrayExtra("courseGrades");
-        String[] assignmentGradesS = getIntent().getStringArrayExtra("assignmentGrades");
-        String[] assignmentDueDatesS = getIntent().getStringArrayExtra("assignmentDueDates");
-        for(String s: coursesS){courses.add(s);}
-        for(String s: assignmentsS){assignments.add(s);}
-        for(String s: courseGradesS){courseGrades.add(s);}
-        for(String s: assignmentGradesS){assignmentGrades.add(s);}
-        for(String s: assignmentDueDatesS){assignmentDueDates.add(s);}
+        userID = getIntent().getStringExtra("userID");
+        courseID = getIntent().getStringExtra("courseID");
+        assignmentID = getIntent().getStringExtra("assignmentID");
     }
+
+    private String userID, courseID, assignmentID;
 
     ArrayList<Object> assignmentList=new ArrayList<Object>();
     AssignmentsListAdapter adapter;
@@ -51,7 +34,7 @@ public class Assignments extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assignments);
-        //getArraysFromIntent();
+        getArraysFromIntent();
 
         ListView list = (ListView) findViewById(R.id.listView);
         adapter=new AssignmentsListAdapter(list.getContext(), assignmentList);
@@ -69,7 +52,7 @@ public class Assignments extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Assignments.this, WhatIf.class);
-                //putArraysInIntent(intent);
+                putArraysInIntent(intent);
                 startActivity(intent);
             }
         });

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_light"
     tools:background="#b0d4e1"
-    tools:context="franklin_practicum.f17gradebook.Courses">
+    tools:context="franklin_practicum.f17gradebook.Assignments">
 
     <TextView
         android:id="@+id/coursesTextView"
