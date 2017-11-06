@@ -17,12 +17,25 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editText13"
+                android:id="@+id/attHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Attendance" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="How many weeks is the course? " />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" />
 
             <CheckedTextView
                 android:id="@+id/checkedTextView"
