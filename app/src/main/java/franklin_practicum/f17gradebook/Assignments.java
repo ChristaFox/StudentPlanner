@@ -66,6 +66,7 @@ public class Assignments extends AppCompatActivity {
 
         list.setAdapter(adapter);
 
+        adapter.add("testName","11/7/2017","30/30");
         int length = assignments.size();
         for (int i = 0; i < length; i++) {
             adapter.add(assignments.get(i).assignName, assignments.get(i).assignEndDate, assignments.get(i).pointsEarned+"/"+assignments.get(i).pointsPossible);
