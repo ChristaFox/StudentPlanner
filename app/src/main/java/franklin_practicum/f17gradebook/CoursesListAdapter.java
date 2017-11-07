@@ -50,6 +50,8 @@ import java.util.List;
 
 public class CoursesListAdapter extends ArrayAdapter<Object>{
 
+    private String userID, courseID, assignmentID;
+
     private Context activityContext;
     private List<Object> courseList;
     private Courses c;
