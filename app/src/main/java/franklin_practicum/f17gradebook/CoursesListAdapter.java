@@ -55,6 +55,8 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
     private Context activityContext;
     private List<Object> courseList;
     private Courses c;
+    public String courseName, courseDesc;
+    private int id;
 
     public static final String TAG = CoursesListAdapter.class.getSimpleName();
 
@@ -64,6 +66,14 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
         this.courseList = courseList;
         c = new Courses();
     }
+
+    public void add(String courseName, String courseDesc){
+        this.courseName = courseName;
+        this.courseDesc = courseDesc;
+        id++;
+        this.add(id);
+    }
+
 
     @Override
     public View getView(final int position, View convertView, final ViewGroup parent) {
@@ -79,6 +89,11 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
             holder.archiveImageView = (ImageView)convertView.findViewById(R.id.archiveImageView);
             holder.deleteImageView = (ImageView)convertView.findViewById(R.id.deleteImageView);
             holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
+
+            if(!courseName.equals(null)) {
+                holder.courseNameTextView.setText(courseName);
+                holder.descriptionTextView.setText(courseDesc);
+            }
 
             holder.courseNameTextView.addTextChangedListener(new TextWatcher() {
                 @Override
@@ -117,45 +132,6 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
                 }
             });
 
-
-            //holder.deleteImageView.notify();
-
-            /*
-            holder.courseNameTextView.setOnClickListener(new AdapterView.OnClickListener() {
-                @Override
-                public void onClick(AdapterView <? > arg, View view, int position, long id) {
-                    Intent intent = new Intent(CoursesListAdapter.this, Course.class);
-                    startActivity(intent);
-                }
-            });
-            */
-            /*
-            convertView.setOnClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView <? > arg, View view, int position, long id) {
-                    Intent intent = new Intent(Course.class);
-                    startActivity(intent);
-                }
-            });
-            */
-
-            /*
-            lv.setOnItemClickListener(new OnItemClickListener() {
-                public void onItemClick(AdapterView<?> a, View v, int position, long id) {
-                    AlertDialog.Builder adb=new AlertDialog.Builder(MyActivity.this);
-                    adb.setTitle("Delete?");
-                    adb.setMessage("Are you sure you want to delete " + position);
-                    final int positionToRemove = position;
-                    adb.setNegativeButton("Cancel", null);
-                    adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            MyDataObject.remove(positionToRemove);
-                            adapter.notifyDataSetChanged();
-                        }});
-                    adb.show();
-                }
-            });
-            */
 
             convertView.setTag(holder);
         } else {
