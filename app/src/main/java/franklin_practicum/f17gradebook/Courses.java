@@ -54,7 +54,7 @@ public class Courses extends AppCompatActivity {
         public String assignID, userID, courseID, courseName, courseDesc, courseStartDate, courseEndDate, pointsPossible, pointsEarned, currentGradeGoal;
         public course(){}
         public course(String assignID, String userID, String courseID, String courseName, String courseDesc, String courseStartDate, String courseEndDate,
-                          String pointsPossible, String pointsEarned, String currentGradeGoal){
+                      String pointsPossible, String pointsEarned, String currentGradeGoal){
             this.assignID = assignID;
             this.userID = userID;
             this.courseID = courseID;
@@ -87,9 +87,6 @@ public class Courses extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses);
         getArraysFromIntent();
-        TextView textView = (TextView) findViewById(R.id.coursesTextView);
-        textView.setText("Courses for: "+userID);
-
 
         Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
 
@@ -100,10 +97,7 @@ public class Courses extends AppCompatActivity {
         FriendsListAdapter adapter = new FriendsListAdapter(lv.getContext(), friendsObjects);
         lv.setAdapter(adapter);
         */
-        ListView list = (ListView) findViewById(R.id.courseListView);
-        adapter=new CoursesListAdapter(list.getContext(), courseList);
 
-        list.setAdapter(adapter);
 
         //adapter.add(userID, String.valueOf(courses.size()));
 
@@ -114,10 +108,6 @@ public class Courses extends AppCompatActivity {
         et0.setText("TEST COURSE DESC");
         */
 
-        int length = courses.size();
-        for (int i = 0; i < length; i++) {
-            adapter.add(courses.get(i).courseName, courses.get(i).courseDesc);
-        }
 
         coursesTextView = (TextView) findViewById(R.id.coursesTextView);
         /*
@@ -177,7 +167,7 @@ public class Courses extends AppCompatActivity {
         @Override
         protected Object doInBackground(Object[] objects) {
             try {
-                DataUtil dataUtil = new DataUtil("courseTrial.php?USERID="+userID);
+                DataUtil dataUtil = new DataUtil("courses.php?userid="+userID);
                 String jsonString = dataUtil.process(null);
                 //Log.d(TAG, jsonString);
                 JSONArray jsonArray = new JSONArray(jsonString);
@@ -190,22 +180,21 @@ public class Courses extends AppCompatActivity {
                     courses.get(i).courseID = jsonObj.getString("id");
                     courses.get(i).courseName = jsonObj.getString("course");
                     courses.get(i).courseStartDate = jsonObj.getString("date");
-                    courses.get(i).courseDesc = jsonObj.getString("courseDesc");
+                    courses.get(i).courseDesc = "";
                     //courses.add(new course(jsonObj.getString("course"), ));
                     //subItems.add("start date: " + jsonObj.getString("date"));
                     //expandableListDetail.put(jsonObj.getString("course"), subItems);
                     System.out.println(courses.get(i).courseID.toString());
-                    System.out.println(courses.get(i).courseName.toString());
                 }
                 return jsonArray;
 
                 /*
 
-		while( $row = $res->fetch_assoc() )
+        while( $row = $res->fetch_assoc() )
 
-			array_push($result, array('course' => $row["CourseName"],
+            array_push($result, array('course' => $row["CourseName"],
 
-						  'date' => $row["CourseStartDate"], 'id' => $row["CourseID"], 'userID' => $row["UserID"]));
+                          'date' => $row["CourseStartDate"], 'id' => $row["CourseID"], 'userID' => $row["UserID"]));
 
                 */
 
@@ -221,6 +210,15 @@ public class Courses extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    ListView list = (ListView) findViewById(R.id.courseListView);
+                    adapter=new CoursesListAdapter(list.getContext(), courseList);
+
+                    list.setAdapter(adapter);
+                    int length = courses.size();
+                    for (int i = 0; i < length; i++) {
+                        adapter.add(courses.get(i).courseName, courses.get(i).courseDesc);
+                    }
+
                     //expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
                     //expandableListAdapter = new CustomExpandableListAdapter(CourseActivity.this, expandableListTitle, expandableListDetail);
                     //expandableListView.setAdapter(expandableListAdapter);
