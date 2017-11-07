@@ -87,6 +87,9 @@ public class Courses extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses);
         getArraysFromIntent();
+        TextView textView = (TextView) findViewById(R.id.coursesTextView);
+        textView.setText("Courses for: "+userID);
+
 
         Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
 
@@ -192,6 +195,7 @@ public class Courses extends AppCompatActivity {
                     //subItems.add("start date: " + jsonObj.getString("date"));
                     //expandableListDetail.put(jsonObj.getString("course"), subItems);
                     System.out.println(courses.get(i).courseID.toString());
+                    System.out.println(courses.get(i).courseName.toString());
                 }
                 return jsonArray;
 
