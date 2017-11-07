@@ -64,6 +64,7 @@ public class Authentication extends AppCompatActivity {
 
     private String userID, courseID, assignmentID;
 
+
     private Button login, register;
     private ImageView header;
     private String screen;
@@ -74,6 +75,7 @@ public class Authentication extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //getArraysFromIntent();
         setMainScreen();
+
     }
 
     public void setMainScreen()
@@ -113,11 +115,17 @@ public class Authentication extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //if(validEmail && validPassword)
-                new FrankLoginUser().execute();
 
-                //Intent intent = new Intent(Authentication.this, Courses.class);
+                    new FrankLoginUser().execute();
+
+
+
+                   // Intent intent = new Intent(Authentication.this, Courses.class);
                 //putArraysInIntent(intent);
                 //startActivity(intent);
+
+
+
             }
         });
     }
@@ -262,11 +270,11 @@ public class Authentication extends AppCompatActivity {
             try {
                 //DataUtil dataUtil = new DataUtil("courseTrial.php");
 
-                HashMap <String, String> params = new HashMap<String, String>();
+                HashMap<String, String> params = new HashMap<String, String>();
                 params.put("email", emailEditText.getText().toString());
                 params.put("password", passwordEditText.getText().toString());
                 //?username=testuser&password=password
-                DataUtil dataUtil = new DataUtil("GET","loginUser.php?email="+emailEditText.getText().toString()+
+                DataUtil dataUtil = new DataUtil("GET", "loginTest.php?email=" + emailEditText.getText().toString() +
                         "&password=" + passwordEditText.getText().toString());
 
                 String jsonString = dataUtil.process(null);
@@ -277,15 +285,9 @@ public class Authentication extends AppCompatActivity {
                 int length = jsonArray.length();
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
-                    if(errorOccurred.equals(null))
-                        errorOccurred = jsonObj.getString("error");
-                    List<String> subItems = new ArrayList<String>();
-                    subItems.add("start date: " + jsonObj.getString("date"));
-                    //expandableListDetail.put(jsonObj.getString("course"), subItems);
-                }
 
-                if(errorOccurred.equals(null))
-                {
+                    userID = jsonObj.getString("UserID");
+
                     Intent intent = new Intent(Authentication.this, Courses.class);
                     putArraysInIntent(intent);
                     startActivity(intent);
