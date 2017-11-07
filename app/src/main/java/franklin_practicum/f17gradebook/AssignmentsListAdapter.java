@@ -55,6 +55,9 @@ public class AssignmentsListAdapter extends ArrayAdapter<Object>{
     //ArrayList<Object> assignmentList=new ArrayList<Object>();
     AssignmentsListItemAdapter adapter;
 
+    public String assignmentName, dueDate, grade;
+    private int id;
+
     public static final String TAG = CoursesListAdapter.class.getSimpleName();
 
     public AssignmentsListAdapter(Context context, List<Object> assignmentsList){
@@ -63,16 +66,12 @@ public class AssignmentsListAdapter extends ArrayAdapter<Object>{
         this.assignmentsList = assignmentsList;
     }
 
-    public EditText getDateEditBox(){
-        return dateEditBox;
-    }
-
-    public EditText getDueEditBox(){
-        return dueEditBox;
-    }
-
-    public EditText getAssignmentEditBox(){
-        return assignment;
+    public void add(String assignmentName, String dueDate, String grade){
+        this.assignmentName = assignmentName;
+        this.dueDate = dueDate;
+        this.grade = grade;
+        id++;
+        this.add(id);
     }
 
     @Override
@@ -85,9 +84,13 @@ public class AssignmentsListAdapter extends ArrayAdapter<Object>{
                     R.layout.activity_assignments_list_item, null);
             holder = new ViewHolder();
 
-            //dateEditBox = (EditText) convertView.findViewById(R.id.dateEditBox);
-            //dueEditBox = (EditText) convertView.findViewById(R.id.dueEditBox);
-            //assignment = (EditText) convertView.findViewById(R.id.assignment);
+            holder.dateEditBox = (EditText) convertView.findViewById(R.id.dateEditBox);
+            holder.gradeEditBox = (EditText) convertView.findViewById(R.id.dueEditBox);
+            holder.assignmnent = (EditText) convertView.findViewById(R.id.assignment);
+
+            holder.dateEditBox.setText(dueDate);
+            holder.gradeEditBox.setText(grade);
+            holder.assignmnent.setText(assignmentName);
 
             holder.deleteImageView = (ImageView) convertView.findViewById(R.id.delete);
 
@@ -125,6 +128,7 @@ public class AssignmentsListAdapter extends ArrayAdapter<Object>{
         ImageButton addAssignment;
         ListView listView;
         ImageView deleteImageView;
+        EditText assignmnent, dateEditBox, gradeEditBox;
     }
 
     public Object getItem(int position){
