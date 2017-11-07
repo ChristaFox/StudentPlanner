@@ -90,10 +90,10 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
             holder.deleteImageView = (ImageView)convertView.findViewById(R.id.deleteImageView);
             holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
 
-            if(!courseName.equals(null)) {
+            //if(!courseName.equals(null)) {
                 holder.courseNameTextView.setText(courseName);
                 holder.descriptionTextView.setText(courseDesc);
-            }
+            //}
 
             holder.courseNameTextView.addTextChangedListener(new TextWatcher() {
                 @Override
@@ -136,7 +136,7 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
             convertView.setTag(holder);
         } else {
 
-            holder = (ViewHolder) convertView.getTag();
+           holder = (ViewHolder) convertView.getTag();
 
         }
 

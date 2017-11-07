@@ -88,7 +88,12 @@ public class Courses extends AppCompatActivity {
         setContentView(R.layout.activity_courses);
         getArraysFromIntent();
 
-        Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
+
+        ListView list = (ListView) findViewById(R.id.courseListView);
+        adapter=new CoursesListAdapter(list.getContext(), courseList);
+
+        list.setAdapter(adapter);
 
         new FrankCourseData().execute();
 
@@ -210,14 +215,14 @@ public class Courses extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    ListView list = (ListView) findViewById(R.id.courseListView);
-                    adapter=new CoursesListAdapter(list.getContext(), courseList);
 
-                    list.setAdapter(adapter);
                     int length = courses.size();
                     for (int i = 0; i < length; i++) {
                         adapter.add(courses.get(i).courseName, courses.get(i).courseDesc);
+                        adapter.notifyDataSetChanged();
+                        System.out.println(courses.get(i).courseName);
                     }
+
 
                     //expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
                     //expandableListAdapter = new CustomExpandableListAdapter(CourseActivity.this, expandableListTitle, expandableListDetail);
