@@ -180,7 +180,7 @@ public class Courses extends AppCompatActivity {
                     courses.get(i).courseID = jsonObj.getString("id");
                     courses.get(i).courseName = jsonObj.getString("course");
                     courses.get(i).courseStartDate = jsonObj.getString("date");
-                    courses.get(i).courseDesc = "";
+                    courses.get(i).courseDesc = jsonObj.getString("description");
                     //courses.add(new course(jsonObj.getString("course"), ));
                     //subItems.add("start date: " + jsonObj.getString("date"));
                     //expandableListDetail.put(jsonObj.getString("course"), subItems);
