@@ -25,6 +25,22 @@ public class Assignments extends AppCompatActivity {
         assignmentID = getIntent().getStringExtra("assignmentID");
     }
 
+    public class assignment{
+        public String assignID, userID, courseID, assignName, assignStartDate, assignEndDate, pointsPossible, pointsEarned, currentGradeGoal;
+        public assignment(String assignID, String userID, String courseID, String assignName, String assignStartDate, String assignEndDate,
+                          String pointsPossible, String pointsEarned, String currentGradeGoal){
+            this.assignID = assignID;
+            this.userID = userID;
+            this.courseID = courseID;
+            this.assignName = assignName;
+            this.assignStartDate = assignStartDate;
+            this.assignEndDate = assignEndDate;
+            this.pointsPossible = pointsPossible;
+            this.pointsEarned = pointsEarned;
+            this.currentGradeGoal = currentGradeGoal;
+        }
+    }
+
     private String userID, courseID, assignmentID;
 
     ArrayList<Object> assignmentList=new ArrayList<Object>();

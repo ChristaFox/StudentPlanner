@@ -15,6 +15,27 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+
 public class Courses extends AppCompatActivity {
 
     private void putArraysInIntent(Intent i){
@@ -27,6 +48,22 @@ public class Courses extends AppCompatActivity {
         userID = getIntent().getStringExtra("userID");
         courseID = getIntent().getStringExtra("courseID");
         assignmentID = getIntent().getStringExtra("assignmentID");
+    }
+
+    public class course{
+        public String assignID, userID, courseID, courseName, courseStartDate, courseEndDate, pointsPossible, pointsEarned, currentGradeGoal;
+        public course(String assignID, String userID, String courseID, String courseName, String courseStartDate, String courseEndDate,
+                          String pointsPossible, String pointsEarned, String currentGradeGoal){
+            this.assignID = assignID;
+            this.userID = userID;
+            this.courseID = courseID;
+            this.courseName = courseName;
+            this.courseStartDate = courseStartDate;
+            this.courseEndDate = courseEndDate;
+            this.pointsPossible = pointsPossible;
+            this.pointsEarned = pointsEarned;
+            this.currentGradeGoal = currentGradeGoal;
+        }
     }
 
     private String userID, courseID, assignmentID;
@@ -108,5 +145,44 @@ public class Courses extends AppCompatActivity {
 
     }
 
+    public class FrankCourseData extends AsyncTask {
+        @Override
+        protected void onPreExecute() {
+        }
 
+        @Override
+        protected Object doInBackground(Object[] objects) {
+            try {
+                DataUtil dataUtil = new DataUtil("courseTrial.php");
+                String jsonString = dataUtil.process(null);
+                //Log.d(TAG, jsonString);
+                JSONArray jsonArray = new JSONArray(jsonString);
+
+                int length = jsonArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject jsonObj = jsonArray.getJSONObject(i);
+                    ArrayList<course> courses = new ArrayList<course>();
+                    //courses.add(new course(jsonObj.getString("course"), ));
+                    //subItems.add("start date: " + jsonObj.getString("date"));
+                    //expandableListDetail.put(jsonObj.getString("course"), subItems);
+                }
+                return jsonArray;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                return new String("Exception: " + e.getMessage());
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    //expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+                    //expandableListAdapter = new CustomExpandableListAdapter(CourseActivity.this, expandableListTitle, expandableListDetail);
+                    //expandableListView.setAdapter(expandableListAdapter);
+                }
+            });
+        }
+    }
 }
