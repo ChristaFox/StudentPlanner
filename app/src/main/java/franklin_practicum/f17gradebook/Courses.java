@@ -88,6 +88,7 @@ public class Courses extends AppCompatActivity {
         setContentView(R.layout.activity_courses);
         getArraysFromIntent();
 
+        Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
 
         new FrankCourseData().execute();
 
