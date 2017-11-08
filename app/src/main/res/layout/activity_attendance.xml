@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout>
     <Button
         android:id="@+id/autoCompleteTextView"
         android:layout_width="wrap_content"
@@ -10,16 +9,28 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="75dp"
-        android:layout_weight="1"
+        android:layout_weight="12"
         android:text="Add an absence" />
 
     <EditText
-        android:layout_below="@+id/autoCompleteTextView"
+        android:layout_align="true"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="12"
         android:ems="10"
         android:text="You are allowed __ absenses. You have __ absenses."
         android:id="@+id/courseAttendanceInfo" />
-    </LinearLayout>
+
+    <EditText
+        android:id="@+id/enterDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/courseAttendanceInfo"
+        android:layout_alignStart="@+id/courseAttendanceInfo"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:inputType="date"
+        android:text="Date" />
+
 </RelativeLayout>
