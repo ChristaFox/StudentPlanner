@@ -1,124 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <LinearLayout>
+    <Button
+        android:id="@+id/autoCompleteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="75dp"
+        android:layout_weight="1"
+        android:text="Add an absence" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <GridView
-            android:layout_width="300dp"
-            android:layout_height="500dp" />
-
-        <RadioGroup
-            android:layout_width="359dp"
-            android:layout_height="495dp"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/attHeader"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Attendance" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="How many weeks is the course? " />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number" />
-
-            <CheckedTextView
-                android:id="@+id/checkedTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:text="Week 1"
-                android:layout_weight="1" />
-
-            <CheckedTextView
-                android:id="@+id/checkedTextView10"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:text="Week 2" />
-
-            <CheckedTextView
-                android:id="@+id/checkedTextView9"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:text="Week 3" />
-
-            <CheckedTextView
-                android:id="@+id/checkedTextView8"
-                android:layout_width="wrap_content"
-                android:layout_height="39dp"
-                android:text="Week 4" />
-
-            <CheckedTextView
-                android:id="@+id/checkedTextView7"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:text="Week 5" />
-
-            <CheckedTextView
-                android:id="@+id/checkedTextView6"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:text="Week 6" />
-
-            <CheckedTextView
-                android:id="@+id/checkedTextView12"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:text="Week 7" />
-
-            <CheckedTextView
-                android:id="@+id/checkedTextView11"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:text="Week 8" />
-
-            <CheckedTextView
-                android:id="@+id/checkedTextView5"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:text="Week 9"
-                android:layout_weight="1" />
-
-            <CheckedTextView
-                android:id="@+id/checkedTextView4"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:text="Week 10" />
-
-            <CheckedTextView
-                android:id="@+id/checkedTextView3"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:text="Week 11" />
-
-            <CheckedTextView
-                android:id="@+id/checkedTextView2"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:text="Week 12" />
-        </RadioGroup>
-    </RelativeLayout>
-</LinearLayout>
+    <EditText
+        android:layout_below="@+id/autoCompleteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:text="You are allowed __ absenses. You have __ absenses."
+        android:id="@+id/courseAttendanceInfo" />
+    </LinearLayout>
+</RelativeLayout>
