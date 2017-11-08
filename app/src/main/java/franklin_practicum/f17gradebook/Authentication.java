@@ -238,7 +238,7 @@ public class Authentication extends AppCompatActivity {
                 params.put("password", passwordEditText.getText().toString());
                 //?username=testuser&password=password
                 DataUtil dataUtil = new DataUtil("POST","registerUser.php?email="+emailEditText.getText().toString()+
-                    "&password=" + passwordEditText.getText().toString());
+                        "&password=" + passwordEditText.getText().toString());
 
                 String jsonString = dataUtil.process(null);
                 //Log.d(TAG, jsonString);
