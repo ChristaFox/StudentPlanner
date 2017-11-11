@@ -55,8 +55,9 @@ public class AttendanceListAdapter extends ArrayAdapter<Object>{
     private Context attendContext;
     private List<Object> attendList;
     private Attendance attend;
-    public String courseName, courseDesc;
+    private EditText dateOfAbsenceTextView;
     private int attendID;
+    public String dateOfAbsence;
 
     public static final String TAG = AttendanceListAdapter.class.getSimpleName();
 
@@ -67,9 +68,8 @@ public class AttendanceListAdapter extends ArrayAdapter<Object>{
         attend = new Attendance();
     }
 
-    public void add(String courseName, String courseDesc){
-        this.courseName = courseName;
-        this.courseDesc = courseDesc;
+    public void add(String dateOfAbsence){
+        this.dateOfAbsence=dateOfAbsence;
         attendID++;
         this.add(attendID);
     }

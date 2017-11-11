@@ -15,23 +15,26 @@ import java.util.ArrayList;
 
 public class Attendance extends AppCompatActivity {
 
-    private void putArraysInIntent(Intent i){
+    private void putArraysInIntent(Intent i) {
         i.putExtra("userID", userID);
         i.putExtra("courseID", courseID);
         i.putExtra("attendanceID", attendanceID);
     }
 
-    private void getArraysFromIntent(){
+    private void getArraysFromIntent() {
         userID = getIntent().getStringExtra("userID");
         courseID = getIntent().getStringExtra("courseID");
         attendanceID = getIntent().getStringExtra("attendanceID");
     }
 
-    public class attendance{
+    public class attendance {
         public String attendID, userID, courseID, absences, absenceDate;
-        public attendance(){}
+
+        public attendance() {
+        }
+
         public attendance(String assignID, String userID, String courseID, String assignName, String assignStartDate, String assignEndDate,
-                          String pointsPossible, String pointsEarned, String currentGradeGoal){
+                          String pointsPossible, String pointsEarned, String currentGradeGoal) {
             this.attendID = attendID;
             this.userID = userID;
             this.courseID = courseID;
@@ -44,7 +47,7 @@ public class Attendance extends AppCompatActivity {
 
     public ArrayList<attendance> attendanceArrayList = new ArrayList<>();
 
-    ArrayList<Object> attendanceList=new ArrayList<Object>();
+    ArrayList<Object> attendanceList = new ArrayList<Object>();
     AttendanceListAdapter adapter;
 
     @Override
@@ -56,7 +59,7 @@ public class Attendance extends AppCompatActivity {
         new FrankAssignData().execute();
 
         ListView list = (ListView) findViewById(R.id.absenses);
-        adapter=new AttendanceListAdapter((attendanceArrayList.getContext()), attendanceArrayList);
+        adapter = new AttendanceListAdapter((attendanceArrayList.getContext()), attendanceArrayList);
 
         list.setAdapter(adapter);
 
@@ -83,7 +86,7 @@ public class Attendance extends AppCompatActivity {
         @Override
         protected Object doInBackground(Object[] objects) {
             try {
-                DataUtil dataUtil = new DataUtil("Attendance.php?CourseID="+courseID+"UserID="+userID);
+                DataUtil dataUtil = new DataUtil("Attendance.php?CourseID=" + courseID + "UserID=" + userID);
                 //DataUtil dataUtil = new DataUtil("CourseAssignmentListSelect.php?CourseID="+"6"+"UserID="+"30");
                 String jsonString = dataUtil.process(null);
                 //Log.d(TAG, jsonString);
@@ -130,4 +133,6 @@ public class Attendance extends AppCompatActivity {
             });
         }
     }
+
+}
 
