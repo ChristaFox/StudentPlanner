@@ -96,7 +96,7 @@ public class Attendance extends AppCompatActivity {
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
 
-                    attendanceArrayList.add(new Attendance().attendance());
+                    attendanceArrayList.add(new Attendance.attendance());
                     attendanceArrayList.get(i).attendID = jsonObj.getString("attendance ID: ");
                     attendanceArrayList.get(i).absences = jsonObj.getString("total absences: ");
                     attendanceArrayList.get(i).absenceDate = jsonObj.getString("Date: ");
