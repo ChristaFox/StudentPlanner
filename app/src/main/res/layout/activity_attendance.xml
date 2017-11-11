@@ -1,36 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Button
-        android:id="@+id/autoCompleteTextView"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
+    tools:background="#b0d4e1"
+    tools:context="franklin_practicum.f17gradebook.Assignments">
+        <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="75dp"
-        android:layout_weight="12"
-        android:text="Add an absence" />
-
-    <EditText
-        android:layout_align="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="11dp"
+        android:text="Attendance"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+    <ImageView
+        android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="12"
-        android:ems="10"
-        android:text="You are allowed __ absenses. You have __ absenses."
-        android:id="@+id/courseAttendanceInfo" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/textView"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        app:srcCompat="@android:drawable/ic_input_add" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView"
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/enterDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/courseAttendanceInfo"
-        android:layout_alignStart="@+id/courseAttendanceInfo"
-        android:layout_centerVertical="true"
-        android:ems="10"
-        android:inputType="date"
-        android:text="Date" />
-
+        <ListView
+            android:id="@+id/Absenses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:clipToPadding="false"
+            android:divider="@null"
+            android:dividerHeight="4dp"
+            android:longClickable="true"
+            android:paddingBottom="7dp"
+            android:paddingEnd="7dp"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingStart="7dp"
+            android:paddingTop="7dp"
+            android:scrollbars="horizontal|vertical"
+            tools:listitem="@layout/activity_attendance_list_item" />
+    </LinearLayout>
 </RelativeLayout>
