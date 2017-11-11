@@ -83,7 +83,7 @@ public class Attendance extends AppCompatActivity {
         @Override
         protected Object doInBackground(Object[] objects) {
             try {
-                DataUtil dataUtil = new DataUtil("CourseAttendanceListSelect.php?CourseID="+courseID+"UserID="+userID);
+                DataUtil dataUtil = new DataUtil("Attendance.php?CourseID="+courseID+"UserID="+userID);
                 //DataUtil dataUtil = new DataUtil("CourseAssignmentListSelect.php?CourseID="+"6"+"UserID="+"30");
                 String jsonString = dataUtil.process(null);
                 //Log.d(TAG, jsonString);
