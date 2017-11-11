@@ -45,7 +45,7 @@ public class Attendance extends AppCompatActivity {
 
     private String userID, courseID, attendanceID;
 
-    public ArrayList<attendance> attendanceArrayList = new ArrayList<>();
+    public ArrayList<attendance> absences = new ArrayList<>();
 
     ArrayList<Object> attendanceList = new ArrayList<Object>();
     AttendanceListAdapter attendAdapter;
@@ -58,15 +58,15 @@ public class Attendance extends AppCompatActivity {
 
         new FrankAssignData().execute();
 
-        ListView list = (ListView) findViewById(R.id.absencesListView);
-        attendAdapter = new AttendanceListAdapter((attendanceArrayList.getContext()), attendanceArrayList);
+        ListView absencesListView = (ListView) findViewById(R.id.absencesListView);
+        attendAdapter = new AttendanceListAdapter((absencesListView.getContext()), attendanceList);
 
-        list.setAdapter(attendAdapter);
+        absencesListView.setAdapter(attendAdapter);
 
         attendAdapter.add("11/7/2017");
-        int length = attendanceArrayList.size();
+        int length = absences.size();
         for (int i = 0; i < length; i++) {
-            attendAdapter.add(attendance.get(i).absenseDate);
+            attendAdapter.add(absences.get(i).absenceDate);
         }
 
         ImageView addAbsenceButton = (ImageView) findViewById(R.id.addAbsenceButton);
@@ -96,10 +96,10 @@ public class Attendance extends AppCompatActivity {
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
 
-                    attendanceArrayList.add(new Attendance.attendance());
-                    attendanceArrayList.get(i).attendID = jsonObj.getString("attendance ID: ");
-                    attendanceArrayList.get(i).absences = jsonObj.getString("total absences: ");
-                    attendanceArrayList.get(i).absenceDate = jsonObj.getString("Date: ");
+                    absences.add(new Attendance.attendance());
+                    absences.get(i).attendID = jsonObj.getString("attendance ID: ");
+                    absences.get(i).absences = jsonObj.getString("total absences: ");
+                    absences.get(i).absenceDate = jsonObj.getString("Date: ");
 
                 }
                 return jsonArray;
