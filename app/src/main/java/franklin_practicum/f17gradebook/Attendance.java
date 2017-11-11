@@ -48,7 +48,7 @@ public class Attendance extends AppCompatActivity {
     public ArrayList<attendance> attendanceArrayList = new ArrayList<>();
 
     ArrayList<Object> attendanceList = new ArrayList<Object>();
-    AttendanceListAdapter adapter;
+    AttendanceListAdapter attendAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,22 +58,22 @@ public class Attendance extends AppCompatActivity {
 
         new FrankAssignData().execute();
 
-        ListView list = (ListView) findViewById(R.id.absenses);
-        adapter = new AttendanceListAdapter((attendanceArrayList.getContext()), attendanceArrayList);
+        ListView list = (ListView) findViewById(R.id.absencesListView);
+        attendAdapter = new AttendanceListAdapter((attendanceArrayList.getContext()), attendanceArrayList);
 
-        list.setAdapter(adapter);
+        list.setAdapter(attendAdapter);
 
-        adapter.add("11/7/2017");
+        attendAdapter.add("11/7/2017");
         int length = attendanceArrayList.size();
         for (int i = 0; i < length; i++) {
-            adapter.add(attendance.get(i).absenseDate);
+            attendAdapter.add(attendance.get(i).absenseDate);
         }
 
         ImageView addAbsenceButton = (ImageView) findViewById(R.id.addAbsenceButton);
         addAbsenceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adapter.add(" / ");
+                attendAdapter.add(" / ");
             }
         });
     }
