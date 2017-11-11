@@ -44,7 +44,7 @@ public class WhatIf extends AppCompatActivity {
 
     //Variables
     private String userID, courseID, assignmentID;
-    private ArrayList<Assignment> assignments;
+    private ArrayList<Assignments> assignments;
     private ListView assignmentList;
     private StringBuilder assignString;
     private EditText whatIfPts;
