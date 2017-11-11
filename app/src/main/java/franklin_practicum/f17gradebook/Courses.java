@@ -70,11 +70,11 @@ public class Courses extends AppCompatActivity {
 
     private String userID, courseID, assignmentID;
 
-    public ArrayList<CourseEntity> courses = new ArrayList<CourseEntity>();
+    public ArrayList<course> courses = new ArrayList<course>();
 
     private ImageView addCourse;
     ArrayList<Object> courseList=new ArrayList<Object>();
-    private CourseListAdapter1 adapter;
+    CoursesListAdapter adapter;
     private ListView list;
     private ImageView deleteButton;
     private TextView coursesTextView;
@@ -88,9 +88,7 @@ public class Courses extends AppCompatActivity {
         setContentView(R.layout.activity_courses);
         getArraysFromIntent();
 
-        //Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
-
-        list = (ListView) findViewById(R.id.courseListView);
+        Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
 
         new FrankCourseData().execute();
 
@@ -127,6 +125,7 @@ public class Courses extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Courses.this, Resources.class);
+
                 putArraysInIntent(intent);
                 startActivity(intent);
             }
@@ -136,25 +135,30 @@ public class Courses extends AppCompatActivity {
         addCourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //adapter.add("Course Name","Description");
-                Intent intent = new Intent(Courses.this, Course.class);
-                startActivity(intent);
+                adapter.add("Course Name","Description");
+
+
             }
-            /*//@Override
+
+            /*
+            //@Override
             public void onItemClick(AdapterView<?> parent, View  view, int position, long id){
                 Intent intent = new Intent(Courses.this, Course.class);
                 startActivity(intent);
-            }*/
-
+            }
+            */
         });
 
+        /*
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView <? > arg, View view, int position, long id) {
                 Intent intent = new Intent(Courses.this, Course.class);
                 startActivity(intent);
             }
         });
+        */
+
     }
 
     public class FrankCourseData extends AsyncTask {
@@ -170,13 +174,35 @@ public class Courses extends AppCompatActivity {
                 //Log.d(TAG, jsonString);
                 JSONArray jsonArray = new JSONArray(jsonString);
 
+
                 int length = jsonArray.length();
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
-                    courses.add(new CourseEntity(jsonObj.getString("course"), ""));
-                }
 
+                    courses.add(new course("", userID, jsonObj.getString("id"), jsonObj.getString("course"), jsonObj.getString("description"), jsonObj.getString("date"), "",
+                            "", "", ""));
+                    //courses.get(i).courseID = jsonObj.getString("id");
+                    //courses.get(i).courseName = jsonObj.getString("course");
+                    //courses.get(i).courseStartDate = jsonObj.getString("date");
+                    //courses.get(i).courseDesc = jsonObj.getString("description");
+                    //courses.add(new course(jsonObj.getString("course"), ));
+                    //subItems.add("start date: " + jsonObj.getString("date"));
+                    //expandableListDetail.put(jsonObj.getString("course"), subItems);
+                    System.out.println(courses.get(i).courseID.toString());
+                }
                 return jsonArray;
+
+                /*
+
+        while( $row = $res->fetch_assoc() )
+
+            array_push($result, array('course' => $row["CourseName"],
+
+                          'date' => $row["CourseStartDate"], 'id' => $row["CourseID"], 'userID' => $row["UserID"]));
+
+                */
+
+
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 return new String("Exception: " + e.getMessage());
@@ -188,8 +214,23 @@ public class Courses extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    adapter = new CourseListAdapter1(Courses.this, courses);
+                    ListView list = (ListView) findViewById(R.id.courseListView);
+                    adapter=new CoursesListAdapter(list.getContext(), courseList);
+                    //adapter.add(0);
+                    //adapter.remove(0);
+
                     list.setAdapter(adapter);
+                    //adapter.add(courses);
+                    int length = courses.size();
+                    for (int i = 0; i < length; i++) {
+
+                        adapter.add(courses.get(i).courseName, courses.get(i).courseDesc);
+                    }
+
+
+                    //expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+                    //expandableListAdapter = new CustomExpandableListAdapter(CourseActivity.this, expandableListTitle, expandableListDetail);
+                    //expandableListView.setAdapter(expandableListAdapter);
                 }
             });
         }
