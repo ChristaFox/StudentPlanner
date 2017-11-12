@@ -106,7 +106,7 @@ public class Courses extends AppCompatActivity {
 
         list.setAdapter(adapter);
 
-        Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
 
         new FrankCourseData().execute();
 

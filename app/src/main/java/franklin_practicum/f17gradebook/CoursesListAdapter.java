@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -44,8 +45,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class CoursesListAdapter extends ArrayAdapter<Object>{
@@ -61,6 +66,8 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
             courseEndDate, pointsPossible, pointsEarned, currentGradeGoal,
             currentGrade, absencesAllowed, instructorName, numberWeeks, absences;
     private int id;
+
+    public String updateCourseName, updateDesc, updateCourseID;
 
     public static final String TAG = CoursesListAdapter.class.getSimpleName();
 
@@ -134,7 +141,10 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
 
                 @Override
                 public void afterTextChanged(Editable s) {
-
+                    updateCourseID = course.courseID;
+                    updateCourseName = course.courseName;
+                    updateDesc = course.courseDesc;
+                    new FrankUpdateCourse().execute();
                 }
             });
 
@@ -196,6 +206,57 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
 
     public Object getItem(int position){
         return courseList.get(position);
+    }
+
+
+    public class FrankUpdateCourse extends AsyncTask {
+        @Override
+        protected void onPreExecute() {
+        }
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+            try {
+                //DataUtil dataUtil = new DataUtil("courseTrial.php");
+
+                HashMap<String, String> params = new HashMap<String, String>();
+                params.put("userid", userID);
+                //params.put("password", passwordEditText.getText().toString());
+                //?username=testuser&password=password
+                DataUtil dataUtil = new DataUtil("POST","updateCourse.php?courseid="+updateCourseID+"&name="+updateCourseName+"&desc="+updateDesc);
+
+                System.out.println("updateCourse.php?courseid="+courseID+"&name="+updateCourseName+"&desc="+updateDesc);
+
+                String jsonString = dataUtil.process(null);
+                //Log.d(TAG, jsonString);
+                JSONArray jsonArray = new JSONArray(jsonString);
+
+                String errorOccurred = null;
+                int length = jsonArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject jsonObj = jsonArray.getJSONObject(i);
+                    //if(errorOccurred.equals(null))
+                    //    errorOccurred = jsonObj.getString("error");
+                    //if(!errorOccurred.equals(null))
+                    //    return "Error";
+                    courseID = jsonObj.getString("courseid");
+
+                }
+                return jsonArray;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                return new String("Exception: " + e.getMessage());
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Object o){
+            //courseList.clear();
+            //adapter.clear();
+            //adapter.notifyDataSetChanged();
+            //new Courses.FrankCourseData().execute();
+        }
+
     }
 
 }

@@ -34,7 +34,7 @@ public class Course extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course);
         getArraysFromIntent();
-        Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
 
         assignmentsButton = (Button) findViewById(R.id.assignments);
         calendar = (Button) findViewById(R.id.calendar);
