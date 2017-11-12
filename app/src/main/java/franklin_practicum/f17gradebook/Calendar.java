@@ -27,6 +27,8 @@ public class Calendar extends AppCompatActivity {
                 //Todo: sending the date through Intent
 
                 Intent intent = new Intent(Calendar.this, AssignmentActivity.class);
+                intent.putExtra("userID", getIntent().getStringExtra("userID"));
+                intent.putExtra("courseID", getIntent().getStringExtra("courseID"));
                 startActivity(intent);
 
             }
