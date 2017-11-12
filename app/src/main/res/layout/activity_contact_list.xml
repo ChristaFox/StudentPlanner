@@ -16,7 +16,7 @@
         <EditText
             android:id="@+id/contactFirstNameTextView"
             android:layout_width="fill_parent"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
@@ -32,7 +32,7 @@
         <EditText
             android:id="@+id/contactLastNameTextView"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_toRightOf="@id/contactFirstNameTextView"
             android:ems="10"
             android:inputType="textPersonName"
@@ -46,9 +46,9 @@
         <EditText
             android:id="@+id/contactEmailTextView"
             android:layout_width="wrap_content"
-            android:layout_height="33dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_alignBelow="@+id/contactFirstNameTextView"
+            android:layout_alignParentBottom="true"
             android:paddingLeft="5dp"
             android:paddingTop="5dp"
             android:ems="10"
@@ -59,9 +59,10 @@
         <EditText
             android:id="@+id/contactPhoneNumTextView"
             android:layout_width="wrap_content"
-            android:layout_height="33dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_alignBelow="@+id/contactLastNameTextView"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/contactEmailTextView"
             android:paddingLeft="5dp"
             android:paddingTop="5dp"
             android:ems="10"
@@ -71,13 +72,12 @@
 
         <ImageView
             android:id="@+id/deleteImageView"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/contactPhoneNumTextView"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="14dp"
-            android:layout_marginRight="14dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
             android:clickable="true"
             app:srcCompat="@android:drawable/ic_delete" />
     </RelativeLayout>
