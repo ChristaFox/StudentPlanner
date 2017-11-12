@@ -44,7 +44,7 @@
         android:orientation="horizontal">
 
         <ListView
-            android:id="@+id/contactsListView"
+            android:id="@+id/contactListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
