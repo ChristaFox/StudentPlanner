@@ -17,7 +17,7 @@ public class Resources extends AppCompatActivity {
         setContentView(R.layout.activity_resources);
 
 
-        contacts = (Button) findViewById(R.id.contacts);
+        //contacts = (Button) findViewById(R.id.contacts);
 
 
         contacts.setOnClickListener(new View.OnClickListener() {

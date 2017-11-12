@@ -127,7 +127,7 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
                 @Override
                 public void onClick(View arg0) {
                     //holder.deleteImageView.setVisibility(View.INVISIBLE);
-                    courseList.remove(position);
+                    courseList.remove(courseList.get(position));
                     update();
                 }
             });

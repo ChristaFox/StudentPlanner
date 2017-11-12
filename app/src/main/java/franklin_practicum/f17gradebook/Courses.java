@@ -82,11 +82,21 @@ public class Courses extends AppCompatActivity {
 
     private Context context;
 
+    private int numCoursesLoaded = 0;
+    private boolean firstCourseLoad = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses);
         getArraysFromIntent();
+
+        ListView list = (ListView) findViewById(R.id.courseListView);
+        adapter=new CoursesListAdapter(list.getContext(), courseList);
+        //adapter.add(0);
+        //adapter.remove(0);
+
+        list.setAdapter(adapter);
 
         Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
 
@@ -135,8 +145,8 @@ public class Courses extends AppCompatActivity {
         addCourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adapter.add("Course Name","Description");
-
+                //adapter.add("Course Name","Description");
+                new FrankInsertCourse().execute();
 
             }
 
@@ -179,16 +189,19 @@ public class Courses extends AppCompatActivity {
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
 
-                    courses.add(new course("", userID, jsonObj.getString("id"), jsonObj.getString("course"), jsonObj.getString("description"), jsonObj.getString("date"), "",
-                            "", "", ""));
-                    //courses.get(i).courseID = jsonObj.getString("id");
-                    //courses.get(i).courseName = jsonObj.getString("course");
-                    //courses.get(i).courseStartDate = jsonObj.getString("date");
-                    //courses.get(i).courseDesc = jsonObj.getString("description");
-                    //courses.add(new course(jsonObj.getString("course"), ));
-                    //subItems.add("start date: " + jsonObj.getString("date"));
-                    //expandableListDetail.put(jsonObj.getString("course"), subItems);
-                    System.out.println(courses.get(i).courseID.toString());
+                    if(i >= numCoursesLoaded){
+                        courses.add(new course("", userID, jsonObj.getString("id"), jsonObj.getString("course"), jsonObj.getString("description"), jsonObj.getString("date"), "",
+                                "", "", ""));
+                        //courses.get(i).courseID = jsonObj.getString("id");
+                        //courses.get(i).courseName = jsonObj.getString("course");
+                        //courses.get(i).courseStartDate = jsonObj.getString("date");
+                        //courses.get(i).courseDesc = jsonObj.getString("description");
+                        //courses.add(new course(jsonObj.getString("course"), ));
+                        //subItems.add("start date: " + jsonObj.getString("date"));
+                        //expandableListDetail.put(jsonObj.getString("course"), subItems);
+                        System.out.println(courses.get(i).courseID.toString());
+                        numCoursesLoaded++;
+                    }
                 }
                 return jsonArray;
 
@@ -214,16 +227,15 @@ public class Courses extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    ListView list = (ListView) findViewById(R.id.courseListView);
-                    adapter=new CoursesListAdapter(list.getContext(), courseList);
-                    //adapter.add(0);
-                    //adapter.remove(0);
 
-                    list.setAdapter(adapter);
                     //adapter.add(courses);
                     int length = courses.size();
-                    for (int i = 0; i < length; i++) {
-
+                    int iStart = 0;
+                    if(firstCourseLoad == false)
+                        iStart = numCoursesLoaded-1;
+                    else
+                        firstCourseLoad = false;
+                    for (int i = iStart; i < length; i++) {
                         adapter.add(courses.get(i).courseName, courses.get(i).courseDesc);
                     }
 
@@ -235,4 +247,50 @@ public class Courses extends AppCompatActivity {
             });
         }
     }
+
+    public class FrankInsertCourse extends AsyncTask {
+        @Override
+        protected void onPreExecute() {
+        }
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+            try {
+                //DataUtil dataUtil = new DataUtil("courseTrial.php");
+
+                HashMap <String, String> params = new HashMap<String, String>();
+                params.put("userid", userID);
+                //params.put("password", passwordEditText.getText().toString());
+                //?username=testuser&password=password
+                DataUtil dataUtil = new DataUtil("POST","insertCourse.php?userid="+userID);
+
+                String jsonString = dataUtil.process(null);
+                //Log.d(TAG, jsonString);
+                JSONArray jsonArray = new JSONArray(jsonString);
+
+                String errorOccurred = null;
+                int length = jsonArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject jsonObj = jsonArray.getJSONObject(i);
+                    //if(errorOccurred.equals(null))
+                    //    errorOccurred = jsonObj.getString("error");
+                    //if(!errorOccurred.equals(null))
+                    //    return "Error";
+                    courseID = jsonObj.getString("userid");
+
+                }
+                return jsonArray;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                return new String("Exception: " + e.getMessage());
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Object o){
+            new FrankCourseData().execute();
+        }
+
+    }
+
 }

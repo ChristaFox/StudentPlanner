@@ -60,7 +60,7 @@ public class WhatIf extends AppCompatActivity {
 
         assignments = new ArrayList<>();
         assignString = new StringBuilder();
-        getAssignments();
+        //getAssignments();
         assignmentList = (ListView) findViewById(R.id.listView2);
         calculate = (Button) findViewById(R.id.button3);
 
@@ -72,6 +72,7 @@ public class WhatIf extends AppCompatActivity {
 
     //whatIfPoints = getText().toString();
 
+    /*
     //Adapter
     private class WhatIfAssignAdapter extends ArrayAdapter<Assignment> {
         private WhatIfAssignAdapter() {
@@ -186,8 +187,9 @@ public class WhatIf extends AppCompatActivity {
             });
         }
 
-
-
-
     }
+    */
+
+
+
 }
