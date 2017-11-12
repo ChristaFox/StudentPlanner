@@ -16,7 +16,7 @@
         android:paddingTop="5dp">
 
         <TextVeiw
-            android:id="@+id/contactName"
+            android:id="@+id/contactFirstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -34,10 +34,27 @@
             android:textStyle="bold" />
 
         <TextVeiw
+            android:id="@+id/contactLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/contactFirstName"
+            android:layout_weight="1"
+            android:ems="10"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:text="Name"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextVeiw
             android:id="@+id/contactEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/contactName"
+            android:layout_below="@+id/contactFirstName"
             android:layout_weight="1"
             android:ems="10"
             android:paddingBottom="5dp"
@@ -53,7 +70,7 @@
             android:id="@+id/contactPhoneNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/contactName"
+            android:layout_below="@+id/contactLastName"
             android:layout_toRightOf="@+id/contactEmail"
             android:layout_weight="1"
             android:ems="10"
