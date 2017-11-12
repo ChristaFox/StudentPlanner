@@ -42,12 +42,26 @@ public class Course extends AppCompatActivity {
         whatIf = (Button) findViewById(R.id.whatIf);
         courseNameTextView = (TextView) findViewById(R.id.courseNameTextView);
         descriptionTextView = (TextView) findViewById(R.id.descriptionTextView);
+        TextView currentAttendance = (TextView) findViewById(R.id.textView11);
+        TextView currentGrade = (TextView) findViewById(R.id.textView12);
+        TextView gradeGoal = (TextView) findViewById(R.id.textView13);
 
         Bundle bundle = getIntent().getExtras();
         String courseName = bundle.getString("courseName");
         userID = getIntent().getStringExtra("userID");
         courseID = getIntent().getStringExtra("courseID");
         String description = getIntent().getStringExtra("description");
+
+        /*
+        intent.putExtra("absences", course.absences);
+        intent.putExtra("absencesAllowed", course.absencesAllowed);
+        intent.putExtra("currentGrade", course.currentGrade);
+        intent.putExtra("currentGradeGoal", course.currentGradeGoal);
+        */
+        currentAttendance.setText("Current Attendance: "+getIntent().getStringExtra("absences")+" of "+
+        getIntent().getStringExtra("absencesAllowed")+" absences allowed");
+        currentGrade.setText("Current Grade: "+getIntent().getStringExtra("currentGrade"));
+        gradeGoal.setText("Grade Goal: "+getIntent().getStringExtra("currentGradeGoal"));
 
         courseNameTextView.setText(courseName);
         descriptionTextView.setText(description);

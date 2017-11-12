@@ -86,6 +86,7 @@ public class Assignments extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 adapter.add("Assignment", "", " / ");
+                adapter.notifyDataSetChanged();
             }
         });
     }
@@ -116,7 +117,8 @@ public class Assignments extends AppCompatActivity {
                     assignmentList.get(i).currentGradeGoal = jsonObj.getString("pointsGoal");
                     assignmentList.get(i).assignEndDate = jsonObj.getString("dueDate");
                     */
-                    System.out.println(assignmentList.get(i).courseID.toString());
+                    System.out.println(assignmentList.get(i).assignID.toString());
+                    System.out.println(assignmentList.get(i).assignName.toString());
 
                 }
                 return jsonArray;

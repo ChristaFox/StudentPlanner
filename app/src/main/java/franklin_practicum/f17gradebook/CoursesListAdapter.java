@@ -148,6 +148,10 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
                     intent.putExtra("userID", course.userID);
                     intent.putExtra("courseID", course.courseID);
                     intent.putExtra("assignmentID", course.assignID);
+                    intent.putExtra("absences", course.absences);
+                    intent.putExtra("absencesAllowed", course.absencesAllowed);
+                    intent.putExtra("currentGrade", course.currentGrade);
+                    intent.putExtra("currentGradeGoal", course.currentGradeGoal);
                     activityContext.startActivity(intent);
                 }
             });
