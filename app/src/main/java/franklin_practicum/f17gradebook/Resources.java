@@ -14,58 +14,42 @@ import java.util.ArrayList;
 
 public class Resources extends AppCompatActivity {
 
-        private void putArraysInIntent(Intent i) {
+    private void putArraysInIntent(Intent i) {
         i.putExtra("userID", userID);
-        i.putExtra("resourceID", resourceID);
+        i.putExtra("resourcesID", resourcesID);
     }
 
     private void getArraysFromIntent() {
         userID = getIntent().getStringExtra("userID");
-        resourceID = getIntent().getStringExtra("resourceID");
+        resourcesID = getIntent().getStringExtra("resourcesID");
     }
 
-    private String userID;
-    private int ResourceID;
-
     public class resource {
-        public String userID, resourceID, website, resourceName;
 
-        public resource() {
-        }
+        public String userID, resourcesID, website, resourceName;
 
-        public resource(String userID, String resourceID, String website, String resourceName) {
+        public resource() {}
+
+        public resource(String userID, String resourcesID, String website, String resourceName) {
             this.userID = userID;
-            this.resourceID = resourceID;
+            this.resourcesID = resourcesID;
             this.website = website;
             this.resourceName = resourceName;
         }
     }
+
+    private String userID, resourcesID;
 
     public ArrayList<resource> resources = new ArrayList<>();
 
     ArrayList<Object> resourcesList = new ArrayList<Object>();
     ResourcesListAdapter resourcesAdapter;
 
-    private Button contactsButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resources);
         getArraysFromIntent();
-
-        contactsButton = (Button) findViewById(R.id.contactsButton);
-
-        Bundle bundle = getIntent().getExtras();
-        String resourceName= bundle.getString("resourceName");
-        String website= bundle.getString("website");
-
-        contactsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //if(validEmail && validPassword)
-                Intent intent = new Intent(Resources.this, Contacts.class);
-                startActivity(intent);
 
         new FrankAssignData().execute();
 
@@ -85,7 +69,16 @@ public class Resources extends AppCompatActivity {
         addResourceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resourcesAdapter.add(" ");
+                resourcesAdapter.add("ResourceName: ", "Website: ");
+            }
+        });
+
+        Button contactsButton = (Button) findViewById(R.id.contactsButton);
+        contactsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Resources.this, Contacts.class);
+                startActivity(intent);
             }
         });
     }
@@ -108,8 +101,8 @@ public class Resources extends AppCompatActivity {
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
 
-                    resources.add(new Resources().resource());
-                    resources.get(i).resourceID = jsonObj.getString("resource ID: ");
+                    resources.add(new Resources.resource());
+                    resources.get(i).resourcesID = jsonObj.getString("resource ID: ");
                     resources.get(i).resourceName = jsonObj.getString("name: ");
                     resources.get(i).website = jsonObj.getString("URL: ");
 
@@ -145,5 +138,4 @@ public class Resources extends AppCompatActivity {
             });
         }
     }
-
 }

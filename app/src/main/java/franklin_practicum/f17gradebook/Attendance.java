@@ -63,7 +63,7 @@ public class Attendance extends AppCompatActivity {
 
         absencesListView.setAdapter(attendAdapter);
 
-        attendAdapter.add(" / / ");
+        attendAdapter.add("11/7/2017");
         int length = absences.size();
         for (int i = 0; i < length; i++) {
             attendAdapter.add(absences.get(i).absenceDate);

@@ -85,19 +85,19 @@ public class ResourcesListAdapter extends ArrayAdapter<Object>{
             convertView = LayoutInflater.from(resourceContext).inflate(
                     R.layout.activity_attendance, null);
             holder = new ViewHolder();
-            holder.resourceNameTextVeiw = (TextView)convertView.findViewById(R.id.resourceName);
-            holder.websiteTextVeiw = (TextView)convertView.findViewById(R.id.website);
+            holder.resourceNameTextView = (TextView)convertView.findViewById(R.id.resourceName);
+            holder.websiteTextView = (TextView)convertView.findViewById(R.id.website);
             holder.archiveImageView = (ImageView)convertView.findViewById(R.id.archiveImageView);
             holder.deleteImageView = (ImageView)convertView.findViewById(R.id.deleteImageView);
             holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
 
             //if(!courseName.equals(null)) {
-            holder.resourceNameTextVeiw.setText(resourceName);
-            holder.websiteTextVeiw.setText(website);
+            holder.resourceNameTextView.setText(resourceName);
+            holder.websiteTextView.setText(website);
 
             //}
 
-            holder.resourceNameTextVeiw.addTextChangedListener(new TextWatcher() {
+            holder.resourceNameTextView.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 }
@@ -118,7 +118,7 @@ public class ResourcesListAdapter extends ArrayAdapter<Object>{
                 @Override
                 public void onClick(View arg0) {
                     Intent intent = new Intent(resourceContext.getApplicationContext(), Resources.class);
-                    intent.putExtra("resourceNameTextVeiw", holder.resourceNameTextVeiw.getText().toString());
+                    intent.putExtra("resourceNameTextView", holder.resourceNameTextView.getText().toString());
                     resourceContext.startActivity(intent);
                 }
             });
@@ -155,11 +155,10 @@ public class ResourcesListAdapter extends ArrayAdapter<Object>{
     }
 
     private static class ViewHolder{
-        TextView dateOfAbsenceTextView;
+        ListView resourcesListView;
         ImageView archiveImageView, deleteImageView;
         RelativeLayout relativeLayout;
-        public TextView resourceNameTextVeiw;
-        public TextView websiteTextVeiw;
+        TextView resourceNameTextView, websiteTextView;
     }
 
     public Object getItem(int position){
