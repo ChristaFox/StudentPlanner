@@ -47,10 +47,10 @@ public class Course extends AppCompatActivity {
         String courseName = bundle.getString("courseName");
         userID = getIntent().getStringExtra("userID");
         courseID = getIntent().getStringExtra("courseID");
-        //String description= bundle.getString("description");
+        String description = getIntent().getStringExtra("description");
 
         courseNameTextView.setText(courseName);
-        //descriptionTextView.setText(description);
+        descriptionTextView.setText(description);
 
         assignmentsButton.setOnClickListener(new View.OnClickListener() {
             @Override

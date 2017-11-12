@@ -98,7 +98,7 @@ public class Assignments extends AppCompatActivity {
         @Override
         protected Object doInBackground(Object[] objects) {
             try {
-                DataUtil dataUtil = new DataUtil("CourseAssignmentListSelect.php?CourseID="+courseID+"UserID="+userID);
+                DataUtil dataUtil = new DataUtil("CourseAssignmentListSelect.php?CourseID="+courseID+"&UserID="+userID);
                 String jsonString = dataUtil.process(null);
                 //Log.d(TAG, jsonString);
                 JSONArray jsonArray = new JSONArray(jsonString);
@@ -108,7 +108,7 @@ public class Assignments extends AppCompatActivity {
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
 
-                    assignmentList.add(new Assignments.assignment(jsonObj.getString("id"),userID,courseID,"","",jsonObj.getString("dueDate"),jsonObj.getString("pointsPossible"),jsonObj.getString("pointsEarned"),jsonObj.getString("pointsGoal")));
+                    assignmentList.add(new Assignments.assignment(jsonObj.getString("id"),userID,courseID,jsonObj.getString("name"),"",jsonObj.getString("dueDate"),jsonObj.getString("pointsPossible"),jsonObj.getString("pointsEarned"),jsonObj.getString("pointsGoal")));
                     /*
                     assignmentList.get(i).assignID = jsonObj.getString("id");
                     assignmentList.get(i).pointsPossible = jsonObj.getString("pointsPossible");
