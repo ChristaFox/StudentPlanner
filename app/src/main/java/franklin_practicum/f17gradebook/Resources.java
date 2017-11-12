@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Button;
+import android.widget.Toast;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.util.ArrayList;
@@ -41,7 +43,7 @@ public class Resources extends AppCompatActivity {
     private String userID, resourcesID;
 
     public ArrayList<resource> resources = new ArrayList<>();
-
+    private ImageView addResource;
     ArrayList<Object> resourcesList = new ArrayList<Object>();
     ResourcesListAdapter resourcesAdapter;
 
@@ -51,22 +53,21 @@ public class Resources extends AppCompatActivity {
         setContentView(R.layout.activity_resources);
         getArraysFromIntent();
 
+        Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
+
         new FrankAssignData().execute();
 
-        ListView resourcesListView = (ListView) findViewById(R.id.resourcesListView);
-        resourcesAdapter = new ResourcesListAdapter((resourcesListView.getContext()), resourcesList);
+        //ListView resourcesListView = (ListView) findViewById(R.id.resourcesListView);
+        //resourcesAdapter = new ResourcesListAdapter((resourcesListView.getContext()), resourcesList);
+        //resourcesListView.setAdapter(resourcesAdapter);
+        //int length = resources.size();
+        //for (int i = 0; i < length; i++) {
+        //    resourcesAdapter.add(resources.get(i).resourceName);
+        //    resourcesAdapter.add(resources.get(i).website);
+        //}
 
-        resourcesListView.setAdapter(resourcesAdapter);
-
-        //resourcesAdapter.add(" " "URL: ");
-        int length = resources.size();
-        for (int i = 0; i < length; i++) {
-            resourcesAdapter.add(resources.get(i).resourceName);
-            resourcesAdapter.add(resources.get(i).website);
-        }
-
-        ImageView addResourceButton = (ImageView) findViewById(R.id.addResourceButton);
-        addResourceButton.setOnClickListener(new View.OnClickListener() {
+        addResource = (ImageView) findViewById(R.id.addResourceButton);
+        addResource.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 resourcesAdapter.add("ResourceName: ", "Website: ");
@@ -105,7 +106,11 @@ public class Resources extends AppCompatActivity {
                     resources.get(i).resourcesID = jsonObj.getString("resource ID: ");
                     resources.get(i).resourceName = jsonObj.getString("name: ");
                     resources.get(i).website = jsonObj.getString("URL: ");
-
+                    //String userID, String resourcesID, String website, String resourceName
+                    //Resources.add(new Resources.resource("", userID, jsonObj.getString("id"),
+                    //        jsonObj.getString("resourcesID"), jsonObj.getString("resourceName"),
+                    //        jsonObj.getString("website"), "", "", "", ""));
+                    System.out.println(resources.get(i).resourcesID.toString());
                 }
                 return jsonArray;
 
@@ -131,9 +136,21 @@ public class Resources extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    //expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
-                    //expandableListAdapter = new CustomExpandableListAdapter(CourseActivity.this, expandableListTitle, expandableListDetail);
-                    //expandableListView.setAdapter(expandableListAdapter);
+                    //ListView resourcesListView = (ListView) findViewById(R.id.resourcesListView);
+                    //resourcesAdapter = new ResourcesListAdapter((resourcesListView.getContext()), resourcesList);
+                    //resourcesListView.setAdapter(resourcesAdapter);
+                    //int length = resources.size();
+                    //for (int i = 0; i < length; i++) {
+                    //    resourcesAdapter.add(resources.get(i).resourceName);
+                    //    resourcesAdapter.add(resources.get(i).website);
+                    //}
+                    ListView resourcesListView = (ListView) findViewById(R.id.resourcesListView);
+                    resourcesAdapter = new ResourcesListAdapter((resourcesListView.getContext()), resourcesList);
+                    resourcesListView.setAdapter(resourcesAdapter);
+                    int length = resources.size();
+                    for (int i = 0; i < length; i++) {
+                        resourcesAdapter.add(resources.get(i).resourceName, resources.get(i).website);
+                    }
                 }
             });
         }
