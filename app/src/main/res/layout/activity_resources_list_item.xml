@@ -44,7 +44,7 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:paddingTop="5dp"
-            android:text="URL address"
+            android:autoLink="web"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp"
             android:textStyle="bold" />
