@@ -4,158 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
+    tools:background="#b0d4e1"
     tools:context="franklin_practicum.f17gradebook.Contacts">
+    <TextView
+        android:id="@+id/contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="11dp"
+        android:text="Contacts"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+    <ImageView
+        android:id="@+id/addContactButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/contacts"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
-    <QuickContactBadge
-        android:id="@+id/quickContactBadge3"
-        android:layout_width="64dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="24dp"
-        app:srcCompat="@android:drawable/sym_contact_card"
-        android:layout_below="@+id/quickContactBadge8"
-        android:layout_alignLeft="@+id/quickContactBadge8"
-        android:layout_alignStart="@+id/quickContactBadge8" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView"
+        android:orientation="horizontal">
 
-    <QuickContactBadge
-        android:id="@+id/quickContactBadge8"
-        android:layout_width="64dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="56dp"
-        app:srcCompat="@android:drawable/sym_contact_card"
-        android:layout_below="@+id/quickContactBadge6"
-        android:layout_alignLeft="@+id/quickContactBadge6"
-        android:layout_alignStart="@+id/quickContactBadge6" />
-
-    <QuickContactBadge
-        android:id="@+id/quickContactBadge7"
-        android:layout_width="64dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="23dp"
-        app:srcCompat="@android:drawable/sym_contact_card"
-        android:layout_below="@+id/quickContactBadge3"
-        android:layout_alignLeft="@+id/quickContactBadge3"
-        android:layout_alignStart="@+id/quickContactBadge3" />
-
-    <QuickContactBadge
-        android:id="@+id/quickContactBadge6"
-        android:layout_width="64dp"
-        android:layout_height="86dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        app:srcCompat="@android:drawable/sym_contact_card" />
-
-    <EditText
-        android:id="@+id/editText16"
-        android:layout_width="281dp"
-        android:layout_height="39dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="contact_1"
-        android:layout_alignTop="@+id/quickContactBadge8"
-        android:layout_toRightOf="@+id/quickContactBadge8"
-        android:layout_toEndOf="@+id/quickContactBadge8" />
-
-    <EditText
-        android:id="@+id/editText24"
-        android:layout_width="281dp"
-        android:layout_height="39dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="contact_2"
-        android:layout_alignTop="@+id/quickContactBadge3"
-        android:layout_alignRight="@+id/editText25"
-        android:layout_alignEnd="@+id/editText25" />
-
-    <EditText
-        android:id="@+id/editText23"
-        android:layout_width="281dp"
-        android:layout_height="39dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="contact_3"
-        android:layout_alignTop="@+id/quickContactBadge7"
-        android:layout_alignLeft="@+id/editText24"
-        android:layout_alignStart="@+id/editText24" />
-
-    <EditText
-        android:id="@+id/editText22"
-        android:layout_width="281dp"
-        android:layout_height="39dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="student user name"
-        android:layout_alignTop="@+id/quickContactBadge6"
-        android:layout_alignRight="@+id/editText25"
-        android:layout_alignEnd="@+id/editText25" />
-
-    <EditText
-        android:id="@+id/editText17"
-        android:layout_width="283dp"
-        android:layout_height="39dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="contact_1@email.franklin.edu"
-        android:layout_alignBottom="@+id/quickContactBadge8"
-        android:layout_toRightOf="@+id/quickContactBadge8"
-        android:layout_toEndOf="@+id/quickContactBadge8" />
-
-    <EditText
-        android:id="@+id/editText27"
-        android:layout_width="282dp"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="contact_2@email.franklin.edu"
-        tools:layout_editor_absoluteY="352dp"
-        android:layout_alignBottom="@+id/quickContactBadge3"
-        android:layout_alignLeft="@+id/editText24"
-        android:layout_alignStart="@+id/editText24" />
-
-    <EditText
-        android:id="@+id/editText26"
-        android:layout_width="283dp"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="contact_3@email.franklin.edu"
-        android:layout_alignBottom="@+id/quickContactBadge7"
-        android:layout_alignRight="@+id/editText23"
-        android:layout_alignEnd="@+id/editText23" />
-
-    <EditText
-        android:id="@+id/editText25"
-        android:layout_width="284dp"
-        android:layout_height="39dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="currentStudent@email.franklin.edu"
-        tools:layout_editor_absoluteY="62dp"
-        android:layout_below="@+id/editText22"
-        android:layout_toRightOf="@+id/quickContactBadge6"
-        android:layout_toEndOf="@+id/quickContactBadge6" />
-
-    <Button
-        android:id="@+id/addContact"
-        android:layout_width="131dp"
-        android:layout_height="47dp"
-        android:text="Add Contact"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="142dp"
-        android:layout_below="@+id/quickContactBadge6"
-        android:layout_alignLeft="@+id/quickContactBadge6"
-        android:layout_alignStart="@+id/quickContactBadge6"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp" />
-
-    <ImageButton
-        android:id="@+id/deleteContact"
-        android:layout_width="135dp"
-        android:layout_height="43dp"
-        app:srcCompat="@android:drawable/ic_menu_delete"
-        android:layout_alignTop="@+id/addContactButton"
-        android:layout_alignRight="@+id/editText16"
-        android:layout_alignEnd="@+id/editText16"
-        android:layout_marginRight="12dp"
-        android:layout_marginEnd="12dp" />
-
+        <ListView
+            android:id="@+id/contactListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:clipToPadding="false"
+            android:divider="@null"
+            android:dividerHeight="4dp"
+            android:longClickable="true"
+            android:paddingBottom="7dp"
+            android:paddingEnd="7dp"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingStart="7dp"
+            android:paddingTop="7dp"
+            android:scrollbars="horizontal|vertical"
+            tools:listitem="@layout/activity_contacts_list_item" />
+    </LinearLayout>
 </RelativeLayout>
+

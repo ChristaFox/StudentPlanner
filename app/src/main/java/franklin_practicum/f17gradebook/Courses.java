@@ -129,7 +129,6 @@ public class Courses extends AppCompatActivity {
             }
         });
         */
-
         resources = (ImageButton) findViewById(R.id.resources);
         resources.setOnClickListener(new View.OnClickListener() {
             @Override

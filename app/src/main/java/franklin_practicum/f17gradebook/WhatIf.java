@@ -74,7 +74,7 @@ public class WhatIf extends AppCompatActivity {
 
     /*
     //Adapter
-    private class WhatIfAssignAdapter extends ArrayAdapter<Assignment> {
+    private class WhatIfAssignAdapter extends ArrayAdapter<Assignments> {
         private WhatIfAssignAdapter() {
             super(WhatIf.this, R.layout.activity_what_if_list, assignments);
         }
@@ -90,7 +90,7 @@ public class WhatIf extends AppCompatActivity {
 
         int count = 0;
         while (assignments.size() > count) {
-            Assignment assign = assignments.get(position);
+            Assignments assign = assignments.get(position);
             count++;
 
             //Lookup view for data population
@@ -100,8 +100,8 @@ public class WhatIf extends AppCompatActivity {
 
 
             //Populate data into template view using data object
-            name.setText(assign.getName());
-            ptsAvail.setText(String.valueOf(assign.getPtsAvail()));
+            //name.setText(assign.getName());
+            //ptsAvail.setText(String.valueOf(assign.getPtsAvail()));
 
             //****TO DO*** FIgure out how to dynamically pull in points entered.
             // Add listener for edit text
@@ -159,9 +159,9 @@ public class WhatIf extends AppCompatActivity {
 
                                 for (int i = 0; i<arr.length(); i++){
                                     JSONObject obj = arr.getJSONObject(i);
-                                    Assignment newassign = new Assignment(obj.getString("assignmentID"), userID, courseID, obj.getString("name"), obj.getString("startDate"), obj.getString("dueDate"), obj.getInt("pointsPossible"), 0, obj.getInt("pointsGoal"));
-                                    System.out.print(newassign.getPtsAvail());
-                                    assignments.add(newassign);
+                                    //Assignments newassign = new Assignments(obj.getString("assignmentID"), userID, courseID, obj.getString("name"), obj.getString("startDate"), obj.getString("dueDate"), obj.getInt("pointsPossible"), 0, obj.getInt("pointsGoal"));
+                                    //System.out.print(newassign.getPtsAvail());
+                                    //assignments.add(newassign);
                                 }
                             }
                         } catch (JSONException e) {
