@@ -147,7 +147,7 @@ public class Courses extends AppCompatActivity {
             }*/
 
         });
-    /*
+
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -155,7 +155,6 @@ public class Courses extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        */
     }
 
     public class FrankCourseData extends AsyncTask {
@@ -174,7 +173,7 @@ public class Courses extends AppCompatActivity {
                 int length = jsonArray.length();
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
-                    courses.add(new CourseEntity(jsonObj.getString("id"), jsonObj.getString("course"), ""));
+                    courses.add(new CourseEntity(jsonObj.getString("course"), ""));
                 }
 
                 return jsonArray;
@@ -189,8 +188,7 @@ public class Courses extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    userID = getIntent().getStringExtra("userID");
-                    adapter = new CourseListAdapter1(userID, Courses.this, courses);
+                    adapter = new CourseListAdapter1(Courses.this, courses);
                     list.setAdapter(adapter);
                 }
             });

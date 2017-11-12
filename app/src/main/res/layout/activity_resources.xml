@@ -4,154 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
+    tools:background="#b0d4e1"
     tools:context="franklin_practicum.f17gradebook.Resources">
-
-    <ImageButton
-        android:id="@+id/imageButton4"
+    <TextView
+        android:id="@+id/resources"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/gallery_thumb"
-        tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="202dp"
-        android:layout_alignTop="@+id/imageButton7"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/gallery_thumb"
-        tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="345dp"
-        android:layout_alignTop="@+id/imageButton6"
-        android:layout_alignLeft="@+id/imageButton9"
-        android:layout_alignStart="@+id/imageButton9" />
-
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/gallery_thumb"
-        tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="479dp"
-        android:layout_marginTop="24dp"
-        android:layout_below="@+id/imageButton8"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/gallery_thumb"
-        tools:layout_editor_absoluteX="303dp"
-        tools:layout_editor_absoluteY="202dp"
-        android:layout_alignTop="@+id/imageButton9"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <ImageButton
-        android:id="@+id/imageButton9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/gallery_thumb"
-        tools:layout_editor_absoluteX="303dp"
-        tools:layout_editor_absoluteY="345dp"
-        android:layout_alignTop="@+id/imageButton8"
-        android:layout_alignLeft="@+id/imageButton3"
-        android:layout_alignStart="@+id/imageButton3" />
-
-    <ImageButton
-        android:id="@+id/imageButton8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/gallery_thumb"
-        tools:layout_editor_absoluteX="303dp"
-        tools:layout_editor_absoluteY="479dp"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/imageButton2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <QuickContactBadge
-        android:id="@+id/quickContactBadge"
-        android:layout_width="65dp"
-        android:layout_height="58dp"
-        app:srcCompat="@android:drawable/sym_action_email"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:layout_alignBottom="@+id/contacts"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:id="@+id/contacts"
-        android:layout_width="314dp"
-        android:layout_height="60dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="contacts"
-        tools:layout_editor_absoluteY="16dp"
-        tools:layout_editor_absoluteX="97dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="11dp"
+        android:text="Resources"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+    <ImageView
+        android:id="@+id/addResourceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="13dp" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/gallery_thumb"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="479dp"
-        android:layout_alignTop="@+id/imageButton3"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/gallery_thumb"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="345dp"
-        android:layout_alignTop="@+id/imageButton2"
-        android:layout_centerHorizontal="true" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/gallery_thumb"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="202dp"
-        android:layout_marginTop="23dp"
-        android:layout_below="@+id/imageButton10"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageButton
-        android:id="@+id/imageButton10"
-        android:layout_width="65dp"
-        android:layout_height="59dp"
-        app:srcCompat="@android:drawable/ic_menu_delete"
-        tools:layout_editor_absoluteX="303dp"
-        tools:layout_editor_absoluteY="101dp"
-        android:layout_alignTop="@+id/button6"
-        android:layout_alignLeft="@+id/imageButton"
-        android:layout_alignStart="@+id/imageButton" />
+        android:layout_alignBottom="@+id/resources"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="262dp"
-        android:layout_height="54dp"
-        android:text="Upload Assignments"
-        tools:layout_editor_absoluteY="101dp"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/quickContactBadge"
+        android:id="@+id/contactsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contacts"
+        android:layout_alignParentBottom="@+id/resources"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="50dp"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/resourcesListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:clipToPadding="false"
+            android:divider="@null"
+            android:dividerHeight="4dp"
+            android:longClickable="true"
+            android:paddingBottom="7dp"
+            android:paddingEnd="7dp"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingStart="7dp"
+            android:paddingTop="7dp"
+            android:scrollbars="horizontal|vertical"
+            tools:listitem="@layout/activity_resources_list_item" />
+    </LinearLayout>
 </RelativeLayout>
+

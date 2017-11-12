@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -11,31 +10,29 @@
             android:id="@+id/editText7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:contextClickable="false"
             android:editable="false"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
             android:paddingLeft="5dp"
             android:paddingTop="5dp"
             android:text="Name"
-            android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/editText8"
-            android:layout_width="wrap_content"
+            android:layout_width="71dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/editText7"
             android:layout_toRightOf="@+id/editText7"
             android:ems="10"
+            android:gravity="right"
             android:inputType="textPersonName"
             android:paddingTop="5dp"
-            android:text="Actual"
+
+            android:text="Pts Avail"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp" />
 
@@ -43,15 +40,18 @@
             android:id="@+id/editText9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="73dp"
-            android:layout_marginStart="73dp"
-            android:layout_toEndOf="@+id/editText7"
-            android:layout_toRightOf="@+id/editText7"
+
+            android:layout_alignParentEnd="true"
+
+            android:layout_alignParentRight="true"
+            android:layout_toEndOf="@+id/editText8"
+            android:layout_toRightOf="@+id/editText8"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:gravity="right"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="numberDecimal"
             android:paddingTop="5dp"
-            android:text="What If?"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp" />
 
