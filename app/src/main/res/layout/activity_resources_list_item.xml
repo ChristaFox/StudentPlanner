@@ -16,26 +16,26 @@
         android:paddingTop="5dp">
 
         <TextVeiw
-            android:id="@+id/urlName"
+            android:id="@+id/resourceName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_alignBottom="@+id/urlAddress"
+            android:layout_alignBottom="@+id/website"
             android:layout_weight="1"
             android:ems="10"
             android:paddingBottom="5dp"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:paddingTop="5dp"
-            android:text="URLName"
+            android:text="resourceName"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextVeiw
-            android:id="@+id/urlAddress"
+            android:id="@+id/website"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -54,7 +54,7 @@
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/urlName"
+            android:layout_alignBottom="@+id/website"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
