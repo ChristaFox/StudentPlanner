@@ -1,54 +1,21 @@
 package franklin_practicum.f17gradebook;
 
 import android.content.Intent;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatImageView;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 
-
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 import java.util.List;
 
-public class ContactsListAdapter extends ArrayAdapter<Object>{
+public class ContactListAdapter extends ArrayAdapter<Object>{
 
     private String userID, courseID;
 
@@ -58,9 +25,9 @@ public class ContactsListAdapter extends ArrayAdapter<Object>{
     public String contactFirstName, contactLastName, contactEmail, contactPhone, contactNotes;
     private int contactID;
 
-    public static final String TAG = ContactsListAdapter.class.getSimpleName();
+    public static final String TAG = ContactListAdapter.class.getSimpleName();
 
-    public ContactsListAdapter(Context contactContext, List<Object> contactList){
+    public ContactListAdapter(Context contactContext, List<Object> contactList){
         super(contactContext, R.layout.activity_contact_list, contactList);
         contactContext = contactContext;
         this.contactList = contactList;
@@ -87,10 +54,10 @@ public class ContactsListAdapter extends ArrayAdapter<Object>{
             convertView = LayoutInflater.from(contactContext).inflate(
                     R.layout.activity_contact_list, null);
             holder = new ViewHolder();
-            holder.contactFirstNameTextVeiw = (TextView) convertView.findViewById(R.id.contactFirstNameTextVeiw);
-            holder.contactLastNameTextView = (TextView)convertView.findViewById(R.id.contactLastNameTextVeiw);
-            holder.contactEmailTextView = (TextView)convertView.findViewById(R.id.contactEmailTextVeiw);
-            holder.contactPhoneNumTextView = (TextView)convertView.findViewById(R.id.contactPhoneNumTextVeiw);
+            holder.contactFirstNameTextView = (TextView) convertView.findViewById(R.id.contactFirstNameTextView);
+            holder.contactLastNameTextView = (TextView)convertView.findViewById(R.id.contactLastNameTextView);
+            holder.contactEmailTextView = (TextView)convertView.findViewById(R.id.contactEmailTextView);
+            holder.contactPhoneNumTextView = (TextView)convertView.findViewById(R.id.contactPhoneNumTextView);
             holder.archiveImageView = (ImageView)convertView.findViewById(R.id.archiveImageView);
             holder.deleteImageView = (ImageView)convertView.findViewById(R.id.deleteImageView);
             holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
@@ -100,7 +67,52 @@ public class ContactsListAdapter extends ArrayAdapter<Object>{
             holder.contactEmailTextView.setText(contactEmail);
             holder.contactPhoneNumTextView.setText(contactPhone);
 
-            holder.contactNameTextView.addTextChangedListener(new TextWatcher() {
+            holder.contactFirstNameTextView.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+
+            holder.contactLastNameTextView.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+
+            holder.contactEmailTextView.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+
+            holder.contactPhoneNumTextView.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 }
@@ -123,7 +135,7 @@ public class ContactsListAdapter extends ArrayAdapter<Object>{
                     intent.putExtra("first name", holder.contactFirstNameTextView.getText().toString());
                     intent.putExtra("last name", holder.contactLastNameTextView.getText().toString());
                     intent.putExtra("email", holder.contactEmailTextView.getText().toString());
-                    intent.putExtra("phone number", holder.contactPhoneNumTextView).getText().toString();
+                    intent.putExtra("phone number", (CharSequence) holder.contactPhoneNumTextView).getCharSequenceExtra("").toString();
                     contactContext.startActivity(intent);
                 }
             });
@@ -159,8 +171,8 @@ public class ContactsListAdapter extends ArrayAdapter<Object>{
         this.notifyDataSetChanged();
     }
 
-    private static class ViewHolder{
-        TextView contactFirstNameTextVeiw, contactLastNameTextView, contactEmailTextView, contactPhoneNumTextView;
+    private class ViewHolder{
+        TextView contactFirstNameTextView, contactLastNameTextView, contactEmailTextView, contactPhoneNumTextView;
         ImageView archiveImageView, deleteImageView;
         RelativeLayout relativeLayout;
     }
