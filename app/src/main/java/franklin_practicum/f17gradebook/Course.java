@@ -44,11 +44,13 @@ public class Course extends AppCompatActivity {
         descriptionTextView = (TextView) findViewById(R.id.descriptionTextView);
 
         Bundle bundle = getIntent().getExtras();
-        String courseName= bundle.getString("courseName");
-        String description= bundle.getString("description");
+        String courseName = bundle.getString("courseName");
+        userID = getIntent().getStringExtra("userID");
+        courseID = getIntent().getStringExtra("courseID");
+        //String description= bundle.getString("description");
 
         courseNameTextView.setText(courseName);
-        descriptionTextView.setText(description);
+        //descriptionTextView.setText(description);
 
         assignmentsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +65,9 @@ public class Course extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Course.this, Calendar.class);
-                putArraysInIntent(intent);
+                //putArraysInIntent(intent);
+                intent.putExtra("userID", userID);
+                intent.putExtra("courseID", courseID);
                 startActivity(intent);
             }
         });

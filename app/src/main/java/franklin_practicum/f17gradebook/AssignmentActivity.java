@@ -42,6 +42,8 @@ public class AssignmentActivity extends AppCompatActivity {
             try {
                 HashMap<String, String> args = new HashMap<>();
                 args.put("date", (String)objects[0]);
+                args.put("userID", (String)objects[1]);
+                args.put("courseID", (String)objects[2]);
                 DataUtil dataUtil = new DataUtil("GET","AssignmentList.php");
                 String jsonString = dataUtil.process(args);
                 JSONArray jsonArray = new JSONArray(jsonString);
@@ -91,7 +93,7 @@ public class AssignmentActivity extends AppCompatActivity {
             strDate = dateFormat.format(date);
         }
 
-        new AssignmentData().execute(strDate);
+        new AssignmentData().execute(strDate, getIntent().getStringExtra("userID"), getIntent().getStringExtra("courseID"));
 
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             @Override
