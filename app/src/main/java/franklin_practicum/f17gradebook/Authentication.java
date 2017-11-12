@@ -294,7 +294,8 @@ public class Authentication extends AppCompatActivity {
                     userID = jsonObj.getString("UserID");
 
                     Intent intent = new Intent(Authentication.this, Courses.class);
-                    putArraysInIntent(intent);
+                    //putArraysInIntent(intent);
+                    intent.putExtra("userID", userID);
                     startActivity(intent);
                 }
 
