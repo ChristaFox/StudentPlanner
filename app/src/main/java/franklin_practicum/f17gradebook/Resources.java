@@ -1,21 +1,20 @@
 package franklin_practicum.f17gradebook;
 
-        import android.content.Intent;
-        import android.os.AsyncTask;
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.ImageView;
-        import android.widget.ListView;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.Button;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.util.ArrayList;
 
-        import org.json.JSONArray;
-        import org.json.JSONObject;
+public class Resources extends AppCompatActivity {
 
-        import java.util.ArrayList;
-
-    public class Resources extends AppCompatActivity {
-
-    private void putArraysInIntent(Intent i) {
+        private void putArraysInIntent(Intent i) {
         i.putExtra("userID", userID);
         i.putExtra("resourceID", resourceID);
     }
@@ -24,6 +23,9 @@ package franklin_practicum.f17gradebook;
         userID = getIntent().getStringExtra("userID");
         resourceID = getIntent().getStringExtra("resourceID");
     }
+
+    private String userID;
+    private int ResourceID;
 
     public class resource {
         public String userID, resourceID, website, resourceName;
@@ -39,14 +41,12 @@ package franklin_practicum.f17gradebook;
         }
     }
 
-    private String userID, ResourceID;
-
-    private Button contactsButton;
-
     public ArrayList<resource> resources = new ArrayList<>();
 
     ArrayList<Object> resourcesList = new ArrayList<Object>();
     ResourcesListAdapter resourcesAdapter;
+
+    private Button contactsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
