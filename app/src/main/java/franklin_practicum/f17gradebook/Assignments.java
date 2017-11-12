@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -50,7 +51,7 @@ public class Assignments extends AppCompatActivity {
 
     public ArrayList<assignment> assignments = new ArrayList<assignment>();
 
-    ArrayList<Object> assignmentList=new ArrayList<Object>();
+    ArrayList<assignment> assignmentList=new ArrayList<assignment>();
     AssignmentsListAdapter adapter;
 
     @Override
@@ -59,18 +60,16 @@ public class Assignments extends AppCompatActivity {
         setContentView(R.layout.activity_assignments);
         getArraysFromIntent();
 
-        new FrankAssignData().execute();
+        //Toast.makeText(getApplicationContext(), "courseID: "+courseID, Toast.LENGTH_LONG).show();
 
         ListView list = (ListView) findViewById(R.id.listView);
-        adapter=new AssignmentsListAdapter(list.getContext(), assignmentList);
+        adapter=new AssignmentsListAdapter(this, assignmentList);
 
         list.setAdapter(adapter);
 
-        adapter.add("testName","11/7/2017","30/30");
-        int length = assignments.size();
-        for (int i = 0; i < length; i++) {
-            adapter.add(assignments.get(i).assignName, assignments.get(i).assignEndDate, assignments.get(i).pointsEarned+"/"+assignments.get(i).pointsPossible);
-        }
+        new FrankAssignData().execute();
+
+        //adapter.add("testName","11/7/2017","30/30");
 
         Button button5 = (Button) findViewById(R.id.button5);
         button5.setOnClickListener(new View.OnClickListener() {
@@ -100,21 +99,24 @@ public class Assignments extends AppCompatActivity {
         protected Object doInBackground(Object[] objects) {
             try {
                 DataUtil dataUtil = new DataUtil("CourseAssignmentListSelect.php?CourseID="+courseID+"UserID="+userID);
-                //DataUtil dataUtil = new DataUtil("CourseAssignmentListSelect.php?CourseID="+"6"+"UserID="+"30");
                 String jsonString = dataUtil.process(null);
                 //Log.d(TAG, jsonString);
                 JSONArray jsonArray = new JSONArray(jsonString);
 
                 int length = jsonArray.length();
+                System.out.println(length);
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
 
-                    assignments.add(new Assignments.assignment());
-                    assignments.get(i).assignID = jsonObj.getString("id");
-                    assignments.get(i).pointsPossible = jsonObj.getString("pointsPossible");
-                    assignments.get(i).pointsEarned = jsonObj.getString("pointsEarned");
-                    assignments.get(i).currentGradeGoal = jsonObj.getString("pointsGoal");
-                    assignments.get(i).assignEndDate = jsonObj.getString("dueDate");
+                    assignmentList.add(new Assignments.assignment(jsonObj.getString("id"),userID,courseID,"","",jsonObj.getString("dueDate"),jsonObj.getString("pointsPossible"),jsonObj.getString("pointsEarned"),jsonObj.getString("pointsGoal")));
+                    /*
+                    assignmentList.get(i).assignID = jsonObj.getString("id");
+                    assignmentList.get(i).pointsPossible = jsonObj.getString("pointsPossible");
+                    assignmentList.get(i).pointsEarned = jsonObj.getString("pointsEarned");
+                    assignmentList.get(i).currentGradeGoal = jsonObj.getString("pointsGoal");
+                    assignmentList.get(i).assignEndDate = jsonObj.getString("dueDate");
+                    */
+                    System.out.println(assignmentList.get(i).courseID.toString());
 
                 }
                 return jsonArray;
@@ -138,14 +140,17 @@ public class Assignments extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Object o) {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    //expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
-                    //expandableListAdapter = new CustomExpandableListAdapter(CourseActivity.this, expandableListTitle, expandableListDetail);
-                    //expandableListView.setAdapter(expandableListAdapter);
-                }
-            });
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        int length = assignmentList.size();
+                        for (int i = 0; i < length; i++) {
+                            adapter.add(assignmentList.get(i).assignName, assignmentList.get(i).assignEndDate, assignmentList.get(i).pointsEarned + "/" + assignmentList.get(i).pointsPossible);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                });
         }
     }
 

@@ -49,21 +49,22 @@ import java.util.List;
 public class AssignmentsListAdapter extends ArrayAdapter<Object>{
 
     private Context activityContext;
-    private List<Object> assignmentsList;
+    private ArrayList<Assignments.assignment> assignmentsList;
 
     private EditText dateEditBox, dueEditBox, assignment;
-    //ArrayList<Object> assignmentList=new ArrayList<Object>();
-    AssignmentsListItemAdapter adapter;
+    private static LayoutInflater inflater = null;
 
     public String assignmentName, dueDate, grade;
     private int id;
 
     public static final String TAG = CoursesListAdapter.class.getSimpleName();
 
-    public AssignmentsListAdapter(Context context, List<Object> assignmentsList){
-        super(context, R.layout.activity_assignments_list, assignmentsList);
-        activityContext = context;
+    public AssignmentsListAdapter(Context context, ArrayList<Assignments.assignment> assignmentsList){
+        //super(context, R.layout.activity_assignments_list, assignmentsList);
+        super(context, R.layout.activity_assignments_list);
+        this.activityContext = context;
         this.assignmentsList = assignmentsList;
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     public void add(String assignmentName, String dueDate, String grade){
@@ -78,7 +79,7 @@ public class AssignmentsListAdapter extends ArrayAdapter<Object>{
     public View getView(final int position, View convertView, final ViewGroup parent) {
 
         final ViewHolder holder;
-        final Object course = assignmentsList.get(position);
+        final Assignments.assignment assign = assignmentsList.get(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(activityContext).inflate(
                     R.layout.activity_assignments_list_item, null);
@@ -88,9 +89,9 @@ public class AssignmentsListAdapter extends ArrayAdapter<Object>{
             holder.gradeEditBox = (EditText) convertView.findViewById(R.id.dueEditBox);
             holder.assignmnent = (EditText) convertView.findViewById(R.id.assignment);
 
-            holder.dateEditBox.setText(dueDate);
-            holder.gradeEditBox.setText(grade);
-            holder.assignmnent.setText(assignmentName);
+            holder.dateEditBox.setText(assign.assignEndDate);
+            holder.gradeEditBox.setText(assign.pointsEarned + "/" + assign.pointsPossible);
+            holder.assignmnent.setText(assign.assignName);
 
             holder.deleteImageView = (ImageView) convertView.findViewById(R.id.delete);
 

@@ -50,21 +50,27 @@ import java.util.List;
 
 public class CoursesListAdapter extends ArrayAdapter<Object>{
 
-    private String userID, courseID, assignmentID;
+    //private String userID, courseID, assignmentID;
 
     private Context activityContext;
-    private List<Object> courseList;
-    private Courses c;
-    public String courseName, courseDesc;
+    private ArrayList<Courses.course> courseList;
+    //private Courses c;
+    private static LayoutInflater inflater = null;
+
+    public String assignID, userID, courseID, courseName, courseDesc, courseStartDate,
+            courseEndDate, pointsPossible, pointsEarned, currentGradeGoal,
+            currentGrade, absencesAllowed, instructorName, numberWeeks, absences;
     private int id;
 
     public static final String TAG = CoursesListAdapter.class.getSimpleName();
 
-    public CoursesListAdapter(Context context, List<Object> courseList){
-        super(context, R.layout.activity_courses_list, courseList);
-        activityContext = context;
+    public CoursesListAdapter(Context context, ArrayList<Courses.course> courseList){
+        //super(context, R.layout.activity_courses_list, courseList);
+        super(context, R.layout.activity_courses_list);
+        this.activityContext = context;
         this.courseList = courseList;
-        c = new Courses();
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        //c = new Courses();
     }
 
     public void add(String courseName, String courseDesc){
@@ -74,12 +80,34 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
         this.add(id);
     }
 
+    public void add(String assignID, String userID, String courseID, String courseName, String courseDesc, String courseStartDate, String courseEndDate,
+                  String pointsPossible, String pointsEarned, String currentGradeGoal, String currentGrade, String absencesAllowed, String instructorName,
+                  String numberWeeks, String absences){
+        this.assignID = assignID;
+        this.userID = userID;
+        this.courseID = courseID;
+        this.courseName = courseName;
+        this.courseDesc = courseDesc;
+        this.courseStartDate = courseStartDate;
+        this.courseEndDate = courseEndDate;
+        this.pointsPossible = pointsPossible;
+        this.pointsEarned = pointsEarned;
+        this.currentGradeGoal = currentGradeGoal;
+        this.currentGrade = currentGrade;
+        this.absencesAllowed = absencesAllowed;
+        this.instructorName = instructorName;
+        this.numberWeeks = numberWeeks;
+        this.absences = absences;
+        id++;
+        this.add(id);
+    }
+
 
     @Override
     public View getView(final int position, View convertView, final ViewGroup parent) {
 
         final ViewHolder holder;
-        final Object course = courseList.get(position);
+        final Courses.course course = courseList.get(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(activityContext).inflate(
                     R.layout.activity_courses_list, null);
@@ -91,8 +119,8 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
             holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
 
             //if(!courseName.equals(null)) {
-                holder.courseNameTextView.setText(courseName);
-                holder.descriptionTextView.setText(courseDesc);
+                holder.courseNameTextView.setText(course.courseName);
+                holder.descriptionTextView.setText(course.courseDesc);
             //}
 
             holder.courseNameTextView.addTextChangedListener(new TextWatcher() {
@@ -114,9 +142,12 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
             {
                 @Override
                 public void onClick(View arg0) {
-                    Intent intent = new Intent(activityContext.getApplicationContext(), Course.class);
-                    intent.putExtra("courseName", holder.courseNameTextView.getText().toString());
-                    intent.putExtra("description", holder.descriptionTextView.getText().toString());
+                    Intent intent = new Intent(activityContext, Course.class);
+                    intent.putExtra("courseName", course.courseName);
+                    intent.putExtra("description", course.courseDesc);
+                    intent.putExtra("userID", course.userID);
+                    intent.putExtra("courseID", course.courseID);
+                    intent.putExtra("assignmentID", course.assignID);
                     activityContext.startActivity(intent);
                 }
             });
@@ -127,7 +158,8 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
                 @Override
                 public void onClick(View arg0) {
                     //holder.deleteImageView.setVisibility(View.INVISIBLE);
-                    courseList.remove(courseList.get(position));
+                    //courseList.remove(courseList.get(position));
+                    //Courses.remove(position);
                     update();
                 }
             });
@@ -141,7 +173,7 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
         }
 
         //SET UP THE IMAGES
-        final Object objectPosition = courseList.get(position);
+        //final Object objectPosition = courseList.get(position);
 
         return convertView;
 

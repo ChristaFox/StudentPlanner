@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -33,6 +34,7 @@ public class Course extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course);
         getArraysFromIntent();
+        Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
 
         assignmentsButton = (Button) findViewById(R.id.assignments);
         calendar = (Button) findViewById(R.id.calendar);

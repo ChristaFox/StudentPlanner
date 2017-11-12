@@ -51,10 +51,13 @@ public class Courses extends AppCompatActivity {
     }
 
     public class course{
-        public String assignID, userID, courseID, courseName, courseDesc, courseStartDate, courseEndDate, pointsPossible, pointsEarned, currentGradeGoal;
+        public String assignID, userID, courseID, courseName, courseDesc, courseStartDate,
+                courseEndDate, pointsPossible, pointsEarned, currentGradeGoal,
+                currentGrade, absencesAllowed, instructorName, numberWeeks, absences;
         public course(){}
         public course(String assignID, String userID, String courseID, String courseName, String courseDesc, String courseStartDate, String courseEndDate,
-                      String pointsPossible, String pointsEarned, String currentGradeGoal){
+                      String pointsPossible, String pointsEarned, String currentGradeGoal, String currentGrade, String absencesAllowed, String instructorName,
+                      String numberWeeks, String absences){
             this.assignID = assignID;
             this.userID = userID;
             this.courseID = courseID;
@@ -65,6 +68,11 @@ public class Courses extends AppCompatActivity {
             this.pointsPossible = pointsPossible;
             this.pointsEarned = pointsEarned;
             this.currentGradeGoal = currentGradeGoal;
+            this.currentGrade = currentGrade;
+            this.absencesAllowed = absencesAllowed;
+            this.instructorName = instructorName;
+            this.numberWeeks = numberWeeks;
+            this.absences = absences;
         }
     }
 
@@ -73,7 +81,7 @@ public class Courses extends AppCompatActivity {
     public ArrayList<course> courses = new ArrayList<course>();
 
     private ImageView addCourse;
-    ArrayList<Object> courseList=new ArrayList<Object>();
+    ArrayList<course> courseList=new ArrayList<course>();
     CoursesListAdapter adapter;
     private ListView list;
     private ImageView deleteButton;
@@ -83,7 +91,7 @@ public class Courses extends AppCompatActivity {
     private Context context;
 
     private int numCoursesLoaded = 0;
-    private boolean firstCourseLoad = false;
+    private boolean firstCourseLoad = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +100,7 @@ public class Courses extends AppCompatActivity {
         getArraysFromIntent();
 
         ListView list = (ListView) findViewById(R.id.courseListView);
-        adapter=new CoursesListAdapter(list.getContext(), courseList);
+        adapter=new CoursesListAdapter(this, courseList);
         //adapter.add(0);
         //adapter.remove(0);
 
@@ -170,6 +178,10 @@ public class Courses extends AppCompatActivity {
 
     }
 
+    protected void remove(int pos){
+        adapter.remove(adapter.getItem(pos));
+    }
+
     public class FrankCourseData extends AsyncTask {
         @Override
         protected void onPreExecute() {
@@ -188,9 +200,9 @@ public class Courses extends AppCompatActivity {
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
 
-                    if(i >= numCoursesLoaded){
-                        courses.add(new course("", userID, jsonObj.getString("id"), jsonObj.getString("course"), jsonObj.getString("description"), jsonObj.getString("date"), "",
-                                "", "", ""));
+                    //if(i >= numCoursesLoaded){
+                        courseList.add(new course(assignmentID, userID, jsonObj.getString("id"), jsonObj.getString("course"), jsonObj.getString("description"), jsonObj.getString("date"), "",
+                                "", "", jsonObj.getString("gradegoal"), jsonObj.getString("currentgrade"), jsonObj.getString("absencesallowed"), "", "",jsonObj.getString("absences")));
                         //courses.get(i).courseID = jsonObj.getString("id");
                         //courses.get(i).courseName = jsonObj.getString("course");
                         //courses.get(i).courseStartDate = jsonObj.getString("date");
@@ -198,9 +210,9 @@ public class Courses extends AppCompatActivity {
                         //courses.add(new course(jsonObj.getString("course"), ));
                         //subItems.add("start date: " + jsonObj.getString("date"));
                         //expandableListDetail.put(jsonObj.getString("course"), subItems);
-                        System.out.println(courses.get(i).courseID.toString());
+                        System.out.println(courseList.get(i).courseID.toString());
                         numCoursesLoaded++;
-                    }
+                    //}
                 }
                 return jsonArray;
 
@@ -228,14 +240,15 @@ public class Courses extends AppCompatActivity {
                 public void run() {
 
                     //adapter.add(courses);
-                    int length = courses.size();
+                    int length = courseList.size();
                     int iStart = 0;
                     if(firstCourseLoad == false)
-                        iStart = numCoursesLoaded-1;
+                        iStart = 0; //numCoursesLoaded-1;
                     else
                         firstCourseLoad = false;
                     for (int i = iStart; i < length; i++) {
-                        adapter.add(courses.get(i).courseName, courses.get(i).courseDesc);
+                        adapter.add(courseList.get(i).courseName, courseList.get(i).courseDesc);
+                        adapter.notifyDataSetChanged();
                     }
 
 
@@ -275,7 +288,7 @@ public class Courses extends AppCompatActivity {
                     //    errorOccurred = jsonObj.getString("error");
                     //if(!errorOccurred.equals(null))
                     //    return "Error";
-                    courseID = jsonObj.getString("userid");
+                    courseID = jsonObj.getString("courseid");
 
                 }
                 return jsonArray;
@@ -287,6 +300,9 @@ public class Courses extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Object o){
+            courseList.clear();
+            adapter.clear();
+            adapter.notifyDataSetChanged();
             new FrankCourseData().execute();
         }
 
