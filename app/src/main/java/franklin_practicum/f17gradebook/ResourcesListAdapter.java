@@ -48,7 +48,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-public class ResourceListAdapter extends ArrayAdapter<Object>{
+public class ResourcesListAdapter extends ArrayAdapter<Object>{
 
     private String userID, courseID, assignmentID;
 
@@ -59,9 +59,9 @@ public class ResourceListAdapter extends ArrayAdapter<Object>{
     public String resourceName;
     public String website;
 
-    public static final String TAG = ResourceListAdapter.class.getSimpleName();
+    public static final String TAG = ResourcesListAdapter.class.getSimpleName();
 
-    public ResourceListAdapter(Context context, List<Object> resourceList){
+    public ResourcesListAdapter(Context context, List<Object> resourceList){
         super(context, R.layout.activity_resources_list_item, resourceList);
         resourceContext = context;
         this.resourceList = resourceList;
