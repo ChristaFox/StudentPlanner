@@ -36,7 +36,7 @@ public class ContactListAdapter extends ArrayAdapter<Object>{
 
     public ContactListAdapter(Context contactContext, ArrayList<Contacts.contact> contactList){
         super(contactContext, R.layout.activity_contact_list);
-        this.activityContext = contactContext;
+        this.contactContext = contactContext;
         this.contactList = contactList;
         inflater = (LayoutInflater) contactContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         //con = new Contacts();
