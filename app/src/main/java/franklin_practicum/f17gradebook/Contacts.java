@@ -153,7 +153,7 @@ public class Contacts extends AppCompatActivity {
                     else
                         firstContactLoad = false;
                     for (int i = iStart; i < length; i++) {
-                        contactAdapter.add(contactList.get(i).contactFirstName, contactList.get(i).contactLastName), contactList.get(i).contactEmail, contactList.get(i).contactPhone;
+                        contactAdapter.add(contactList.get(i).contactFirstName, contactList.get(i).contactLastName, contactList.get(i).contactEmail, contactList.get(i).contactPhone);
                         contactAdapter.notifyDataSetChanged();
                     }
                 }
@@ -169,7 +169,7 @@ public class Contacts extends AppCompatActivity {
         protected Object doInBackground(Object[] objects) {
             try {
 
-                DataUtil dataUtil = new DataUtil("POST","insertContact.php?userID=+userID";
+                DataUtil dataUtil = new DataUtil("POST","insertContact.php?userID=+userID");
 
                 String jsonString = dataUtil.process(null);
 
