@@ -112,12 +112,9 @@ public class Authentication extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //if(validEmail && validPassword)
-                new FrankLoginUser().execute();
 
-                //Intent intent = new Intent(Authentication.this, Courses.class);
-                //putArraysInIntent(intent);
-                //startActivity(intent);
+                new FrankLoginUser().execute();
+                
             }
         });
     }
@@ -160,42 +157,10 @@ public class Authentication extends AppCompatActivity {
 
                     new FrankRegisterUser().execute();
 
-                    //Intent intent = new Intent(Authentication.this, Courses.class);
-                    //putArraysInIntent(intent);
-                    //startActivity(intent);
+                    Intent intent = new Intent(Authentication.this, Courses.class);
+                    putArraysInIntent(intent);
+                    startActivity(intent);
 
-                    /*
-                    //Try to write to database
-                    //get data from widgets
-                    //String username = (String) arg0[0];
-                    //String password = (String) arg0[1];
-
-                    //push your data into Hashmap
-                    HashMap <String, String> params = new HashMap<String, String>();
-                    params.put("email", emailEditText.getText().toString());
-                    params.put("password", passwordEditText.getText().toString());
-                    DataUtil dataUtil = new DataUtil("POST","registerUser.php");
-                    //POST/GET , HOST(don’t forget slash), php file name
-
-                    String jsonString = dataUtil.process(params); //this method will return a json string
-                    //the method process() can take ‘null’ as argument when you don’t have any parameters to pass along with your requested URL.
-                    // I make sure that the data returned by PHP script is a JSON string.
-                    try {
-                        JSONArray jsonArray = new JSONArray(jsonString);
-                    }
-                    catch (Exception e) {
-
-                    }
-
-                    if (!errorOccured.equals(null)) {
-                        Intent intent = new Intent(Authentication.this, Courses.class);
-                        putArraysInIntent(intent);
-                        startActivity(intent);
-                    }
-                    else{
-                        System.out.println(errorOccured);
-                    }
-                    */
                 }
             }
         });
@@ -212,16 +177,7 @@ public class Authentication extends AppCompatActivity {
             setMainScreen();
         }
     }
-    /*
-    //@Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.login:
 
-            break;
-        }
-    }
-    */
 
     public class FrankRegisterUser extends AsyncTask {
         @Override
@@ -232,6 +188,11 @@ public class Authentication extends AppCompatActivity {
         protected Object doInBackground(Object[] objects) {
             try {
                 //DataUtil dataUtil = new DataUtil("courseTrial.php");
+
+                if (emailEditText.getText().toString().equals(null) || emailEditText.getText().toString().equals("")){
+                    emailEditText.setText("tappan@test.com");
+                    passwordEditText.setText("Test12");
+                }
 
                 HashMap <String, String> params = new HashMap<String, String>();
                 params.put("email", emailEditText.getText().toString());
@@ -248,10 +209,7 @@ public class Authentication extends AppCompatActivity {
                 int length = jsonArray.length();
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
-                    //if(errorOccurred.equals(null))
-                    //    errorOccurred = jsonObj.getString("error");
-                    //if(!errorOccurred.equals(null))
-                    //    return "Error";
+
                     userID = jsonObj.getString("userid");
 
                 }
