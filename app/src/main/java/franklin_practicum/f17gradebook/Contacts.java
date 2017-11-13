@@ -51,10 +51,9 @@ public class Contacts extends AppCompatActivity {
     }
 
     public class contact{
-        public String contactID, userID, courseID, contactFirstName, contactLastName, contactEmail, contactPhone, contactNotes;
+        public String contactID, userID, courseID, contactFirstName, contactLastName, contactEmail, contactPhone;
         public contact(){}
-        public contact(String contactID, String userID, String courseID, String contactFirstName, String contactLastName, String contactEmail, String contactPhone,
-                      String contactNotes){
+        public contact(String contactID, String userID, String courseID, String contactFirstName, String contactLastName, String contactEmail, String contactPhone){
             this.contactID = contactID;
             this.userID = userID;
             this.courseID = courseID;
@@ -62,16 +61,15 @@ public class Contacts extends AppCompatActivity {
             this.contactLastName = contactLastName;
             this.contactEmail = contactEmail;
             this.contactPhone = contactPhone;
-            this.contactNotes = contactNotes;
         }
     }
 
     private String userID, courseID, contactID;
 
-    public ArrayList<contact> contacts = new ArrayList<~>();
+    public ArrayList<contact> contacts = new ArrayList<>();
 
     private ImageView addContact;
-    ArrayList<contact> contactList = new ArrayList<~>();
+    ArrayList<contact> contactList = new ArrayList<>();
     ContactListAdapter contactAdapter;
     private ListView contactListView;
     private TextView contactTextView;
