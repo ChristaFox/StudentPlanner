@@ -32,7 +32,7 @@ public class Resources extends AppCompatActivity {
 
         public resource() {}
 
-        public resource(String userID, String resourcesID, String website, String resourceName) {
+        public resource(String userID, String courseID, String resourcesID, String website, String resourceName) {
             this.userID = userID;
             this.resourcesID = resourcesID;
             this.website = website;
@@ -43,8 +43,9 @@ public class Resources extends AppCompatActivity {
     private String userID, resourcesID;
 
     public ArrayList<resource> resources = new ArrayList<>();
-    private ImageView addResource;
+    //private ImageView addResource;
     ArrayList<resource> resourcesList = new ArrayList<resource>();
+    private ListView resourcesListView;
     ResourcesListAdapter resourcesAdapter;
 
     @Override
@@ -53,7 +54,10 @@ public class Resources extends AppCompatActivity {
         setContentView(R.layout.activity_resources);
         getArraysFromIntent();
 
-        Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
+        resourcesListView = (ListVeiw) findViewById(R.id.resourcesListView);
+        resourcesAdapter = new ResourcesListAdapter(this, resourcesList);
+
+        resourceListVeiw.setAdapter().execute();
 
         new FrankAssignData().execute();
 
@@ -66,13 +70,13 @@ public class Resources extends AppCompatActivity {
         //    resourcesAdapter.add(resources.get(i).website);
         //}
 
-        addResource = (ImageView) findViewById(R.id.addResourceButton);
-        addResource.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resourcesAdapter.add("ResourceName: ", "Website: ");
-            }
-        });
+//        addResource = (ImageView) findViewById(R.id.addResourceButton);
+//        addResource.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                resourcesAdapter.add("ResourceName: ", "Website: ");
+//            }
+//        });
 
         Button contactsButton = (Button) findViewById(R.id.contactsButton);
         contactsButton.setOnClickListener(new View.OnClickListener() {

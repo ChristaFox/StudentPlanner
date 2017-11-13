@@ -92,7 +92,7 @@ public class Contacts extends AppCompatActivity {
 
         contactListView.setAdapter(contactAdapter);
 
-        new FrankCourseData().execute();
+        new FrankContactData().execute();
 
         contactTextView = (TextView) findViewById(R.id.coursesTextView);
 
@@ -107,7 +107,7 @@ public class Contacts extends AppCompatActivity {
 
     }
 
-    public class FrankCourseData extends AsyncTask {
+    public class FrankContactData extends AsyncTask {
         @Override
         protected void onPreExecute() {
         }
@@ -200,7 +200,7 @@ public class Contacts extends AppCompatActivity {
             contactList.clear();
             contactAdapter.clear();
             contactAdapter.notifyDataSetChanged();
-            new FrankCourseData().execute();
+            new FrankContactData().execute();
         }
 
     }
