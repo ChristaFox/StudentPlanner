@@ -68,36 +68,40 @@ public class Contacts extends AppCompatActivity {
 
     private String userID, courseID, contactID;
 
-    public ArrayList<contact> contacts = new ArrayList<>();
+    public ArrayList<contact> contacts = new ArrayList<~>();
 
     private ImageView addContact;
-    ArrayList<Object> contactList=new ArrayList<Object>();
+    ArrayList<contact> contactList = new ArrayList<~>();
     ContactListAdapter contactAdapter;
     private ListView contactListView;
-    private ImageView deleteContact;
     private TextView contactTextView;
+    private ImageView deleteContact;
     private Context contactContext;
-
+    private int numContactsLoaded = 0;
+    private boolean firstContactLoad = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
         getArraysFromIntent();
 
-        Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
+        contactListView = (ListView) findViewById(R.id.contactListView);
+        contactAdapter = new ContactListAdapter(this, contactList);
+
+        contactListView.setAdapter(contactAdapter);
 
         new FrankCourseData().execute();
 
-        contactTextView = (TextView) findViewById(R.id.contacts);
+        contactTextView = (TextView) findViewById(R.id.coursesTextView);
 
         addContact = (ImageView) findViewById(R.id.addContactButton);
-        addContact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                contactAdapter.add(contactFirstName, contactLastName, contactEmail, contactPhone, contactNotes);
-
-            }
-        });
+//        addContact.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                contactAdapter.add(contactFirstName, contactLastName, contactEmail, contactPhone, contactNotes);
+//
+//            }
+//        });
 
     }
 
@@ -118,16 +122,11 @@ public class Contacts extends AppCompatActivity {
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
 
-                    //Contacts.add(new contact("", userID, jsonObj.getString("id"), "", courseID, jsonObj.getString("course"),
-                    //        "", contactID, jsonObj.getString("ContactID"), "", "","", "", ""));
-                    Contacts.get(i).courseID = jsonObj.getString("course id");
-                    Contacts.get(i).contactFirstName = jsonObj.getString("first name");
-                    Contacts.get(i).contactLastName = jsonObj.getString("last name");
-                    Contacts.get(i).contactEmail = jsonObj.getString("email");
-                    Contacts.get(i).contactPhone = jsonObj.getString("phone number");
-                    Contacts.get(i).contactNotes = jsonObj.getString("notes");
-
                     System.out.println(contacts.get(i).courseID.toString());
+
+                    contactList.add(new Contacts.contact(courseID, userID, jsonObj.getString("contactID"), jsonObj.getString("contactFirstName"), jsonObj.getString("contactLastName"), jsonObj.getString("ContactEmail"), jsonObj.getString("ContactPhone")));
+                    System.out.println(contactList.get(i).courseID.toString());
+                    numContactsLoaded++;
                 }
                 return jsonArray;
 
@@ -142,16 +141,62 @@ public class Contacts extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    ListView contactListView = (ListView) findViewById(R.id.contactListView);
-                    contactAdapter=new ContactListAdapter(contactListView.getContext(), contactList);
-                    contactListView.setAdapter(contactAdapter);
-                    int length = contacts.size();
-                    for (int i = 0; i < length; i++) {
-                        contactAdapter.add(contacts.get(i).contactFirstName, contacts.get(i).contactLastName,contacts.get(i).contactEmail, contacts.get(i).contactPhone, contacts.get(i).contactNotes);
+//                    ListView contactListView = (ListView) findViewById(R.id.contactListView);
+//                    contactAdapter=new ContactListAdapter(contactListView.getContext(), contactList);
+//                    contactListView.setAdapter(contactAdapter);
+//                    int length = contacts.size();
+//                    for (int i = 0; i < length; i++) {
+//                        contactAdapter.add(contacts.get(i).contactFirstName, contacts.get(i).contactLastName,contacts.get(i).contactEmail, contacts.get(i).contactPhone, contacts.get(i).contactNotes);
+//                    }
+                    int length = contactList.size();
+                    int iStart = 0;
+                    if(firstContactLoad == false)
+                        iStart = 0; //numCoursesLoaded-1;
+                    else
+                        firstContactLoad = false;
+                    for (int i = iStart; i < length; i++) {
+                        contactAdapter.add(contactList.get(i).contactFirstName, contactList.get(i).contactLastName), contactList.get(i).contactEmail, contactList.get(i).contactPhone;
+                        contactAdapter.notifyDataSetChanged();
                     }
-
                 }
             });
         }
     }
-}
+    public class FrankInsertContact extends AsyncTask {
+        @Override
+        protected void onPreExecute() {
+        }
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+            try {
+
+                DataUtil dataUtil = new DataUtil("POST","insertContact.php?userID=+userID";
+
+                String jsonString = dataUtil.process(null);
+
+                JSONArray jsonArray = new JSONArray(jsonString);
+
+                String errorOccurred = null;
+                int length = jsonArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject jsonObj = jsonArray.getJSONObject(i);
+                    contactID = jsonObj.getString("ContactID");
+
+                }
+                return jsonArray;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                return new String("Exception: " + e.getMessage());
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Object o){
+            contactList.clear();
+            contactAdapter.clear();
+            contactAdapter.notifyDataSetChanged();
+            new FrankCourseData().execute();
+        }
+
+    }

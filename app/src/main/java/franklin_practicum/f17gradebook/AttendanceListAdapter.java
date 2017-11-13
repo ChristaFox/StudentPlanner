@@ -85,7 +85,7 @@ public class AttendanceListAdapter extends ArrayAdapter<Object>{
                     R.layout.activity_attendance, null);
             holder = new ViewHolder();
             holder.dateOfAbsenceTextView = (TextView) convertView.findViewById(R.id.dateOfAbsence);
-            holder.archiveImageView = (ImageView)convertView.findViewById(R.id.archiveImageView);
+            //holder.archiveImageView = (ImageView)convertView.findViewById(R.id.archiveImageView);
             holder.deleteImageView = (ImageView)convertView.findViewById(R.id.deleteImageView);
             holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
 

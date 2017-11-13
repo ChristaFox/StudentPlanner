@@ -8,7 +8,7 @@
     tools:background="#b0d4e1"
     tools:context="franklin_practicum.f17gradebook.Contacts">
     <TextView
-        android:id="@+id/contacts"
+        android:id="@+id/contactTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignBottom="@+id/contacts"
+        android:layout_alignBottom="@+id/contactTextView"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:scaleX="1.5"
@@ -40,7 +40,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/contactTextView"
         android:orientation="horizontal">
 
         <ListView
