@@ -44,7 +44,7 @@ public class Resources extends AppCompatActivity {
 
     public ArrayList<resource> resources = new ArrayList<>();
     private ImageView addResource;
-    ArrayList<Object> resourcesList = new ArrayList<Object>();
+    ArrayList<resource> resourcesList = new ArrayList<resource>();
     ResourcesListAdapter resourcesAdapter;
 
     @Override
@@ -103,9 +103,9 @@ public class Resources extends AppCompatActivity {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
 
                     resources.add(new Resources.resource());
-                    resources.get(i).resourcesID = jsonObj.getString("resource ID: ");
-                    resources.get(i).resourceName = jsonObj.getString("name: ");
-                    resources.get(i).website = jsonObj.getString("URL: ");
+                    resources.get(i).resourcesID = jsonObj.getString("resourceID");
+                    resources.get(i).resourceName = jsonObj.getString("resourceName: ");
+                    resources.get(i).website = jsonObj.getString("website");
                     //String userID, String resourcesID, String website, String resourceName
                     //Resources.add(new Resources.resource("", userID, jsonObj.getString("id"),
                     //        jsonObj.getString("resourcesID"), jsonObj.getString("resourceName"),

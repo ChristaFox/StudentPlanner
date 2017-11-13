@@ -38,7 +38,7 @@ public class Course extends AppCompatActivity {
 
         assignmentsButton = (Button) findViewById(R.id.assignments);
         calendar = (Button) findViewById(R.id.calendar);
-        attendance = (Button) findViewById(R.id.attendance);
+        //attendance = (Button) findViewById(R.id.attendance);
         whatIf = (Button) findViewById(R.id.whatIf);
         courseNameTextView = (TextView) findViewById(R.id.courseNameTextView);
         descriptionTextView = (TextView) findViewById(R.id.descriptionTextView);
@@ -86,6 +86,7 @@ public class Course extends AppCompatActivity {
             }
         });
 
+        /*
         attendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +95,7 @@ public class Course extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        */
 
         whatIf.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -53,7 +53,7 @@ public class ResourcesListAdapter extends ArrayAdapter<Object>{
     private String userID, courseID, assignmentID;
 
     private Context resourceContext;
-    private List<Object> resourceList;
+    private ArrayList<Resources.resource> resourceList;
     private Resources resource;
     private int resourceID;
     public String resourceName;
@@ -61,8 +61,8 @@ public class ResourcesListAdapter extends ArrayAdapter<Object>{
 
     public static final String TAG = ResourcesListAdapter.class.getSimpleName();
 
-    public ResourcesListAdapter(Context context, List<Object> resourceList){
-        super(context, R.layout.activity_resources_list_item, resourceList);
+    public ResourcesListAdapter(Context context, ArrayList<Resources.resource> resourceList){
+        super(context, R.layout.activity_resources_list_item);
         resourceContext = context;
         this.resourceList = resourceList;
         resource = new Resources();
@@ -80,16 +80,16 @@ public class ResourcesListAdapter extends ArrayAdapter<Object>{
     public View getView(final int position, View convertView, final ViewGroup parent) {
 
         final ViewHolder holder;
-        final Object resource = resourceList.get(position);
+        final Resources.resource resource = resourceList.get(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(resourceContext).inflate(
-                    R.layout.activity_attendance, null);
+                    R.layout.activity_resources_list_item, null);
             holder = new ViewHolder();
             holder.resourceNameTextView = (TextView)convertView.findViewById(R.id.resourceName);
             holder.websiteTextView = (TextView)convertView.findViewById(R.id.website);
-            holder.archiveImageView = (ImageView)convertView.findViewById(R.id.archiveImageView);
-            holder.deleteImageView = (ImageView)convertView.findViewById(R.id.deleteImageView);
-            holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
+           // holder.archiveImageView = (ImageView)convertView.findViewById(R.id.archiveImageView);
+           // holder.deleteImageView = (ImageView)convertView.findViewById(R.id.deleteImageView);
+           // holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
 
             //if(!courseName.equals(null)) {
             holder.resourceNameTextView.setText(resourceName);
@@ -97,6 +97,7 @@ public class ResourcesListAdapter extends ArrayAdapter<Object>{
 
             //}
 
+    /*
             holder.resourceNameTextView.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -111,6 +112,7 @@ public class ResourcesListAdapter extends ArrayAdapter<Object>{
 
                 }
             });
+
 
 
             holder.relativeLayout.setOnClickListener(new View.OnClickListener()
@@ -134,7 +136,7 @@ public class ResourcesListAdapter extends ArrayAdapter<Object>{
                 }
             });
 
-
+*/
             convertView.setTag(holder);
         } else {
 

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_bright"
+    android:background="#33b5e5"
+    tools:background="##33b5e5"
     tools:context="franklin_practicum.f17gradebook.Course">
 
     <TextView
@@ -94,22 +95,12 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:id="@+id/attendance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Attendance"
-        android:layout_marginTop="14dp"
-        android:layout_below="@+id/calendar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
         android:id="@+id/whatIf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="What If?"
-        android:layout_below="@+id/attendance"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/calendar"
+        android:layout_marginTop="13dp"
+        android:text="What If?" />
 </RelativeLayout>

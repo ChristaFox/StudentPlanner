@@ -44,7 +44,7 @@ public class WhatIf extends AppCompatActivity {
 
     //Variables
     private String userID, courseID, assignmentID;
-    private ArrayList<Assignments> assignments;
+    private ArrayList<Assignment> assignments;
     private ListView assignmentList;
     private StringBuilder assignString;
     private EditText whatIfPts;
@@ -60,7 +60,7 @@ public class WhatIf extends AppCompatActivity {
 
         assignments = new ArrayList<>();
         assignString = new StringBuilder();
-        //getAssignments();
+        getAssignments();
         assignmentList = (ListView) findViewById(R.id.listView2);
         calculate = (Button) findViewById(R.id.button3);
 
@@ -72,55 +72,54 @@ public class WhatIf extends AppCompatActivity {
 
     //whatIfPoints = getText().toString();
 
-    /*
     //Adapter
-    private class WhatIfAssignAdapter extends ArrayAdapter<Assignments> {
+    private class WhatIfAssignAdapter extends ArrayAdapter<Assignment> {
         private WhatIfAssignAdapter() {
             super(WhatIf.this, R.layout.activity_what_if_list, assignments);
         }
 
 
-    //Create view to show Assignment Name, Points and whatIfPoints
+        //Create view to show Assignment Name, Points and whatIfPoints
 
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View assignView = convertView;
-        if (assignView == null) {
-            assignView = getLayoutInflater().inflate(R.layout.activity_what_if_list, parent, false);
-        }
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View assignView = convertView;
+            if (assignView == null) {
+                assignView = getLayoutInflater().inflate(R.layout.activity_what_if_list, parent, false);
+            }
 
-        int count = 0;
-        while (assignments.size() > count) {
-            Assignments assign = assignments.get(position);
-            count++;
+            int count = 0;
+            while (assignments.size() > count) {
+                Assignment assign = assignments.get(position);
+                count++;
 
-            //Lookup view for data population
-            TextView name = (TextView) assignView.findViewById(R.id.editText7);
-            TextView ptsAvail = (TextView) assignView.findViewById(R.id.editText8);
-            whatIfPts = (EditText) assignView.findViewById(R.id.editText9);
+                //Lookup view for data population
+                TextView name = (TextView) assignView.findViewById(R.id.editText7);
+                TextView ptsAvail = (TextView) assignView.findViewById(R.id.editText8);
+                whatIfPts = (EditText) assignView.findViewById(R.id.editText9);
 
 
-            //Populate data into template view using data object
-            //name.setText(assign.getName());
-            //ptsAvail.setText(String.valueOf(assign.getPtsAvail()));
+                //Populate data into template view using data object
+                name.setText(assign.getName());
+                ptsAvail.setText(String.valueOf(assign.getPtsAvail()));
 
-            //****TO DO*** FIgure out how to dynamically pull in points entered.
-            // Add listener for edit text
-            //whatIfPoints.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                //****TO DO*** FIgure out how to dynamically pull in points entered.
+                // Add listener for edit text
+                //whatIfPoints.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
-            //    @Override
-            //    public void onFocusChange(View v, boolean hasFocus) {
-            //        if (!hasFocus) {
-            //            int itemIndex = v.getId();
-            //            String enteredPts = ((EditText) v).getText().toString();
-           //             int enteredPoints = Integer.parseInt(enteredPts);
-           //             whatIfPts = whatIfPts + enteredPoints;
-           //         }
-           //     }
-           // });
+                //    @Override
+                //    public void onFocusChange(View v, boolean hasFocus) {
+                //        if (!hasFocus) {
+                //            int itemIndex = v.getId();
+                //            String enteredPts = ((EditText) v).getText().toString();
+                //             int enteredPoints = Integer.parseInt(enteredPts);
+                //             whatIfPts = whatIfPts + enteredPoints;
+                //         }
+                //     }
+                // });
 
-        }
-        return assignView;
-    }}
+            }
+            return assignView;
+        }}
 
     public void getAssignments() {
         new AssignmentsListWhatIf().execute();
@@ -141,39 +140,39 @@ public class WhatIf extends AppCompatActivity {
 
 
 
-                try {
-                    HashMap <String, String> params = new HashMap<String, String>();
-                    params.put("userID", userID.toString());
-                    params.put("courseID", courseID.toString());
-                    //?username=testuser&password=password
-                    DataUtil dataUtil = new DataUtil("POST","WhatIfAssignments.php?UserID="+userID+
+            try {
+                HashMap <String, String> params = new HashMap<String, String>();
+                params.put("userID", userID.toString());
+                params.put("courseID", courseID.toString());
+                //?username=testuser&password=password
+                DataUtil dataUtil = new DataUtil("POST","WhatIfAssignments.php?UserID="+userID+
                         "&CourseID=" + courseID);
 
-                        String jsonString = dataUtil.process(null);
-                        JSONArray jsonArray = new JSONArray(jsonString);
+                String jsonString = dataUtil.process(null);
+                JSONArray jsonArray = new JSONArray(jsonString);
 
-                        try{
-                            if (jsonString != null) {
-                                JSONArray arr = new JSONArray(jsonString);
+                try{
+                    if (jsonString != null) {
+                        JSONArray arr = new JSONArray(jsonString);
 
 
-                                for (int i = 0; i<arr.length(); i++){
-                                    JSONObject obj = arr.getJSONObject(i);
-                                    //Assignments newassign = new Assignments(obj.getString("assignmentID"), userID, courseID, obj.getString("name"), obj.getString("startDate"), obj.getString("dueDate"), obj.getInt("pointsPossible"), 0, obj.getInt("pointsGoal"));
-                                    //System.out.print(newassign.getPtsAvail());
-                                    //assignments.add(newassign);
-                                }
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                        for (int i = 0; i<arr.length(); i++){
+                            JSONObject obj = arr.getJSONObject(i);
+                            Assignment newassign = new Assignment(obj.getString("assignmentID"), userID, courseID, obj.getString("name"), obj.getString("startDate"), obj.getString("dueDate"), obj.getInt("pointsPossible"), 0, obj.getInt("pointsGoal"));
+                            System.out.print(newassign.getPtsAvail());
+                            assignments.add(newassign);
                         }
-
-
-                        return jsonArray;
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                    return new String("Exception: " + e.getMessage());
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+
+
+                return jsonArray;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                return new String("Exception: " + e.getMessage());
+            }
 
         }
         @Override
@@ -187,9 +186,8 @@ public class WhatIf extends AppCompatActivity {
             });
         }
 
+
+
+
     }
-    */
-
-
-
 }
