@@ -82,6 +82,7 @@ public class Assignments extends AppCompatActivity {
         });
 
         ImageView addButton = (ImageView) findViewById(R.id.addButton);
+        /*
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +90,7 @@ public class Assignments extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+        */
     }
 
     public class FrankAssignData extends AsyncTask {
@@ -110,29 +112,11 @@ public class Assignments extends AppCompatActivity {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
 
                     assignmentList.add(new Assignments.assignment(jsonObj.getString("id"),userID,courseID,jsonObj.getString("name"),"",jsonObj.getString("dueDate"),jsonObj.getString("pointsPossible"),jsonObj.getString("pointsEarned"),jsonObj.getString("pointsGoal")));
-                    /*
-                    assignmentList.get(i).assignID = jsonObj.getString("id");
-                    assignmentList.get(i).pointsPossible = jsonObj.getString("pointsPossible");
-                    assignmentList.get(i).pointsEarned = jsonObj.getString("pointsEarned");
-                    assignmentList.get(i).currentGradeGoal = jsonObj.getString("pointsGoal");
-                    assignmentList.get(i).assignEndDate = jsonObj.getString("dueDate");
-                    */
                     System.out.println(assignmentList.get(i).assignID.toString());
                     System.out.println(assignmentList.get(i).assignName.toString());
 
                 }
                 return jsonArray;
-
-                /*
-			array_push($result, array('name' => $row["AssignmentName"],
-
-						  'dueDate' => $row["AssignmentEndDate"],
-						  'pointsPossible' => $row ["AssignmentPointsPossible"],
-						  'pointsEarned' => $row ["AssignmentPointsEarned"],
-						  'pointsGoal' => $row ["AssignmentCurrentGoal"]));
-
-                */
-
 
             } catch (Exception e) {
                 System.out.println(e.getMessage());

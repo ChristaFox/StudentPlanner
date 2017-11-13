@@ -101,42 +101,13 @@ public class Courses extends AppCompatActivity {
 
         ListView list = (ListView) findViewById(R.id.courseListView);
         adapter=new CoursesListAdapter(this, courseList);
-        //adapter.add(0);
-        //adapter.remove(0);
 
         list.setAdapter(adapter);
 
-        //Toast.makeText(getApplicationContext(), "userID: "+userID, Toast.LENGTH_LONG).show();
-
         new FrankCourseData().execute();
 
-        /*
-        ListView lv = (ListView) findViewById(R.id.listView);
-        FriendsListAdapter adapter = new FriendsListAdapter(lv.getContext(), friendsObjects);
-        lv.setAdapter(adapter);
-        */
-
-
-        //adapter.add(userID, String.valueOf(courses.size()));
-
-        /*
-        TextView  et0 = (TextView ) list.getChildAt(0).findViewById(R.id.courseNameTextView);
-        et0.setText("TEST COURSE NAME");
-        et0 = (TextView ) list.getChildAt(0).findViewById(R.id.descriptionTextView);
-        et0.setText("TEST COURSE DESC");
-        */
-
-
         coursesTextView = (TextView) findViewById(R.id.coursesTextView);
-        /*
-        coursesTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Courses.this, Course.class);
-                startActivity(intent);
-            }
-        });
-        */
+
         resources = (ImageButton) findViewById(R.id.resources);
         resources.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,29 +120,11 @@ public class Courses extends AppCompatActivity {
         });
 
         addCourse = (ImageView) findViewById(R.id.addCourse);
+        /*
         addCourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //adapter.add("Course Name","Description");
                 new FrankInsertCourse().execute();
-
-            }
-
-            /*
-            //@Override
-            public void onItemClick(AdapterView<?> parent, View  view, int position, long id){
-                Intent intent = new Intent(Courses.this, Course.class);
-                startActivity(intent);
-            }
-            */
-        });
-
-        /*
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView <? > arg, View view, int position, long id) {
-                Intent intent = new Intent(Courses.this, Course.class);
-                startActivity(intent);
             }
         });
         */
@@ -200,32 +153,13 @@ public class Courses extends AppCompatActivity {
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
 
-                    //if(i >= numCoursesLoaded){
-                        courseList.add(new course(assignmentID, userID, jsonObj.getString("id"), jsonObj.getString("course"), jsonObj.getString("description"), jsonObj.getString("date"), "",
-                                "", "", jsonObj.getString("gradegoal"), jsonObj.getString("currentgrade"), jsonObj.getString("absencesallowed"), "", "",jsonObj.getString("absences")));
-                        //courses.get(i).courseID = jsonObj.getString("id");
-                        //courses.get(i).courseName = jsonObj.getString("course");
-                        //courses.get(i).courseStartDate = jsonObj.getString("date");
-                        //courses.get(i).courseDesc = jsonObj.getString("description");
-                        //courses.add(new course(jsonObj.getString("course"), ));
-                        //subItems.add("start date: " + jsonObj.getString("date"));
-                        //expandableListDetail.put(jsonObj.getString("course"), subItems);
-                        System.out.println(courseList.get(i).courseID.toString());
-                        numCoursesLoaded++;
-                    //}
+                    courseList.add(new course(assignmentID, userID, jsonObj.getString("id"), jsonObj.getString("course"), jsonObj.getString("description"), jsonObj.getString("date"), "",
+                            "", "", jsonObj.getString("gradegoal"), jsonObj.getString("currentgrade"), jsonObj.getString("absencesallowed"), "", "",jsonObj.getString("absences")));
+                    System.out.println(courseList.get(i).courseID.toString());
+                    numCoursesLoaded++;
+
                 }
                 return jsonArray;
-
-                /*
-
-        while( $row = $res->fetch_assoc() )
-
-            array_push($result, array('course' => $row["CourseName"],
-
-                          'date' => $row["CourseStartDate"], 'id' => $row["CourseID"], 'userID' => $row["UserID"]));
-
-                */
-
 
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -251,10 +185,6 @@ public class Courses extends AppCompatActivity {
                         adapter.notifyDataSetChanged();
                     }
 
-
-                    //expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
-                    //expandableListAdapter = new CustomExpandableListAdapter(CourseActivity.this, expandableListTitle, expandableListDetail);
-                    //expandableListView.setAdapter(expandableListAdapter);
                 }
             });
         }
@@ -268,26 +198,17 @@ public class Courses extends AppCompatActivity {
         @Override
         protected Object doInBackground(Object[] objects) {
             try {
-                //DataUtil dataUtil = new DataUtil("courseTrial.php");
 
-                HashMap <String, String> params = new HashMap<String, String>();
-                params.put("userid", userID);
-                //params.put("password", passwordEditText.getText().toString());
-                //?username=testuser&password=password
                 DataUtil dataUtil = new DataUtil("POST","insertCourse.php?userid="+userID);
 
                 String jsonString = dataUtil.process(null);
-                //Log.d(TAG, jsonString);
+
                 JSONArray jsonArray = new JSONArray(jsonString);
 
                 String errorOccurred = null;
                 int length = jsonArray.length();
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
-                    //if(errorOccurred.equals(null))
-                    //    errorOccurred = jsonObj.getString("error");
-                    //if(!errorOccurred.equals(null))
-                    //    return "Error";
                     courseID = jsonObj.getString("courseid");
 
                 }

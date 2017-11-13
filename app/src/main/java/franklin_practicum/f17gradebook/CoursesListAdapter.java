@@ -125,10 +125,8 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
             holder.deleteImageView = (ImageView)convertView.findViewById(R.id.deleteImageView);
             holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
 
-            //if(!courseName.equals(null)) {
-                holder.courseNameTextView.setText(course.courseName);
-                holder.descriptionTextView.setText(course.courseDesc);
-            //}
+            holder.courseNameTextView.setText(course.courseName);
+            holder.descriptionTextView.setText(course.courseDesc);
 
             holder.courseNameTextView.addTextChangedListener(new TextWatcher() {
                 @Override
@@ -144,7 +142,7 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
                     updateCourseID = course.courseID;
                     updateCourseName = course.courseName;
                     updateDesc = course.courseDesc;
-                    new FrankUpdateCourse().execute();
+                    //new FrankUpdateCourse().execute();
                 }
             });
 
@@ -171,23 +169,16 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
             {
                 @Override
                 public void onClick(View arg0) {
-                    //holder.deleteImageView.setVisibility(View.INVISIBLE);
                     //courseList.remove(courseList.get(position));
-                    //Courses.remove(position);
                     update();
                 }
             });
 
 
             convertView.setTag(holder);
-        } else {
-
-           holder = (ViewHolder) convertView.getTag();
 
         }
 
-        //SET UP THE IMAGES
-        //final Object objectPosition = courseList.get(position);
 
         return convertView;
 
@@ -221,24 +212,19 @@ public class CoursesListAdapter extends ArrayAdapter<Object>{
 
                 HashMap<String, String> params = new HashMap<String, String>();
                 params.put("userid", userID);
-                //params.put("password", passwordEditText.getText().toString());
-                //?username=testuser&password=password
+
                 DataUtil dataUtil = new DataUtil("POST","updateCourse.php?courseid="+updateCourseID+"&name="+updateCourseName+"&desc="+updateDesc);
 
                 System.out.println("updateCourse.php?courseid="+courseID+"&name="+updateCourseName+"&desc="+updateDesc);
 
                 String jsonString = dataUtil.process(null);
-                //Log.d(TAG, jsonString);
+
                 JSONArray jsonArray = new JSONArray(jsonString);
 
                 String errorOccurred = null;
                 int length = jsonArray.length();
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
-                    //if(errorOccurred.equals(null))
-                    //    errorOccurred = jsonObj.getString("error");
-                    //if(!errorOccurred.equals(null))
-                    //    return "Error";
                     courseID = jsonObj.getString("courseid");
 
                 }
