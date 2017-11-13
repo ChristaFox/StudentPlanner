@@ -115,9 +115,9 @@ public class AssignmentsListAdapter extends ArrayAdapter<Object>{
 
         }
 
-        holder.dateEditBox = (EditText) convertView.findViewById(R.id.dateEditBox);
-        holder.gradeEditBox = (EditText) convertView.findViewById(R.id.dueEditBox);
-        holder.assignmnent = (EditText) convertView.findViewById(R.id.assignment);
+        holder.dateEditBox = (TextView) convertView.findViewById(R.id.dateEditBox);
+        holder.gradeEditBox = (TextView) convertView.findViewById(R.id.dueEditBox);
+        holder.assignmnent = (TextView) convertView.findViewById(R.id.assignment);
 
         holder.dateEditBox.setText(assign.assignEndDate);
         holder.gradeEditBox.setText(assign.pointsEarned + "/" + assign.pointsPossible);
@@ -150,7 +150,7 @@ public class AssignmentsListAdapter extends ArrayAdapter<Object>{
         ImageButton addAssignment;
         ListView listView;
         ImageView deleteImageView;
-        EditText assignmnent, dateEditBox, gradeEditBox;
+        TextView assignmnent, dateEditBox, gradeEditBox;
     }
 
     public Object getItem(int position){
