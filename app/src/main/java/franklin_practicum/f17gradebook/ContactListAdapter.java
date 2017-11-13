@@ -29,8 +29,8 @@ public class ContactListAdapter extends ArrayAdapter<Object>{
     private ArrayList<Contacts.contact> contactList;
     //private Contacts con;
     private static LayoutInflater inflater = null;
-    public String contactFirstName, contactLastName, contactEmail, contactPhone, contactNotes;
-    private int contactID;
+    public String contactID, userID, courseID, contactFirstName, contactLastName, contactEmail, contactPhone, contactNotes;
+    private int intID;
     public String updateContactID, updateContactFirstName, updateContactLastName, updateContactEmail, UpdateContactPhone;
     public static final String TAG = ContactListAdapter.class.getSimpleName();
 
@@ -47,8 +47,8 @@ public class ContactListAdapter extends ArrayAdapter<Object>{
         this.contactLastName = contactLastName;
         this.contactEmail = contactEmail;
         this.contactPhone = contactPhone;
-        contactID++;
-        this.add(contactID);
+        intID++;
+        this.add(intID);
     }
 
 
@@ -56,7 +56,7 @@ public class ContactListAdapter extends ArrayAdapter<Object>{
     public View getView(final int position, View convertView, final ViewGroup parent) {
 
         final ViewHolder holder;
-        final Contacts.contact = contactList.get(position);
+        final Contacts.contact contact = contactList.get(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(contactContext).inflate(
                     R.layout.activity_contacts_list_item, null);
@@ -64,15 +64,15 @@ public class ContactListAdapter extends ArrayAdapter<Object>{
             holder.contactFirstNameTextView = (TextView) convertView.findViewById(R.id.contactFirstNameTextView);
             holder.contactLastNameTextView = (TextView) convertView.findViewById(R.id.contactLastNameTextView);
             holder.contactEmailTextView = (TextView) convertView.findViewById(R.id.contactEmailTextView);
-            holder.contactPhoneNumTextView = (TextView) convertView.findViewById(R.id.contactPhoneNumTextView);
+            holder.contactPhoneTextView = (TextView) convertView.findViewById(R.id.contactPhoneNumTextView);
             holder.deleteImageView = (ImageView)convertView.findViewById(R.id.deleteImageView);
             holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
             holder.contactFirstNameTextView.setText(contactFirstName);
             holder.contactLastNameTextView.setText(contactLastName);
             holder.contactEmailTextView.setText(contactEmail);
-            holder.contactPhoneNumTextView.setText(contactPhone);
+            holder.contactPhoneTextView.setText(contactPhone);
 
-            holder.contactFirstNameTextView.addTextChangedListener(new TextWatcher() {
+            /*holder.contactFirstNameTextView.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 }
@@ -84,6 +84,7 @@ public class ContactListAdapter extends ArrayAdapter<Object>{
                 @Override
                 public void afterTextChanged(Editable s) {
 
+                    new FrankUpdateCourse().execute();
                 }
             });
 
@@ -130,16 +131,16 @@ public class ContactListAdapter extends ArrayAdapter<Object>{
                 public void afterTextChanged(Editable s) {
 
                 }
-            });
+            });*/
 
             holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
                     Intent intent = new Intent(contactContext.getApplicationContext(), Contacts.class);
-                    intent.putExtra("first name", holder.contactFirstNameTextView.getText().toString());
-                    intent.putExtra("last name", holder.contactLastNameTextView.getText().toString());
-                    intent.putExtra("email", holder.contactEmailTextView.getText().toString());
-                    intent.putExtra("phone number", (CharSequence) holder.contactPhoneNumTextView).getCharSequenceExtra("").toString();
+                    intent.putExtra("firstName", contact.contactFirstName);
+                    intent.putExtra("lastName", contact.contactLastName);
+                    intent.putExtra("email", contact.contactEmail);
+                    intent.putExtra("phone", contact.contactPhone);
                     contactContext.startActivity(intent);
                 }
             });
@@ -167,7 +168,9 @@ public class ContactListAdapter extends ArrayAdapter<Object>{
     }
 
     private static class ViewHolder{
-        TextView contactFirstName, contactLastName, contactEmail, contactPhone;
+        TextView contactFirstNameTextView, contactLastNameTextView, contactEmailTextView, contactPhoneTextView;
+        RelativeLayout relativeLayout;
+        ImageView deleteImageView;
     }
 
     public Object getItem(int position){
@@ -199,7 +202,7 @@ public class ContactListAdapter extends ArrayAdapter<Object>{
                 int length = jsonArray.length();
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
-                    contactID = jsonObj.getString("courseid");
+                    contactID = jsonObj.getString("ContactID");
 
                 }
                 return jsonArray;
