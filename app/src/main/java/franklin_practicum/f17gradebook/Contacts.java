@@ -38,22 +38,25 @@ import java.util.List;
 
 public class Contacts extends AppCompatActivity {
 
-    private void putArraysInIntent(Intent i){
+    private void putArraysInIntent(Intent i) {
         i.putExtra("userID", userID);
         i.putExtra("courseID", courseID);
         i.putExtra("contactID", contactID);
     }
 
-    private void getArraysFromIntent(){
+    private void getArraysFromIntent() {
         userID = getIntent().getStringExtra("userID");
         courseID = getIntent().getStringExtra("courseID");
         contactID = getIntent().getStringExtra("contactID");
     }
 
-    public class contact{
+    public class contact {
         public String contactID, userID, courseID, contactFirstName, contactLastName, contactEmail, contactPhone;
-        public contact(){}
-        public contact(String contactID, String userID, String courseID, String contactFirstName, String contactLastName, String contactEmail, String contactPhone){
+
+        public contact() {
+        }
+
+        public contact(String contactID, String userID, String courseID, String contactFirstName, String contactLastName, String contactEmail, String contactPhone) {
             this.contactID = contactID;
             this.userID = userID;
             this.courseID = courseID;
@@ -77,6 +80,7 @@ public class Contacts extends AppCompatActivity {
     private Context contactContext;
     private int numContactsLoaded = 0;
     private boolean firstContactLoad = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,12 +109,13 @@ public class Contacts extends AppCompatActivity {
 
     public class FrankCourseData extends AsyncTask {
         @Override
-        protected void onPreExecute() { }
+        protected void onPreExecute() {
+        }
 
         @Override
         protected Object doInBackground(Object[] objects) {
             try {
-                DataUtil dataUtil = new DataUtil("Contacts.php?userid="+userID);
+                DataUtil dataUtil = new DataUtil("Contacts.php?userid=" + userID);
                 String jsonString = dataUtil.process(null);
                 //Log.d(TAG, jsonString);
                 JSONArray jsonArray = new JSONArray(jsonString);
@@ -148,7 +153,7 @@ public class Contacts extends AppCompatActivity {
 //                    }
                     int length = contactList.size();
                     int iStart = 0;
-                    if(firstContactLoad == false)
+                    if (firstContactLoad == false)
                         iStart = 0; //numCoursesLoaded-1;
                     else
                         firstContactLoad = false;
@@ -160,6 +165,7 @@ public class Contacts extends AppCompatActivity {
             });
         }
     }
+
     public class FrankInsertContact extends AsyncTask {
         @Override
         protected void onPreExecute() {
@@ -169,7 +175,7 @@ public class Contacts extends AppCompatActivity {
         protected Object doInBackground(Object[] objects) {
             try {
 
-                DataUtil dataUtil = new DataUtil("POST","insertContact.php?userID=+userID");
+                DataUtil dataUtil = new DataUtil("POST", "insertContact.php?userID=+userID");
 
                 String jsonString = dataUtil.process(null);
 
@@ -190,7 +196,7 @@ public class Contacts extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(Object o){
+        protected void onPostExecute(Object o) {
             contactList.clear();
             contactAdapter.clear();
             contactAdapter.notifyDataSetChanged();
@@ -198,3 +204,5 @@ public class Contacts extends AppCompatActivity {
         }
 
     }
+
+}
