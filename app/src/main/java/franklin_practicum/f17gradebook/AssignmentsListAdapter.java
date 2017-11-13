@@ -83,6 +83,8 @@ public class AssignmentsListAdapter extends ArrayAdapter<Object>{
         if (convertView == null) {
             convertView = LayoutInflater.from(activityContext).inflate(
                     R.layout.activity_assignments_list_item, null);
+
+            /*
             holder = new ViewHolder();
 
             holder.dateEditBox = (EditText) convertView.findViewById(R.id.dateEditBox);
@@ -104,17 +106,36 @@ public class AssignmentsListAdapter extends ArrayAdapter<Object>{
                     update();
                 }
             });
+            */
+            holder = new ViewHolder();
 
-
-            convertView.setTag(holder);
         } else {
 
             holder = (ViewHolder) convertView.getTag();
 
         }
 
-        //SET UP THE IMAGES
-        final Object objectPosition = assignmentsList.get(position);
+        holder.dateEditBox = (EditText) convertView.findViewById(R.id.dateEditBox);
+        holder.gradeEditBox = (EditText) convertView.findViewById(R.id.dueEditBox);
+        holder.assignmnent = (EditText) convertView.findViewById(R.id.assignment);
+
+        holder.dateEditBox.setText(assign.assignEndDate);
+        holder.gradeEditBox.setText(assign.pointsEarned + "/" + assign.pointsPossible);
+        holder.assignmnent.setText(assign.assignName);
+
+        holder.deleteImageView = (ImageView) convertView.findViewById(R.id.delete);
+
+        holder.deleteImageView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View arg0) {
+                //holder.deleteImageView.setVisibility(View.INVISIBLE);
+                assignmentsList.remove(position);
+                update();
+            }
+        });
+
+        convertView.setTag(holder);
 
         return convertView;
 

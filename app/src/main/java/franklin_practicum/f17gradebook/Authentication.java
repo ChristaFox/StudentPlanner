@@ -114,7 +114,7 @@ public class Authentication extends AppCompatActivity {
             public void onClick(View v) {
 
                 new FrankLoginUser().execute();
-                
+
             }
         });
     }
