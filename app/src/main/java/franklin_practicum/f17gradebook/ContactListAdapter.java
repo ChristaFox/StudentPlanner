@@ -17,6 +17,7 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class ContactListAdapter extends ArrayAdapter<Object>{
     public View getView(final int position, View convertView, final ViewGroup parent) {
 
         final ViewHolder holder;
-        final Object contact = contactList.get(position);
+        final Contacts.contact = contactList.get(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(contactContext).inflate(
                     R.layout.activity_contacts_list_item, null);
@@ -64,7 +65,8 @@ public class ContactListAdapter extends ArrayAdapter<Object>{
             holder.contactLastNameTextView = (TextView) convertView.findViewById(R.id.contactLastNameTextView);
             holder.contactEmailTextView = (TextView) convertView.findViewById(R.id.contactEmailTextView);
             holder.contactPhoneNumTextView = (TextView) convertView.findViewById(R.id.contactPhoneNumTextView);
-
+            holder.deleteImageView = (ImageView)convertView.findViewById(R.id.deleteImageView);
+            holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
             holder.contactFirstNameTextView.setText(contactFirstName);
             holder.contactLastNameTextView.setText(contactLastName);
             holder.contactEmailTextView.setText(contactEmail);

@@ -15,8 +15,8 @@
         android:paddingRight="5dp"
         android:paddingTop="5dp">
 
-        <TextVeiw
-            android:id="@+id/contactFirstName"
+        <TextView
+            android:id="@+id/contactFirstNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -33,12 +33,12 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <TextVeiw
-            android:id="@+id/contactLastName"
+        <TextView
+            android:id="@+id/contactLastNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/contactFirstName"
+            android:layout_toRightOf="@+id/contactFirstNameTextView"
             android:layout_weight="1"
             android:ems="10"
             android:paddingBottom="5dp"
@@ -50,11 +50,11 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <TextVeiw
-            android:id="@+id/contactEmail"
+        <TextView
+            android:id="@+id/contactEmailTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/contactFirstName"
+            android:layout_below="@+id/contactFirstNameTextView"
             android:layout_weight="1"
             android:ems="10"
             android:paddingBottom="5dp"
@@ -70,8 +70,8 @@
             android:id="@+id/contactPhoneNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/contactLastName"
-            android:layout_toRightOf="@+id/contactEmail"
+            android:layout_below="@+id/contactLastNameTextView"
+            android:layout_toRightOf="@+id/contactEmailTextView"
             android:layout_weight="1"
             android:ems="10"
             android:paddingBottom="5dp"
