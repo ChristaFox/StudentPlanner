@@ -115,7 +115,7 @@ public class Contacts extends AppCompatActivity {
         @Override
         protected Object doInBackground(Object[] objects) {
             try {
-                DataUtil dataUtil = new DataUtil("Contacts.php?userid=" + userID);
+                DataUtil dataUtil = new DataUtil("Contacts.php?userID="+userID);
                 String jsonString = dataUtil.process(null);
                 //Log.d(TAG, jsonString);
                 JSONArray jsonArray = new JSONArray(jsonString);
