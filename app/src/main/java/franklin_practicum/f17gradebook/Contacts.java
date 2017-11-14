@@ -84,7 +84,7 @@ public class Contacts extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contacts_list_item);
+        setContentView(R.layout.activity_contacts);
         getArraysFromIntent();
 
         contactListView = (ListView) findViewById(R.id.contactListView);

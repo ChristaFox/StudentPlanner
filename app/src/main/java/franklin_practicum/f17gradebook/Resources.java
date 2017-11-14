@@ -51,7 +51,7 @@ public class Resources extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resources_list_item);
+        setContentView(R.layout.activity_resources);
         getArraysFromIntent();
 
         resourcesListView = (ListView) findViewById(R.id.resourcesListView);
