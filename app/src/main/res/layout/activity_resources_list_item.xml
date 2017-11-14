@@ -16,7 +16,7 @@
         android:paddingTop="5dp">
 
         <TextVeiw
-            android:id="@+id/resourceName"
+            android:id="@+id/resourceNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -34,11 +34,11 @@
             android:textStyle="bold" />
 
         <TextVeiw
-            android:id="@+id/website"
+            android:id="@+id/websiteTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/resourceName"
+            android:layout_toRightOf="@+id/resourceNameTextView"
             android:layout_weight="1"
             android:ems="10"
             android:paddingBottom="5dp"
@@ -54,7 +54,7 @@
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/website"
+            android:layout_alignBottom="@+id/websiteTextView"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
