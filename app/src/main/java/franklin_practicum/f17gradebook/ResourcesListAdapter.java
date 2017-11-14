@@ -52,20 +52,21 @@ public class ResourcesListAdapter extends ArrayAdapter<Object>{
 
     private String userID, courseID, assignmentID;
 
-    private Context resourceContext;
+    private Context resourcesContext;
     private ArrayList<Resources.resource> resourceList;
     private Resources resource;
     private int resourceID;
     public String resourceName;
     public String website;
+    private static LayoutInflater resInflater = null;
 
     public static final String TAG = ResourcesListAdapter.class.getSimpleName();
 
-    public ResourcesListAdapter(Context context, ArrayList<Resources.resource> resourceList){
-        super(context, R.layout.activity_resources_list_item);
-        resourceContext = context;
+    public ResourcesListAdapter(Context resourcesContext, ArrayList<Resources.resource> resourceList){
+        super(resourcesContext, R.layout.activity_resources_list_item);
+        this.resourcesContext = resourcesContext;
         this.resourceList = resourceList;
-        resource = new Resources();
+        resInflater = (LayoutInflater)resourcesContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     public void add(String resourceName, String website){
@@ -82,14 +83,14 @@ public class ResourcesListAdapter extends ArrayAdapter<Object>{
         final ViewHolder holder;
         final Resources.resource resource = resourceList.get(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(resourceContext).inflate(
+            convertView = LayoutInflater.from(resourcesContext).inflate(
                     R.layout.activity_resources_list_item, null);
             holder = new ViewHolder();
             holder.resourceNameTextView = (TextView)convertView.findViewById(R.id.resourceName);
             holder.websiteTextView = (TextView)convertView.findViewById(R.id.website);
            // holder.archiveImageView = (ImageView)convertView.findViewById(R.id.archiveImageView);
-           // holder.deleteImageView = (ImageView)convertView.findViewById(R.id.deleteImageView);
-           // holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
+            holder.deleteImageView = (ImageView)convertView.findViewById(R.id.deleteImageView);
+            holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
 
             //if(!courseName.equals(null)) {
             holder.resourceNameTextView.setText(resourceName);
@@ -137,15 +138,30 @@ public class ResourcesListAdapter extends ArrayAdapter<Object>{
             });
 
 */
-            convertView.setTag(holder);
-        } else {
 
-            holder = (ViewHolder) convertView.getTag();
+            holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+                    Intent intent = new Intent(resourcesContext.getApplicationContext(), Resources.class);
+                    intent.putExtra("resourceName", resource.resourceName);
+                    intent.putExtra("website", resource.website);
+                    resourcesContext.startActivity(intent);
+                }
+            });
+
+
+            holder.deleteImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+                    //holder.deleteImageView.setVisibility(View.INVISIBLE);
+                    //contactList.remove(position);
+                    update();
+                }
+            });
+
+            convertView.setTag(holder);
 
         }
-
-        //SET UP THE IMAGES
-        final Object objectPosition = resourceList.get(position);
 
         return convertView;
 

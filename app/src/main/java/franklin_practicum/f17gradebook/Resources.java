@@ -18,29 +18,29 @@ public class Resources extends AppCompatActivity {
 
     private void putArraysInIntent(Intent i) {
         i.putExtra("userID", userID);
-        i.putExtra("resourcesID", resourcesID);
+        i.putExtra("resourcesID", resourceID);
     }
 
     private void getArraysFromIntent() {
         userID = getIntent().getStringExtra("userID");
-        resourcesID = getIntent().getStringExtra("resourcesID");
+        resourceID = getIntent().getStringExtra("resourceID");
     }
 
     public class resource {
 
-        public String userID, resourcesID, website, resourceName;
+        public String userID, resourceID, website, resourceName;
 
         public resource() {}
 
-        public resource(String userID, String courseID, String resourcesID, String website, String resourceName) {
+        public resource(String userID, String resourceID, String website, String resourceName) {
             this.userID = userID;
-            this.resourcesID = resourcesID;
+            this.resourceID = resourceID;
             this.website = website;
             this.resourceName = resourceName;
         }
     }
 
-    private String userID, resourcesID;
+    private String userID, resourceID;
 
     public ArrayList<resource> resources = new ArrayList<>();
     //private ImageView addResource;
@@ -54,29 +54,12 @@ public class Resources extends AppCompatActivity {
         setContentView(R.layout.activity_resources);
         getArraysFromIntent();
 
-        resourcesListView = (ListVeiw) findViewById(R.id.resourcesListView);
+        resourcesListView = (ListView) findViewById(R.id.resourcesListView);
         resourcesAdapter = new ResourcesListAdapter(this, resourcesList);
 
-        resourceListVeiw.setAdapter().execute();
+        resourcesListView.setAdapter(resourcesAdapter);
 
-        new FrankAssignData().execute();
-
-        //ListView resourcesListView = (ListView) findViewById(R.id.resourcesListView);
-        //resourcesAdapter = new ResourcesListAdapter((resourcesListView.getContext()), resourcesList);
-        //resourcesListView.setAdapter(resourcesAdapter);
-        //int length = resources.size();
-        //for (int i = 0; i < length; i++) {
-        //    resourcesAdapter.add(resources.get(i).resourceName);
-        //    resourcesAdapter.add(resources.get(i).website);
-        //}
-
-//        addResource = (ImageView) findViewById(R.id.addResourceButton);
-//        addResource.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                resourcesAdapter.add("ResourceName: ", "Website: ");
-//            }
-//        });
+        new FrankResourcesData().execute();
 
         Button contactsButton = (Button) findViewById(R.id.contactsButton);
         contactsButton.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +71,9 @@ public class Resources extends AppCompatActivity {
         });
     }
 
-    public class FrankAssignData extends AsyncTask {
+    public class FrankResourcesData extends AsyncTask {
+        private boolean firstResourceLoad;
+
         @Override
         protected void onPreExecute() {
         }
@@ -106,30 +91,15 @@ public class Resources extends AppCompatActivity {
                 for (int i = 0; i < length; i++) {
                     JSONObject jsonObj = jsonArray.getJSONObject(i);
 
-                    resources.add(new Resources.resource());
-                    resources.get(i).resourcesID = jsonObj.getString("resourceID");
-                    resources.get(i).resourceName = jsonObj.getString("resourceName: ");
-                    resources.get(i).website = jsonObj.getString("website");
-                    //String userID, String resourcesID, String website, String resourceName
-                    //Resources.add(new Resources.resource("", userID, jsonObj.getString("id"),
-                    //        jsonObj.getString("resourcesID"), jsonObj.getString("resourceName"),
-                    //        jsonObj.getString("website"), "", "", "", ""));
-                    System.out.println(resources.get(i).resourcesID.toString());
+                    System.out.println(resources.get(i).resourceID.toString());
+
+                    resourcesList.add(new resource(resourceID, userID, jsonObj.getString("resourceName"), jsonObj.getString("website")));
+                    System.out.println(resources.get(i).resourceID.toString());
                 }
                 return jsonArray;
+            }
 
-                /*
-			array_push($result, array('name' => $row["AssignmentName"],
-
-						  'dueDate' => $row["AssignmentEndDate"],
-						  'pointsPossible' => $row ["AssignmentPointsPossible"],
-						  'pointsEarned' => $row ["AssignmentPointsEarned"],
-						  'pointsGoal' => $row ["AssignmentCurrentGoal"]));
-
-                */
-
-
-            } catch (Exception e) {
+            catch (Exception e) {
                 System.out.println(e.getMessage());
                 return new String("Exception: " + e.getMessage());
             }
@@ -140,20 +110,14 @@ public class Resources extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    //ListView resourcesListView = (ListView) findViewById(R.id.resourcesListView);
-                    //resourcesAdapter = new ResourcesListAdapter((resourcesListView.getContext()), resourcesList);
-                    //resourcesListView.setAdapter(resourcesAdapter);
-                    //int length = resources.size();
-                    //for (int i = 0; i < length; i++) {
-                    //    resourcesAdapter.add(resources.get(i).resourceName);
-                    //    resourcesAdapter.add(resources.get(i).website);
-                    //}
-                    ListView resourcesListView = (ListView) findViewById(R.id.resourcesListView);
-                    resourcesAdapter = new ResourcesListAdapter((resourcesListView.getContext()), resourcesList);
-                    resourcesListView.setAdapter(resourcesAdapter);
-                    int length = resources.size();
-                    for (int i = 0; i < length; i++) {
-                        resourcesAdapter.add(resources.get(i).resourceName, resources.get(i).website);
+                   int length = resourcesList.size();
+                   int iStart = 0;
+                   if (firstResourceLoad == false)
+                       iStart = 0;
+                   else
+                       firstResourceLoad =false;
+                    for(int i = iStart; i < length; i++) {
+                        resourcesAdapter.add(resourcesList.get(i).resourceName, resourcesList.get(i).website);
                     }
                 }
             });

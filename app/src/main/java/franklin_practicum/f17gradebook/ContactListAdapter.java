@@ -28,7 +28,7 @@ public class ContactListAdapter extends ArrayAdapter<Object>{
     private Context contactContext;
     private ArrayList<Contacts.contact> contactList;
     //private Contacts con;
-    private static LayoutInflater inflater = null;
+    private static LayoutInflater coninflater = null;
     public String contactID, userID, courseID, contactFirstName, contactLastName, contactEmail, contactPhone, contactNotes;
     private int intID;
     public String updateContactID, updateContactFirstName, updateContactLastName, updateContactEmail, UpdateContactPhone;
@@ -38,7 +38,7 @@ public class ContactListAdapter extends ArrayAdapter<Object>{
         super(contactContext, R.layout.activity_contact_list);
         this.contactContext = contactContext;
         this.contactList = contactList;
-        inflater = (LayoutInflater) contactContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        coninflater = (LayoutInflater) contactContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         //con = new Contacts();
     }
 
