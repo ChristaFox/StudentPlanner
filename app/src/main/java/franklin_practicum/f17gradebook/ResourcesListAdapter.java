@@ -86,8 +86,8 @@ public class ResourcesListAdapter extends ArrayAdapter<Object>{
             convertView = LayoutInflater.from(resourcesContext).inflate(
                     R.layout.activity_resources_list_item, null);
             holder = new ViewHolder();
-            holder.resourceNameTextView = (TextView)convertView.findViewById(R.id.resourceName);
-            holder.websiteTextView = (TextView)convertView.findViewById(R.id.website);
+            holder.resourceNameTextView = (TextView)convertView.findViewById(R.id.resourceNameTextView);
+            holder.websiteTextView = (TextView)convertView.findViewById(R.id.websiteTextView);
            // holder.archiveImageView = (ImageView)convertView.findViewById(R.id.archiveImageView);
             holder.deleteImageView = (ImageView)convertView.findViewById(R.id.deleteImageView);
             holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relativeLayout);
