@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/Starfox/.android/build-cache/7940bbbd8b3eed461e5bb407e5afd77d2cd86935/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_05930e4f0678599e46fbaa14a91388b8b55126ff/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Starfox/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.1_38f308ad68054c1eb7a1414c254ce3047cd57da4/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Starfox/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_38f308ad68054c1eb7a1414c254ce3047cd57da4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Starfox/.android/build-cache/3cf16f07883b5ab02d7dca8d123a8791e31989db/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/pre-dexed/debug/classes_957a48dde833c7b85bb9de7366c1a01297fc0ccd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Starfox/.android/build-cache/daa73a6b96b5351ad56360f4c15e6f0a1984d7cb/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/pre-dexed/debug/classes_f329aef87ba0e488b581ed3209f6555fbbcc13b4.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Starfox/.android/build-cache/daa73a6b96b5351ad56360f4c15e6f0a1984d7cb/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f329aef87ba0e488b581ed3209f6555fbbcc13b4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Starfox/.android/build-cache/3cf16f07883b5ab02d7dca8d123a8791e31989db/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_957a48dde833c7b85bb9de7366c1a01297fc0ccd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Starfox/.android/build-cache/478fb0bce34e58f8c43fa368e6750b68d51f2678/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6f08887b5d377bc1c20510ddea372f3c3eecd276/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Starfox/.android/build-cache/478fb0bce34e58f8c43fa368e6750b68d51f2678/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/pre-dexed/debug/classes_6f08887b5d377bc1c20510ddea372f3c3eecd276.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Starfox/.android/build-cache/801f5aa599eee11fba018872ad06ef350e4f4b2f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/pre-dexed/debug/classes_31f4a69a5ea1c6f639786acf44197747371d8edb.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_b577e16085d10b87ce1e2ecb965bc2cdd34386d1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Starfox/.android/build-cache/047bad3e5c08b4d1d2821e08ecc091766798b870/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_acdb028759c9c4760f3adbb4245aac52148e5cc3/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Starfox/.android/build-cache/047bad3e5c08b4d1d2821e08ecc091766798b870/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/pre-dexed/debug/classes_acdb028759c9c4760f3adbb4245aac52148e5cc3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Starfox/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_8566dc2a5240ad22ca0adbbd966d9b239fe39a11.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Starfox/.android/build-cache/2d39590e4fc315ebc3060007c4b81158f56bbfac/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_428a7219987d50156d460a5a144245e49629b367/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Starfox/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_8566dc2a5240ad22ca0adbbd966d9b239fe39a11/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Starfox/.android/build-cache/f9f819a8dcd300e4bcaf9b8f45481ab5bf3ce8cc/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4260a22b88e9c46d96dea3ec8e7a24689281c8e4/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Starfox/.android/build-cache/2d39590e4fc315ebc3060007c4b81158f56bbfac/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/pre-dexed/debug/classes_428a7219987d50156d460a5a144245e49629b367.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Starfox/.android/build-cache/f9f819a8dcd300e4bcaf9b8f45481ab5bf3ce8cc/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/pre-dexed/debug/classes_4260a22b88e9c46d96dea3ec8e7a24689281c8e4.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="addfedbe980d11b91f133743c314fc980a986647">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ab49fab9fdae70e3039690a5f0f44d71cd514055/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Starfox/.android/build-cache/801f5aa599eee11fba018872ad06ef350e4f4b2f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_31f4a69a5ea1c6f639786acf44197747371d8edb/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Starfox/.android/build-cache/4acc2af7456a1873bd4848dcbde5b4c98369ee5b/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/pre-dexed/debug/classes_992e9bb854cb9cae82661d2ef325d7d5a2b30a42.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Starfox/.android/build-cache/7940bbbd8b3eed461e5bb407e5afd77d2cd86935/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/pre-dexed/debug/classes_05930e4f0678599e46fbaa14a91388b8b55126ff.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Starfox/.android/build-cache/ccf6f77258a67f12bcd1a04259335b68748448b2/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/pre-dexed/debug/classes_02da7ee5d562ce762213672ece11b7b570c66988.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Starfox/.android/build-cache/4acc2af7456a1873bd4848dcbde5b4c98369ee5b/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_992e9bb854cb9cae82661d2ef325d7d5a2b30a42/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Starfox/.android/build-cache/ccf6f77258a67f12bcd1a04259335b68748448b2/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/Starfox/AndroidStudioProjects/franklin_f17gradebook/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_02da7ee5d562ce762213672ece11b7b570c66988/classes.dex" />
+    </item>
+
+</items>
